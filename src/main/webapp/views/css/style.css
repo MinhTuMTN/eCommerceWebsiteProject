@@ -68,12 +68,41 @@ section{
     color:var(--black);
 }
 
+.heading1{
+    text-align: left;
+    padding-bottom: 0rem;
+    font-size: 3.5rem;
+    color:var(--black);
+}
+
+.heading-product{
+    text-align: left;
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color:var(--black);
+}
+
 .heading span{
     background: var(--orange);
     color:#fff;
     display: inline-block;
     padding:.5rem 3rem;
     clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.heading1 span{
+    background: var(--orange);
+    color:#fff;
+    display: inline-block;
+    padding:.5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+hr{
+    width: 7%;
+    height: 2px;
+    background-color: var(--orange);
 }
 
 .btn{
@@ -198,7 +227,7 @@ section{
     color:var(--orange);
 }
 
-.header .login-form{
+/*.header .login-form{
     position: absolute;
     top:110%; right:-110%;
     width:35rem;
@@ -240,7 +269,7 @@ section{
 .header .login-form p a{
     color:var(--orange);
     text-decoration: underline;
-}
+}*/
 
 .home{
     display: flex;
@@ -340,6 +369,7 @@ section{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
     gap:1.5rem;
+    padding-bottom: 5rem;
 }
 
 .list .box-container .box{
