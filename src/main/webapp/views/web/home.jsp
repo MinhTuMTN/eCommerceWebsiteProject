@@ -98,7 +98,7 @@
           </div>
           <div class="col-12 col-md-3">
             <div class="card">
-              <div class="card-header bg-success text-white text-uppercase">
+              <div class="card-header bg-success text-white text-uppercase" style="font-size: 1.7rem ">
                 <i class="fa fa-heart"></i> Top product
               </div>
               <img

@@ -25,8 +25,8 @@
           <a href="#" class="links">
             <i class="fas fa-phone"></i> +111-222-3333
           </a>
-          <a href="#" class="links">
-            <i class="fas fa-envelope"></i> dhspkt@gmail.com
+          <a href="#" class="links" style="text-transform: none">
+            <i class="fas fa-envelope" ></i> dhspkt@gmail.com
           </a>
           <a href="#" class="links">
             <i class="fas fa-map-marker-alt"></i>Số 1 Võ Văn Ngân, phường Linh
@@ -36,13 +36,13 @@
 
         <div class="box">
           <h3>quick links</h3>
-          <a href="#" class="links">
+          <a href="<c:url value="/home" />" class="links">
             <i class="fas fa-arrow-right"></i> home
           </a>
-          <a href="#" class="links">
+          <a href="<c:url value="/categories" />" class="links">
             <i class="fas fa-arrow-right"></i> categories
           </a>
-          <a href="#" class="links">
+          <a href="<c:url value="/products" />" class="links">
             <i class="fas fa-arrow-right"></i> products
           </a>
           <a href="#" class="links">
