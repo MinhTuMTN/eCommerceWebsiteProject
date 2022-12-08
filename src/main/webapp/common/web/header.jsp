@@ -1,65 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-	<div class="container">
-		<a class="navbar-brand" href="index.html">Simple Ecommerce</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarsExampleDefault"
-			aria-controls="navbarsExampleDefault" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+<!-- header section starts  -->
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-		<div class="collapse navbar-collapse justify-content-end"
-			id="navbarsExampleDefault">
-			<ul class="navbar-nav m-auto">
-				<li class="nav-item active"><c:url value="/home" var="linkHome"></c:url>
-					<a class="nav-link" href="${linkHome}">Home <span
-						class="sr-only">(current)</span></a></li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Categories</a>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-							<c:forEach items="${listCategoryHeader }" var="cate">
-								<c:url value="/category/category-detail?id=${cate.cateid }" var="cateURL"></c:url>
-								<a class="dropdown-item" href="${cateURL }">${cate.catename }</a>
-							</c:forEach>
-						</div>
-				</li>
-				
-				<c:url value="/products" var="linkProduct"></c:url>
-				<li class="nav-item"><a class="nav-link" href="${linkProduct }">Product</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="product.html">Cart</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a>
-				</li>
-			</ul>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 
-			<form class="form-inline my-2 my-lg-0">
-				<div class="input-group input-group-sm">
-					<input type="text" class="form-control" placeholder="Search...">
-					<div class="input-group-append">
-						<button type="button" class="btn btn-secondary btn-number">
-							<i class="fa fa-search"></i>
-						</button>
-					</div>
-				</div>
-				<a class="btn btn-success btn-sm ml-3" href="cart.html"> <i
-					class="fa fa-shopping-cart"></i> Cart <span
-					class="badge badge-light">3</span>
-				</a>
-				<c:if test="${userName == null }">
-					<c:url value="/dang-nhap" var="loginURL"></c:url>
-					<a class="nav-link" href="${loginURL }">Login</a>
-				</c:if>
-				<c:if test="${userName != null }">
-					<c:url value="/dang-xuat" var="logoutURL"></c:url>
-					<a class="nav-link" href="${logoutURL }">Logout(${userName })</a>
-				</c:if>
-			</form>
-		</div>
-	</div>
-</nav>
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./views/css/style.css" />
+    <header class="header">
+      <a href="#" class="logo">
+        <i class="fas fa-shopping-basket"></i> HCMUTE
+      </a>
+
+      <nav class="navbar">
+        <a href='<c:url value="/home" />'>home</a>
+        <a href="#categories">categories</a>
+        <a href="#products">products</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+      </nav>
+
+      <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="Search here..." />
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
+
+      <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+      </div>
+    </header>
+
+    <!-- header section ends -->

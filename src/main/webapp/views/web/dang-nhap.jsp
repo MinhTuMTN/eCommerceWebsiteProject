@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp" %>
-<div class="justify-content-center row">
+<div class="justify-content-center row" style="padding-top: 10rem; font-size: 1.7rem">
 	
 	<form action="" method="post" class="col-5 justify-content-center">
 	<h1 class="row justify-content-center">Sign In</h1>
