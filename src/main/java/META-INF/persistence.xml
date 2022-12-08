@@ -19,9 +19,9 @@
 			<property name="javax.persistence.jdbc.password"
 				value="3052" />
 
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 
-			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
 
 			<property name="hibernate.hbm2ddl.auto" value="none" />
 

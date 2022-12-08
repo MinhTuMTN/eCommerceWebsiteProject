@@ -36,9 +36,24 @@ public class Product {
 	private Boolean isSelling;
 	private String video;
 	private float rating;
+	private String image;
 	private Date createdAt;
 	private Date updatedAt;
 	
+	
+	public Product(String name, String description, Double price, int quantity, int sold, Boolean isActive, Store store,
+			Category category) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.quantity = quantity;
+		this.sold = sold;
+		this.isActive = isActive;
+		this.store = store;
+		this.category = category;
+	}
+
 	@OneToMany(mappedBy = "product")
 	private List<ProductImage> productImages = new ArrayList<ProductImage>();
 	

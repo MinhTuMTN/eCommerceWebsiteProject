@@ -127,7 +127,7 @@
 
     <!-- last product starts  -->
     <section class="categories" id="categories">
-      <h1 class="heading"><span>last</span> products</h1>
+      <h1 class="heading" style="text-transform: capitalize;"><span>last</span> products</h1>
 
       <div class="box-container">
         <div class="box">
@@ -192,7 +192,7 @@
 
     <!-- last product starts  -->
     <section class="categories" id="categories">
-      <h1 class="heading"><span>best</span> products</h1>
+      <h1 class="heading"  style="text-transform: capitalize;"><span>best</span> products</h1>
 
       <div class="box-container">
         <div class="box">
