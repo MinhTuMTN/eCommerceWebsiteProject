@@ -88,4 +88,16 @@ public class DAOUserImpl implements IDAOUser{
 		users = query.getResultList();
 		return users.size() > 0 ? true : false;
 	}
+	
+	public User checkUserPassword(String email, String password) {
+		List<User> users = new ArrayList<User>();
+		String jpql = "SELECT u FROM User u WHERE u.isActived = true AND (u.email = :email AND u.password = :password)";
+		
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		TypedQuery<User> query = entityManager.createQuery(jpql, User.class);
+		query.setParameter("password", password);
+		query.setParameter("email", email);
+		users = query.getResultList();
+		return users.size() > 0 ? users.get(0) : null;
+	}
 }

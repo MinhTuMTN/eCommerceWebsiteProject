@@ -51,8 +51,14 @@
 					class="fa fa-shopping-cart"></i> Cart <span
 					class="badge badge-light">3</span>
 				</a>
-				<c:url value="/dang-nhap" var="loginURL"></c:url>
-				<a class="nav-link" href="${loginURL }">Login</a>
+				<c:if test="${userName == null }">
+					<c:url value="/dang-nhap" var="loginURL"></c:url>
+					<a class="nav-link" href="${loginURL }">Login</a>
+				</c:if>
+				<c:if test="${userName != null }">
+					<c:url value="/dang-xuat" var="logoutURL"></c:url>
+					<a class="nav-link" href="${logoutURL }">Logout(${userName })</a>
+				</c:if>
 			</form>
 		</div>
 	</div>
