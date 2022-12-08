@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Nationalized;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,8 +27,11 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
 	
+	@Nationalized
 	private String name;
 	private String slug;
+	
+	@Nationalized
 	private String description;
 	private Double price;
 	private Double prmotionalPrice;

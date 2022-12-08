@@ -22,15 +22,20 @@ public class LoginFilter implements Filter{
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
         
-        Cookie[] cookies = req.getCookies();
-        if (cookies != null)
-          for (Cookie ck : cookies) 
-            if ("id".equals(ck.getName()))  {            
-            	int id = Integer.valueOf(ck.getValue());
-            	User user = (new DAOUserImpl()).findUserById(id);
-            	String userName = user.getFirstName() + " " + user.getLastName();
-            	req.setAttribute("userName", userName);
-            }
+		try {
+			Cookie[] cookies = req.getCookies();
+	        if (cookies != null)
+	          for (Cookie ck : cookies) 
+	            if ("id".equals(ck.getName()))  {            
+	            	int id = Integer.valueOf(ck.getValue());
+	            	User user = (new DAOUserImpl()).findUserById(id);
+	            	String userName = user.getFirstName() + " " + user.getLastName();
+	            	req.setAttribute("userName", userName);
+	            }
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+        
                          
         chain.doFilter(request, response);
 		

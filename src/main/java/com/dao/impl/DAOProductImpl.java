@@ -44,6 +44,8 @@ public class DAOProductImpl {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		String jpql = "SELECT p FROM Product p ORDER BY p.productId DESC";
 		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
+		query.setFirstResult(0);
+		query.setMaxResults(4);
 		return query.getResultList();
 	}
 }
