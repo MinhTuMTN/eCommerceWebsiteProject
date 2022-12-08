@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div style="margin-top: 9rem">
+<!-- Product list starts  -->
+<section class="list" id="">
 
-<!-- last product starts  -->
-<section class="list" id="categories">
-
-    <h1 class="heading"><span>last</span> products</h1>
+    <h1 class="heading1">Our <span>products</span></h1>
+    <hr width="20%" height="10px">
+    <p class="heading-product">Here you can check out our new products with fair price</p>
 
     <div class="box-container">
 
@@ -40,10 +40,24 @@
             <strong>10.000.000đ</strong>
             <a href="#" class="btn">Add to cart</a>
         </div>
-
     </div>
+
+    <nav aria-label="...">
+        <ul class="pagination mt-5">
+          <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item" aria-current="page">
+            <a class="page-link">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
 
 </section>
 
 <!--  last product ends -->
-</div>
