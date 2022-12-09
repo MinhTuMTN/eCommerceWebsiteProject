@@ -21,6 +21,8 @@
 						href="<c:url value="/admin/home"/>">Home</a></li>
 					<li class="breadcrumb-item"><a
 						href="<c:url value="/admin/products"/>">Product list</a></li>
+					<li class="breadcrumb-item"><a
+						href="<c:url value="/admin/product-detail?productId=${product.productId }"/>">${product.name }</a></li>
 				</ol>
 			</nav>
 		</div>
@@ -46,12 +48,20 @@
 					</a>
 						<ul class="submenu collapse">
 							<li><h4>
-									<a class="nav-link" href="<c:url value="/admin/products?filter=2"/>">All Products</a>
+									<a class="nav-link"
+										href="<c:url value="/admin/products?filter=2"/>">All
+										Products</a>
 								</h4></li>
 							<li><h4>
-									<a class="nav-link" href="<c:url value="/admin/products?filter=1"/>">Active Products</a>
+									<a class="nav-link"
+										href="<c:url value="/admin/products?filter=1"/>">Active
+										Products</a>
 								</h4></li>
-							<li><h4><a class="nav-link" href="<c:url value="/admin/products?filter=0"/>">Inactive Products</a></h4></li>
+							<li><h4>
+									<a class="nav-link"
+										href="<c:url value="/admin/products?filter=0"/>">Inactive
+										Products</a>
+								</h4></li>
 						</ul></li>
 				</ul>
 
@@ -84,33 +94,33 @@
 				</tr>
 			</thead>
 			<tbody>
-					<tr class="odd gradeX">
-						<td>${product.productId }</td>
-						<td><img width="50px" height="50px" src="${product.image }">
-						</td>
-						<td>${product.name }</td>
-						<td>${product.description }</td>
-						<td>${product.createdAt }</td>
-						<td>${product.updatedAt }</td>
-						<td>${product.price }</td>
-						<td>${product.prmotionalPrice }</td>
-						<td>${product.quantity }</td>
-						<td>${product.sold }</td>
-						<td>${product.rating }</td>
-						<td><c:if test="${product.isActive == true}">
-								<span>Active</span>
-							</c:if> <c:if test="${product.isActive == false}">
-								<span>Inactive</span>
-							</c:if></td>
-						<td>${product.isSelling }</td>
-						<td>${product.slug }</td>
-						<td>${product.video }</td>
-						<td>${product.category.categoryId }</td>
-						<td>${product.store.storeId }</td>
-					</tr>
+				<tr class="odd gradeX">
+					<td>${product.productId }</td>
+					<td><img width="50px" height="50px" src="${product.image }">
+					</td>
+					<td>${product.name }</td>
+					<td>${product.description }</td>
+					<td>${product.createdAt }</td>
+					<td>${product.updatedAt }</td>
+					<td>${product.price }</td>
+					<td>${product.prmotionalPrice }</td>
+					<td>${product.quantity }</td>
+					<td>${product.sold }</td>
+					<td>${product.rating }</td>
+					<td><c:if test="${product.isActive == true}">
+							<span>Active</span>
+						</c:if> <c:if test="${product.isActive == false}">
+							<span>Inactive</span>
+						</c:if></td>
+					<td>${product.isSelling }</td>
+					<td>${product.slug }</td>
+					<td>${product.video }</td>
+					<td>${product.category.categoryId }</td>
+					<td>${product.store.storeId }</td>
+				</tr>
 			</tbody>
 		</table>
-		
+
 	</div>
 </div>
 
