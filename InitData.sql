@@ -79,4 +79,4 @@ VALUES
     '',            -- slug - varchar(255)
     SYSDATETIME(), -- updatedAt - datetime2(7)
     NULL              -- userLevelId - int
-    )
+    ), (N'HCM', NULL, SYSDATETIME(), 0.0, 'admin@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'Bảo', '123', '0987654321', 0, 0, '', '', SYSDATETIME(), NULL)
