@@ -2,3 +2,9 @@ UserRole:
 	0: Admin
 	1: Seller
 	2: User
+UserOrder;
+	0: not processed
+	1: processing
+	2: shipped
+	3: delivered
+	4: cancelled

@@ -105,3 +105,44 @@ VALUES
 	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvane@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'E', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL),
 	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvanf@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'F', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL),
 	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvang@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'G', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL)
+GO
+
+INSERT INTO dbo.UserOrder
+(
+    address,
+    amountFromStore,
+    amountFromUser,
+    amountToGD,
+    amountToStore,
+    createdAt,
+    isPaidBefore,
+    phone,
+    status,
+    updatedAt,
+    deliveryId,
+    store_storeId,
+    user_userId
+)
+VALUES
+(   'HCM',            -- address - varchar(255)
+    10,           -- amountFromStore - float
+    100,           -- amountFromUser - float
+    10,           -- amountToGD - float
+    90,           -- amountToStore - float
+    SYSDATETIME(), -- createdAt - datetime2(7)
+    1,          -- isPaidBefore - bit
+    '0987654321',            -- phone - varchar(255)
+    0,             -- status - int
+    SYSDATETIME(), -- updatedAt - datetime2(7)
+    NULL,             -- deliveryId - int
+    NULL,             -- store_storeId - bigint
+    1              -- user_userId - int
+    ),
+	('HCM', 20, 100, 20, 80, SYSDATETIME(), 1, '0987654321', 1, SYSDATETIME(), NULL, NULL, 2),
+	('HCM', 20, 100, 20, 80, SYSDATETIME(), 1, '0987654321', 2, SYSDATETIME(), NULL, NULL, 2),
+	('HCM', 20, 100, 20, 80, SYSDATETIME(), 1, '0987654321', 3, SYSDATETIME(), NULL, NULL, 3),
+	('HCM', 20, 100, 20, 80, SYSDATETIME(), 1, '0987654321', 4, SYSDATETIME(), NULL, NULL, 4),
+	('HCM', 20, 100, 20, 80, SYSDATETIME(), 1, '0987654321', 0, SYSDATETIME(), NULL, NULL, 5),
+	('HCM', 20, 100, 20, 80, SYSDATETIME(), 1, '0987654321', 1, SYSDATETIME(), NULL, NULL, 6),
+	('HCM', 20, 100, 20, 80, SYSDATETIME(), 1, '0987654321', 2, SYSDATETIME(), NULL, NULL, 7),
+	('HCM', 20, 100, 20, 80, SYSDATETIME(), 1, '0987654321', 3, SYSDATETIME(), NULL, NULL, 8)
