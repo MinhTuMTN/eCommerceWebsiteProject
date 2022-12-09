@@ -14,7 +14,7 @@
 	<div class="box-container">
 		<c:forEach items="${products }" var="p">
 			<div class="box">
-				<img src="${p.image }" alt=""> <a href="<c:url value="/product-details?productId=${ps.productId }"/>"><h3>${p.name }</h3></a>
+				<img src="${p.image }" alt=""> <a href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
 						maxFractionDigits="2" value="${p.price}" />đ</strong> <br>

@@ -17,7 +17,7 @@ public class ProductsWebController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		DAOProductImpl daoProductImpl = new DAOProductImpl();
-		int pageSize = 1;
+		int pageSize = 8;
 		int pageNumber = 0;
 		
 		

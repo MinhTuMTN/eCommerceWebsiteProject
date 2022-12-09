@@ -85,7 +85,7 @@
 										type="number" maxFractionDigits="2"
 										value="${topProduct.price}" />đ</strong><br>
 							
-								<a href='<c:url value="/add-to-cart?productId=${topProduct.productId }"/>' class="btn">Add to cart</a>
+								<a href='<c:url value="/addToCart?productId=${topProduct.productId }"/>' class="btn">Add to cart</a>
 							</div>
 						</div>
 					</div>
@@ -109,7 +109,7 @@
 						maxFractionDigits="2" value="${p.price}" />đ</strong> 
 						<br>
 						<a
-					href="<c:url value="/add-to-cart?productId=${p.productId }"/>"
+					href="<c:url value="/addToCart?productId=${p.productId }"/>"
 					class="btn">Add to cart</a>
 			</div>
 		</c:forEach>
@@ -131,7 +131,7 @@
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
 						maxFractionDigits="2" value="${p.price}" />đ</strong> <br><a
-					href="<c:url value="/add-to-cart?productId=${p.productId }"/>"
+					href="<c:url value="/addToCart?productId=${p.productId }"/>"
 					class="btn">Add to cart</a>
 			</div>
 		</c:forEach>
