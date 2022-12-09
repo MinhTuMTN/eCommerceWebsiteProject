@@ -10,34 +10,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.admin.impl.DAOUserImpl;
-import com.entity.Product;
 import com.entity.User;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = {"/admin/users", "/admin/user-detail"})
+@WebServlet(urlPatterns = { "/admin/users", "/admin/user-detail" })
 public class UsersController extends HttpServlet {
 	DAOUserImpl daoUserImpl = new DAOUserImpl();
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String url = req.getRequestURL().toString();
 
 		if (url.contains("/users")) {
 			userList(req, resp);
-		}
-
-		if (url.contains("/user-detail")) {
+		} else if (url.contains("/user-detail")) {
 			userDetail(req, resp);
 		}
-		
+
 	}
-	
+
 	protected void userList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		int pageSize = 4;
 		int pageNumber = 0;
 
-		float temp = (float) daoUserImpl.countAllUser() / pageSize;
+		float temp = (float) daoUserImpl.countAllUsers() / pageSize;
 		int totalPages = (float) ((int) temp) < temp ? (int) temp : (int) temp - 1;
 		try {
 			pageNumber = Integer.valueOf(req.getParameter("page"));
@@ -45,26 +42,25 @@ public class UsersController extends HttpServlet {
 			// TODO: handle exception
 		}
 
-		List<User> users = daoUserImpl.getUserPagination(pageNumber, pageSize);
-		
+		List<User> users = daoUserImpl.getUsersPagination(pageNumber, pageSize);
+
 		req.setAttribute("users", users);
 		req.setAttribute("totalPages", totalPages);
 		req.setAttribute("number", pageNumber);
 		req.getRequestDispatcher("/views/admin/user-list.jsp").forward(req, resp);
 	}
-	
-	protected void userDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+	protected void userDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int userId = Integer.valueOf(req.getParameter("userId"));
 		User user = daoUserImpl.getUserById(userId);
-		
-		if(user == null) {
+
+		if (user == null) {
 			resp.sendRedirect(req.getContextPath() + "/admin/users");
 			return;
 		}
-		
+
 		req.setAttribute("user", user);
-		
+
 		req.getRequestDispatcher("/views/admin/user-detail.jsp").forward(req, resp);
 	}
 }

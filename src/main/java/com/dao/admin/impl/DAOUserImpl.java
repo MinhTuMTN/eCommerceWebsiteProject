@@ -11,7 +11,7 @@ import com.entity.User;
 
 public class DAOUserImpl {
 	
-	public List<User> getAllUser(){
+	public List<User> getAllUsers(){
 		List<User> users = new ArrayList<User>();
 		String jpql = "SELECT u FROM User u";
 		
@@ -21,14 +21,14 @@ public class DAOUserImpl {
 		return users;
 	}
 	
-	public int countAllUser() {
+	public int countAllUsers() {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		String jpql = "SELECT COUNT(u) FROM User u";
 		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
 		return query.getSingleResult().intValue();
 	}
 	
-	public List<User> getUserPagination(int pageNumber, int size){
+	public List<User> getUsersPagination(int pageNumber, int size){
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		String jpql = "SELECT u FROM User u ORDER BY u.userId DESC";
 		TypedQuery<User>  query = entityManager.createQuery(jpql, User.class);

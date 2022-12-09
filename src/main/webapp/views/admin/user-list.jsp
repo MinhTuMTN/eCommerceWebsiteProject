@@ -21,7 +21,8 @@
 		<div class="col">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="<c:url value="/admin/home"/>">Home</a></li>
+					<li class="breadcrumb-item"><a
+						href="<c:url value="/admin/home"/>">Home</a></li>
 					<li class="breadcrumb-item"><a
 						href="<c:url value="/admin/users"/>">User list</a></li>
 				</ol>
@@ -32,17 +33,32 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-sm-3">
-			<div class="card bg-light mb-3">
+			<div class="sidebar card bg-light mb-3">
 				<div class="card-header bg-primary text-white text-uppercase">
-					<h3>
+					<h2>
 						<i class="fa fa-list"></i> Menu
-					</h3>
+					</h2>
 				</div>
-				<ul class="list-group category_block">
-					<li class="list-group-item"><h4>
-							<a href="<c:url value="/admin/users"/>">Users management</a>
-						</h4></li>
+				<ul class="list-group category_block" id="nav_accordion">
+					<li class="nav-item list-group-item"><h3>
+							<a class="nav-link" href="<c:url value="/admin/users"/>">Users
+								management</a>
+						</h3></li>
+					<li class="nav-item has-submenu list-group-item"><a
+						class="nav-link" href="#">
+							<h3>Products management</h3>
+					</a>
+						<ul class="submenu collapse">
+							<li><h4>
+									<a class="nav-link" href="<c:url value="/admin/products?filter=2"/>">All Products</a>
+								</h4></li>
+							<li><h4>
+									<a class="nav-link" href="<c:url value="/admin/products?filter=1"/>">Active Products</a>
+								</h4></li>
+							<li><h4><a class="nav-link" href="<c:url value="/admin/products?filter=0"/>">Inactive Products</a></h4></li>
+						</ul></li>
 				</ul>
+
 			</div>
 		</div>
 
@@ -72,7 +88,9 @@
 												<div class="candidate-list-info">
 													<div class="candidate-list-title">
 														<h3 class="mb-1">
-															<a href="<c:url value="/admin/user-detail?userId=${user.userId }"/>">${user.firstName } ${user.lastName }</a>
+															<a
+																href="<c:url value="/admin/user-detail?userId=${user.userId }"/>">${user.firstName }
+																${user.lastName }</a>
 														</h3>
 													</div>
 													<div class="candidate-list-option">
@@ -148,4 +166,4 @@
 
 </div>
 
-
+<script src="${pageContext.request.contextPath}/views/js/menuDropdown.js"></script>

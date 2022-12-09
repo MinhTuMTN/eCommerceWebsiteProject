@@ -20,6 +20,7 @@ VALUES
     )
 GO
 
+-- Active products
 INSERT INTO [dbo].[Product] ([createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES ( NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/42/267212/Samsung-Galaxy-S21-FE-vang-600x600.jpg', N'1', NULL, N'Samsung Galaxy S21 FE 5G', N'12990000', NULL, N'5000', N'5', NULL, N'10', NULL, NULL, 1, NULL)
 GO
 
@@ -33,6 +34,22 @@ INSERT INTO [dbo].[Product] ([createdAt], [description], [image], [isActive], [i
 GO
 
 INSERT INTO [dbo].[Product] ([createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES ( NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/42/274359/samsung-galaxy-a23-den-thumb-600x600.jpg', N'1', NULL, N'Samsung Galaxy A23', N'5890000', NULL, N'1000', N'5', NULL, N'30', NULL, NULL, 1, NULL)
+GO
+
+--Inactive products
+INSERT INTO [dbo].[Product] ([createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES ( NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/42/267212/Samsung-Galaxy-S21-FE-vang-600x600.jpg', N'0', NULL, N'Samsung Galaxy S21 FE 5G', N'12990000', NULL, N'5000', N'5', NULL, N'10', NULL, NULL, 1, NULL)
+GO
+
+INSERT INTO [dbo].[Product] ([createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES ( NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-bac-thumb-600x600.jpg', N'0', NULL, N'Iphone 14 Pro Max', N'33590000', NULL, N'4000', N'5', NULL, N'100', NULL, NULL, 1, NULL)
+GO
+
+INSERT INTO [dbo].[Product] ([createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES ( NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/42/285696/samsung-galaxy-z-flip4-5g-512gb-thumb-xanh-600x600.jpg', N'0', NULL, N'Samsung Galaxy Z Flip4', N'25000000', NULL, N'3000', N'5', NULL, N'50', NULL, NULL, 1, NULL)
+GO
+
+INSERT INTO [dbo].[Product] ([createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES ( NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/42/274360/samsung-galaxy-a13-xanh-thumb-1-600x600.jpg', N'0', NULL, N'Samsung Galaxy A13', N'4390000', NULL, N'2000', N'5', NULL, N'1000', NULL, NULL, 1, NULL)
+GO
+
+INSERT INTO [dbo].[Product] ([createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES ( NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/42/274359/samsung-galaxy-a23-den-thumb-600x600.jpg', N'0', NULL, N'Samsung Galaxy A23', N'5890000', NULL, N'1000', N'5', NULL, N'30', NULL, NULL, 1, NULL)
 GO
 
 INSERT INTO dbo.Account
