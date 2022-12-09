@@ -9,7 +9,7 @@
 		<properties>
 
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:sqlserver://MINHTUNGUYEN\MINHTU_SERVER:1433;databaseName=eCommerceWebsite" />
+				value="jdbc:sqlserver://localhost;databaseName=eCommerceWebsite" />
 				
 			<property name="javax.persistence.jdbc.driver"
 				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
