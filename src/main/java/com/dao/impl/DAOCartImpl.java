@@ -12,7 +12,7 @@ import com.entity.CartItem;
 import com.entity.Product;
 
 public class DAOCartImpl {
-	private Cart findCartByUserId(int userId) {
+	public Cart findCartByUserId(int userId) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		String jpql = "SELECT c FROM Cart c WHERE c.user.userId = :userId";
 		TypedQuery<Cart> query = entityManager.createQuery(jpql, Cart.class);
@@ -38,6 +38,33 @@ public class DAOCartImpl {
 		}
 		
 	}
+	
+	private CartItem findCartItem(int userId, int productId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT c FROM CartItem c WHERE c.product.productId = :productId AND c.cart.user.userId = :userId";
+		TypedQuery<CartItem> query = entityManager.createQuery(jpql, CartItem.class);
+		query.setParameter("productId", productId);
+		query.setParameter("userId", userId);
+		List<CartItem> cartItems = query.getResultList();
+		return cartItems.size() > 0 ? cartItems.get(0) : null;
+	}
+	
+	public CartItem updateCartItem(CartItem cartItem, int newQuantity) {
+		cartItem.setCount(newQuantity);
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		try {
+			transaction.begin();
+			entityManager.merge(cartItem);
+			transaction.commit();
+			return cartItem;
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+			return null;
+		}
+	}
+	
 	public boolean addToCart(int userId, int productId, int quantity) {
 		Cart cart = findCartByUserId(userId);
 		if(cart == null)
@@ -49,10 +76,16 @@ public class DAOCartImpl {
 		
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
-		CartItem cartItem = new CartItem();
-		cartItem.setCart(cart);
-		cartItem.setCount(quantity);
-		cartItem.setProduct(product);
+		
+		CartItem cartItem = findCartItem(userId, productId);
+		if(cartItem != null) {		
+			updateCartItem(cartItem, cartItem.getCount() + quantity);
+		}else {
+			cartItem = new CartItem();
+			cartItem.setCart(cart);
+			cartItem.setCount(quantity);
+			cartItem.setProduct(product);
+		}
 		try {
 			transaction.begin();
 			entityManager.persist(cartItem);			
@@ -65,5 +98,33 @@ public class DAOCartImpl {
 		}
 	}
 	
+	public CartItem findAndUpdateCartItem(int userId, int productId, int newQuantity) {
+		CartItem cartItem = findCartItem(userId, productId);
+		if(cartItem == null)
+			return null;
+		
+		updateCartItem(cartItem, newQuantity);
+		return cartItem;
+	}
+	
+	public boolean removeCartItem(int userId, int productId) {
+		CartItem cartItem = findCartItem(userId, productId);
+		if(cartItem == null)
+			return false;
+		
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		try {
+			transaction.begin();
+			cartItem = entityManager.find(CartItem.class, cartItem.getCartItemId());
+			entityManager.remove(cartItem);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+			return false;
+		}
+	}
 	
 }

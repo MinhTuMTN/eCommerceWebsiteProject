@@ -22,7 +22,9 @@
 
 	<div class="icons">
 		<div class="fas fa-bars" id="menu-btn"></div>
-		<div class="fas fa-shopping-cart" id="cart-btn"></div>
+		<a href="<c:url value="/cart" />">
+			<div class="fas fa-shopping-cart" id="cart-btn"></div>
+		</a>
 		<c:if test="${userName == null }">
 			<a href="<c:url value="/dang-nhap" />">
 				<div class="fas fa-sign-in-alt"" id="login-btn"></div>

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp" %>
+<style>
+	body {
+		font-size: 1.7rem;
+	}
+</style>
 <div class="justify-content-center row" style="margin-top: 10rem">
 	
 	<form action="" method="post" class="col-5 justify-content-center">
@@ -8,13 +13,13 @@
   <!-- Email input -->
   <div class="form-outline mb-4">
     <label class="form-label" for="form2Example1">Email address</label>
-    <input type="email" id="form2Example1" class="form-control" name="email"/>
+    <input type="email" id="form2Example1" class="form-control" name="email" style="text-transform: none;font-size: 1.7rem;"/>
   </div>
 
   <!-- Password input -->
   <div class="form-outline mb-4">
   <label class="form-label" for="form2Example2">Password</label>
-    <input type="password" id="form2Example2" class="form-control" name="password"/>
+    <input type="password" id="form2Example2" class="form-control" name="password" style="text-transform: none;font-size: 1.7rem;"/>
     
   </div>
 
@@ -35,7 +40,7 @@
   </div>
 
   <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+  <button type="submit" class="btn-buy btn-block mb-4">Sign in</button>
 
   <!-- Register buttons -->
   <div class="text-center">
