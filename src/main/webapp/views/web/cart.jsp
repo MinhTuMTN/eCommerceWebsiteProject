@@ -81,52 +81,6 @@ body {
 								data-original-title="Remove">×</a></td>
 						</tr>
 
-						<tr>
-							<td class="p-4">
-								<div class="media align-items-center">
-									<img src="https://bootdey.com/img/Content/avatar/avatar6.png"
-										class="d-block ui-w-40 ui-bordered mr-4" alt="">
-									<div class="media-body">
-										<a href="#" class="d-block text-dark">Product 2</a> <small>
-											<span class="text-muted">Color:</span> <span
-											class="ui-product-color ui-product-color-sm align-text-bottom"
-											style="background: #000;"></span> &nbsp; <span
-											class="text-muted">Storage: </span> 32GB &nbsp; <span
-											class="text-muted">Warranty: </span> Standard - 1 year &nbsp;
-											<span class="text-muted">Ships from: </span> China
-										</small>
-									</div>
-								</div>
-							</td>
-							<td class="text-right font-weight-semibold align-middle p-4">$1049.00</td>
-							<td class="align-middle p-4"><input type="text"
-								class="form-control text-center" value="1"></td>
-							<td class="text-right font-weight-semibold align-middle p-4">$1049.00</td>
-							<td class="text-center align-middle px-0"><a href="#"
-								class="shop-tooltip close float-none text-danger" title=""
-								data-original-title="Remove">×</a></td>
-						</tr>
-
-						<tr>
-							<td class="p-4">
-								<div class="media align-items-center">
-									<img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-										class="d-block ui-w-40 ui-bordered mr-4" alt="">
-									<div class="media-body">
-										<a href="#" class="d-block text-dark">Product 3</a> <small>
-											<span class="text-muted">Ships from: </span> Germany
-										</small>
-									</div>
-								</div>
-							</td>
-							<td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
-							<td class="align-middle p-4"><input type="text"
-								class="form-control text-center" value="1"></td>
-							<td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
-							<td class="text-center align-middle px-0"><a href="#"
-								class="shop-tooltip close float-none text-danger" title=""
-								data-original-title="Remove">×</a></td>
-						</tr>
 
 					</tbody>
 				</table>

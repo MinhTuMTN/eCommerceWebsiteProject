@@ -65,7 +65,5 @@ public class DAOCartImpl {
 		}
 	}
 	
-	public static void main(String[] args) {
-		new DAOCartImpl().addToCart(1, 1, 10);
-	}
+	
 }
