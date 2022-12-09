@@ -8,7 +8,7 @@
 		<h3>
 			<span>Quản lý người dùng</span>
 		</h3>
-		<p>Thông tin người dùng</p>
+		<p>Xem thông tin người dùng</p>
 	</div>
 
 </section>

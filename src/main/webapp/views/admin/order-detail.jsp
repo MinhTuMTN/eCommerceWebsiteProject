@@ -6,9 +6,9 @@
 	<div class="content">
 
 		<h3>
-			<span>Quản lý sản phẩm</span>
+			<span>Quản lý đơn hàng</span>
 		</h3>
-		<p>Xem danh sách sản phẩm</p>
+		<p>Xem thông tin đơn hàng</p>
 	</div>
 
 </section>

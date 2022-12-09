@@ -8,7 +8,7 @@
 		<h3>
 			<span>Quản lý sản phẩm</span>
 		</h3>
-		<p>Xem danh sách sản phẩm</p>
+		<p>Xem thông tin sản phẩm</p>
 	</div>
 
 </section>
