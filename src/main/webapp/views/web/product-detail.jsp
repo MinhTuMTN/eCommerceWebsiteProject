@@ -7,8 +7,8 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="#">Home</a></li>
-				<li class="breadcrumb-item"><a href="#">Library</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Data</li>
+				<li class="breadcrumb-item"><a href="<c:url value="/categories" />">Categories</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="<c:url value="/categories?categoryId=${product.category.categoryId }" />">${product.category.name}</a></li>
 			</ol>
 		</nav>
 	</div>

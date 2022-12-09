@@ -112,9 +112,9 @@ body {
 
 			<div class="float-right">
 				<button type="button"
-					class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back
+					class="btn-buy">Back
 					to shopping</button>
-				<button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
+				<button type="button" class="btn-buy" style="background-color: #428a7a">Checkout</button>
 			</div>
 
 		</div>
