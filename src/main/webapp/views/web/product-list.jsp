@@ -14,7 +14,7 @@
 	<div class="box-container">
 		<c:forEach items="${products }" var="p">
 			<div class="box">
-				<img src="${p.image }" alt=""> <a href=""><h3>${p.name }</h3></a>
+				<img src="${p.image }" alt=""> <a href="<c:url value="/product-details?productId=${ps.productId }"/>"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
 						maxFractionDigits="2" value="${p.price}" />đ</strong> <br>
@@ -36,8 +36,7 @@
 					<c:if test="${i > 0 && i < totalPages}">
 						<li
 							class="${i==number ? 'page-item active': 'page-item' }">
-							<a class="page-link"
-							href="<c:url value='/products?page=${i }'/>"</a>
+							<a class="page-link" href="<c:url value='/products?page=${i }'/>">${i + 1 }</a>
 						</li>
 					</c:if>
 				</c:forEach>

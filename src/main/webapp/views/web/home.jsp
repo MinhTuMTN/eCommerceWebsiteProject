@@ -77,7 +77,7 @@
 						alt="Card image cap" />
 					<div class="card-body">
 						<h4 class="card-title text-center">
-							<a href="" title="View Product">${topProduct.name }</a>
+							<a href='<c:url value="/product-details?productId=${topProduct.productId }"/>' title="View Product">${topProduct.name }</a>
 						</h4>
 						<div class="row">
 							<div class="col text-center">
@@ -103,7 +103,7 @@
 	<div class="box-container">
 		<c:forEach items="${lastProducts }" var="p">
 			<div class="box">
-				<img src="${p.image }" alt="" /> <a href=""><h3>${p.name }</h3></a>
+				<img src="${p.image }" alt="" /> <a href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
 						maxFractionDigits="2" value="${p.price}" />đ</strong> 
@@ -127,7 +127,7 @@
 	<div class="box-container">
 		<c:forEach items="${bestProducts }" var="p">
 			<div class="box">
-				<img src="${p.image }" alt="" /> <a href=""><h3>${p.name }</h3></a>
+				<img src="${p.image }" alt="" /> <a href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
 						maxFractionDigits="2" value="${p.price}" />đ</strong> <br><a

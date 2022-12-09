@@ -2,19 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- header section starts  -->
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet"
-	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-<!-- font awesome cdn link  -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
-<!-- custom css file link  -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/views/css/style.css" />
 <header class="header">
 	<a href="#" class="logo"> <i class="fas fa-shopping-basket"></i>
 		HCMUTE
