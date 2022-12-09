@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Nationalized;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +24,7 @@ public class Delivery {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int deliveryId;
 	
+	@Nationalized
 	private String name;
 	private Double price;
 	private String description;
