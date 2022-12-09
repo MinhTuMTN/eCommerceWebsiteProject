@@ -34,7 +34,7 @@
                     <ul class="list-group category_block">
                         <li class="list-group-item" style="font-size: 1.7rem; height: 4.25rem;"><a href="" class="a-cate-detai">Men clother</a></li>
                         <li class="list-group-item" style="font-size: 1.7rem;"><a href="" class="a-cate-detai">Woman clother</a></li>
-                    </c:forEach>
+                    
                     </ul>
                 </div>
                 <!--Danh mục category ends-->
