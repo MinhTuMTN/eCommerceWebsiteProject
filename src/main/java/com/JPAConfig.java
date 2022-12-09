@@ -13,10 +13,12 @@ import com.entity.UserLevel;
 public class JPAConfig {
 	static EntityManagerFactory factory;
 	static EntityManager entityManager;
-
-	public static EntityManager getEntityManager() {
-
+	
+	static {
 		factory = Persistence.createEntityManagerFactory("jpaSQL");
+	}
+	
+	public static EntityManager getEntityManager() {	
 
 		return factory.createEntityManager();
 
