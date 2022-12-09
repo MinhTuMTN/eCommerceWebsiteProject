@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-    
+<%@ include file="/common/taglib.jsp"%>
 <!-- product detail starts -->
 <section class="sproduct">
     <div class="box-container pb-2">
@@ -19,18 +19,16 @@
             </div>
 
             <div class="col-lg-6 col-md-12 col-12">
-                <h3 class="py-4 heading-product-detail">Iphone 14 pro max</h3>
-                <h2 class="price">34.000.000d</h2>
+                <h3 class="py-4 heading-product-detail">${product.name }</h3>
+                <h2 class="price"><fmt:formatNumber type="number"
+						maxFractionDigits="2" value="${product.price}" />đ</h2>
                 <span style="font-size:20px; padding-right: 25px;">Quantity :</span>
-                <input type="number" value="1">
+                <input type="number" value="1" min="1" id="quantity">
                 
                 <h2 class="mt-5 mb-2" style="font: size 30px;">Product Details</h2>
-                <span style="font-size: 12px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut magnam 
-                maiores blanditiis a eius dolore, amet nam eveniet facilis fugiat culpa adipisci sit dolorum 
-                voluptatem, sequi dolor. Reiciendis quidem consectetur dolorem cumque 
-                architecto itaque ullam, nisi quod similique quae est iste expedita blanditiis</span>
+                <span style="font-size: 12px;">${product.description }</span>
                 <br>
-                <button class="btn-buy">Add To Cart</button>
+                <button class="btn-buy" onclick="addToCart()">Add To Cart</button>
 
             </div>
         </div>
@@ -86,3 +84,12 @@
 
 </section>
 <!-- Other product ends-->
+<c:url value="/addToCart?productId=${product.productId }" var="addToCartURL"></c:url>
+<script type="text/javascript">
+
+	function addToCart() {
+		<c:set var="myVal" value="${addToCartURL}"/> 
+		var quantity = document.getElementById("quantity").value;
+		window.location.href = '${myVal}' + '&quantity=' + quantity;
+	}
+</script>

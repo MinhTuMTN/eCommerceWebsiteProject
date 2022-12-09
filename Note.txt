@@ -1,0 +1,4 @@
+UserRole:
+	0: Admin
+	1: Seller
+	2: User
