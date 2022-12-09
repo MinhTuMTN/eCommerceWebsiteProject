@@ -1,5 +1,7 @@
 package com.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
@@ -15,9 +17,8 @@ public class DAOCartImpl {
 		String jpql = "SELECT c FROM Cart c WHERE c.user.userId = :userId";
 		TypedQuery<Cart> query = entityManager.createQuery(jpql, Cart.class);
 		query.setParameter("userId", userId);
-		query.setFirstResult(0);
-		query.setMaxResults(1);
-		return query.getSingleResult();
+		List<Cart> carts = query.getResultList();
+		return carts.size() > 0 ? carts.get(0) : null;
 	}
 	
 	private Cart createCart(int userId) {
@@ -62,5 +63,9 @@ public class DAOCartImpl {
 			transaction.rollback();
 			return false;
 		}
+	}
+	
+	public static void main(String[] args) {
+		new DAOCartImpl().addToCart(1, 1, 10);
 	}
 }
