@@ -13,27 +13,36 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>HCMUTE Shop</title>
 <link rel="icon" href="${URL }" sizes="any" type="image/svg+xml">
- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600"
+	rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+<!-- font awesome cdn link  -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
 <!-- custom css file link  -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/views/css/style.css" />
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/views/css/admin-style.css" />
 </head>
 <body>
 	<%@ include file="/common/admin/header.jsp"%>
-	
+
 	<!-- body -->
 	<dec:body />
 	<!-- body -->
 	<!--=== Footer v4 ===-->
 	<jsp:include page="/common/admin/footer.jsp"></jsp:include>
 
-	
+
 </body>

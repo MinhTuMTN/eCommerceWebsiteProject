@@ -36,4 +36,10 @@ public class DAOUserImpl {
 		query.setMaxResults(size);
 		return query.getResultList();
 	}
+	
+	public User getUserById(int userId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		User user = entityManager.find(User.class, userId);
+		return user;
+	}
 }
