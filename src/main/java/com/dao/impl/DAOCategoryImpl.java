@@ -25,9 +25,4 @@ public class DAOCategoryImpl {
 		List<Category> categories = query.getResultList();
 		return categories;
 	}
-	
-//	public Product getProductsOfCategoryP(Long categoryId) {
-//		EntityManager entityManager = JPAConfig.getEntityManager();
-//		String jpql = "SELECT p FROM Product p WHERE p.isActive = true AND p.category.categoryId = "
-//	}
 }

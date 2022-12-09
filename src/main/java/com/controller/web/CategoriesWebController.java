@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.impl.DAOCategoryImpl;
+import com.dao.impl.DAOProductImpl;
 import com.entity.Category;
 import com.entity.Product;
 
@@ -24,20 +25,35 @@ public class CategoriesWebController extends HttpServlet{
 		} catch (Exception e) {
 		}
 		
-		List<Category> categories = daoCategoryImpl.getAllCategories();
-		Category category = daoCategoryImpl.findCategoryByCategoryId(categoryId);
-		List<Product> products = category.getProducts();
-		products.sort((o1, o2) -> ((Integer)o2.getProductId()).compareTo((Integer)o1.getProductId()));
-		Product topProduct = null;
+		
 		try {
+			int pageSize = 6;
+			int pageNumber = 0;		
+			
+			try {
+				pageNumber = Integer.valueOf(req.getParameter("page"));
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+			List<Category> categories = daoCategoryImpl.getAllCategories();
+			Category category = daoCategoryImpl.findCategoryByCategoryId(categoryId);
+			List<Product> products = new DAOProductImpl().getProductsPaginationByCategoryId(pageNumber, pageSize, categoryId);
+			products.sort((o1, o2) -> ((Integer)o2.getProductId()).compareTo((Integer)o1.getProductId()));
+			Product topProduct = null;
 			topProduct = products.get(0);
+			float temp = (float)category.getProducts().size() / pageSize;
+			int totalPages = (float)((int) temp) < temp ? (int)temp : (int)temp - 1;
+			
+			req.setAttribute("categories", categories);
+			req.setAttribute("category", category);
+			req.setAttribute("products", products);
+			req.setAttribute("topProduct", topProduct);
+			req.setAttribute("totalPages", totalPages);	
+			req.setAttribute("number", pageNumber);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
-		req.setAttribute("categories", categories);
-		req.setAttribute("category", category);
-		req.setAttribute("products", products);
-		req.setAttribute("topProduct", topProduct);
+		
 		req.getRequestDispatcher("/views/web/category-detai.jsp").forward(req, resp);
 	}
 }

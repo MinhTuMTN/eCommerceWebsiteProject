@@ -78,4 +78,14 @@ public class DAOProductImpl {
 		query.setMaxResults(4);
 		return query.getResultList();
 	}
+	
+	public List<Product> getProductsPaginationByCategoryId(int pageNumber, int size, Long categoryId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT p FROM Product p WHERE p.isActive = true AND p.category.categoryId = :categoryId";
+		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
+		query.setParameter("categoryId", categoryId);
+		query.setFirstResult(pageNumber * size);
+		query.setMaxResults(size);
+		return query.getResultList();
+	}
 }
