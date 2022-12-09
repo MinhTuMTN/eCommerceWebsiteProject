@@ -20,7 +20,9 @@
 					<li class="breadcrumb-item"><a
 						href="<c:url value="/admin/home"/>">Home</a></li>
 					<li class="breadcrumb-item"><a
-						href="<c:url value="/admin/products"/>">Product list</a></li>
+						href="<c:url value="/admin/orders"/>">Order list</a></li>
+					<li class="breadcrumb-item"><a
+						href="<c:url value="/admin/order-detail?orderId=${order.orderId}"/>">${order.orderId}</a></li>
 				</ol>
 			</nav>
 		</div>
@@ -72,7 +74,8 @@
 								</h4></li>
 							<li><h4>
 									<a class="nav-link"
-										href="<c:url value="/admin/orders?filter=0"/>">Shipped Orders</a>
+										href="<c:url value="/admin/orders?filter=0"/>">Shipped
+										Orders</a>
 								</h4></li>
 						</ul></li>
 				</ul>
@@ -86,74 +89,57 @@
 		<table class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>Product ID</th>
-					<th>Image</th>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Price</th>
-					<th>Promotional Pricing</th>
-					<th>Quantity</th>
-					<th>Sold</th>
-					<th>Rating</th>
+					<th>Order ID</th>
+					<th>User ID</th>
+					<th>Store ID</th>
+					<th>Delivery ID</th>
+					<th>Address</th>
+					<th>Phone</th>
+					<th>Amount From Store</th>
+					<th>Amount From User</th>
+					<th>Amount To GD</th>
+					<th>Amount To Store</th>
+					<th>Created At</th>
+					<th>Updated At</th>
+					<th>Paid</th>
 					<th>Status</th>
-					<th>Is Selling</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${products}" var="product">
-					<tr class="odd gradeX">
-						<td>${product.productId }</td>
-						<td><img width="50px" height="50px" src="${product.image }">
-						</td>
-						<td><a
-							href="<c:url value="/admin/product-detail?productId=${product.productId }"/>">${product.name }</a></td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td>${product.prmotionalPrice }</td>
-						<td>${product.quantity }</td>
-						<td>${product.sold }</td>
-						<td>${product.rating }</td>
-						<td><c:if test="${product.isActive == true}">
-								<span>Active</span>
-							</c:if> <c:if test="${product.isActive == false}">
-								<span>Inactive</span>
-							</c:if></td>
-						<td>${product.isSelling }</td>
-					</tr>
-				</c:forEach>
+				<tr class="odd gradeX">
+					<td>${order.orderId }</td>
+					<td>${order.user.userId }</td>
+					<td>${order.store.storeId }</td>
+					<td>${order.delivery.deliveryId }</td>
+					<td>${order.address }</td>
+					<td>${order.phone }</td>
+					<td>${order.amountFromStore }</td>
+					<td>${order.amountFromUser }</td>
+					<td>${order.amountToGD }</td>
+					<td>${order.amountToStore }</td>
+					<td>${order.createdAt }</td>
+					<td>${order.updatedAt }</td>
+					<td><c:if test="${order.isPaidBefore == false}">
+							<span>Not paid</span>
+						</c:if> <c:if test="${order.isPaidBefore == true}">
+							<span>Paid</span>
+						</c:if></td>
+					<td><c:if test="${order.status == 0}">
+							<span>Not processed</span>
+						</c:if> <c:if test="${order.status == 1}">
+							<span>Processing</span>
+						</c:if> <c:if test="${order.status == 2}">
+							<span>Shipped</span>
+						</c:if> <c:if test="${order.status == 3}">
+							<span>Delivered</span>
+						</c:if> <c:if test="${order.status == 4}">
+							<span>Cancelled</span>
+						</c:if></td>
+
+				</tr>
 			</tbody>
 		</table>
-		<div class="text-center mt-3 mt-sm-3">
 
-			<c:if test="${totalPages > 0 }">
-				<nav aria-label="Page navigation">
-					<ul class="pagination justify-content-end mb-0">
-						<li class="${1==(number + 1) ? 'page-item active': 'page-item' }">
-							<a class="page-link"
-							href='<c:url value='/admin/products?filter=${filter }&page=${0 }'/>'
-							tabindex="-1">First</a>
-						</li>
-						<c:forEach var="i" begin="${number-1 < 0 ? 0 : number-1 }"
-							end="${number+2 }">
-							<c:if test="${i > 0 && i < totalPages}">
-								<li class="${i==number ? 'page-item active': 'page-item' }">
-									<a class="page-link"
-									href="<c:url value='/admin/products?filter=${filter }&page=${i }'/>">${i + 1 }</a>
-								</li>
-							</c:if>
-
-
-						</c:forEach>
-						<li
-							class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
-							<a class="page-link"
-							href='<c:url value='/admin/products?filter=${filter }&page=${totalPages }'/>'
-							tabindex="-1">Last</a>
-					</ul>
-				</nav>
-			</c:if>
-
-		</div>
 	</div>
 </div>
 

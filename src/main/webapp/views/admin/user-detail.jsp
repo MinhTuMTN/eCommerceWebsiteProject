@@ -49,12 +49,34 @@
 					</a>
 						<ul class="submenu collapse">
 							<li><h4>
-									<a class="nav-link" href="<c:url value="/admin/products?filter=2"/>">All Products</a>
+									<a class="nav-link"
+										href="<c:url value="/admin/products?filter=2"/>">All
+										Products</a>
 								</h4></li>
 							<li><h4>
-									<a class="nav-link" href="<c:url value="/admin/products?filter=1"/>">Active Products</a>
+									<a class="nav-link"
+										href="<c:url value="/admin/products?filter=1"/>">Active
+										Products</a>
 								</h4></li>
-							<li><h4><a class="nav-link" href="<c:url value="/admin/products?filter=0"/>">Inactive Products</a></h4></li>
+							<li><h4>
+									<a class="nav-link"
+										href="<c:url value="/admin/products?filter=0"/>">Inactive
+										Products</a>
+								</h4></li>
+						</ul></li>
+					<li class="nav-item has-submenu list-group-item"><a
+						class="nav-link" href="#">
+							<h3>Orders management</h3>
+					</a>
+						<ul class="submenu collapse">
+							<li><h4>
+									<a class="nav-link"
+										href="<c:url value="/admin/orders?filter=1"/>">All Orders</a>
+								</h4></li>
+							<li><h4>
+									<a class="nav-link"
+										href="<c:url value="/admin/orders?filter=0"/>">Shipped Orders</a>
+								</h4></li>
 						</ul></li>
 				</ul>
 

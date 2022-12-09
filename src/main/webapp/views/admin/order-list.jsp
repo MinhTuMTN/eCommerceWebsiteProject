@@ -6,9 +6,9 @@
 	<div class="content">
 
 		<h3>
-			<span>Quản lý sản phẩm</span>
+			<span>Quản lý đơn hàng</span>
 		</h3>
-		<p>Xem danh sách sản phẩm</p>
+		<p>Xem danh sách đơn hàng</p>
 	</div>
 
 </section>
@@ -20,7 +20,7 @@
 					<li class="breadcrumb-item"><a
 						href="<c:url value="/admin/home"/>">Home</a></li>
 					<li class="breadcrumb-item"><a
-						href="<c:url value="/admin/products"/>">Product list</a></li>
+						href="<c:url value="/admin/orders"/>">Order list</a></li>
 				</ol>
 			</nav>
 		</div>
@@ -86,39 +86,38 @@
 		<table class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>Product ID</th>
-					<th>Image</th>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Price</th>
-					<th>Promotional Pricing</th>
-					<th>Quantity</th>
-					<th>Sold</th>
-					<th>Rating</th>
+					<th>Order ID</th>
+					<th>User ID</th>
+					<th>Address</th>
+					<th>Phone</th>
 					<th>Status</th>
-					<th>Is Selling</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${products}" var="product">
+				<c:forEach items="${orders}" var="order">
 					<tr class="odd gradeX">
-						<td>${product.productId }</td>
-						<td><img width="50px" height="50px" src="${product.image }">
-						</td>
-						<td><a
-							href="<c:url value="/admin/product-detail?productId=${product.productId }"/>">${product.name }</a></td>
-						<td>${product.description }</td>
-						<td>${product.price }</td>
-						<td>${product.prmotionalPrice }</td>
-						<td>${product.quantity }</td>
-						<td>${product.sold }</td>
-						<td>${product.rating }</td>
-						<td><c:if test="${product.isActive == true}">
-								<span>Active</span>
-							</c:if> <c:if test="${product.isActive == false}">
-								<span>Inactive</span>
+						<td>${order.orderId }</td>
+						<td>${order.user.userId }</td>
+						<td>${order.address }</td>
+						<td>${order.phone }</td>
+						<td><c:if test="${order.status == 0}">
+								<span>Not processed</span>
+							</c:if> <c:if test="${order.status == 1}">
+								<span>Processing</span>
+							</c:if>
+							<c:if test="${order.status == 2}">
+								<span>Shipped</span>
+							</c:if>
+							<c:if test="${order.status == 3}">
+								<span>Delivered</span>
+							</c:if>
+							<c:if test="${order.status == 4}">
+								<span>Cancelled</span>
 							</c:if></td>
-						<td>${product.isSelling }</td>
+						<td><a
+							href="<c:url value="/admin/order-detail?orderId=${order.orderId }"/>">Read more</a></td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -130,7 +129,7 @@
 					<ul class="pagination justify-content-end mb-0">
 						<li class="${1==(number + 1) ? 'page-item active': 'page-item' }">
 							<a class="page-link"
-							href='<c:url value='/admin/products?filter=${filter }&page=${0 }'/>'
+							href='<c:url value='/admin/orders?filter=${filter }&page=${0 }'/>'
 							tabindex="-1">First</a>
 						</li>
 						<c:forEach var="i" begin="${number-1 < 0 ? 0 : number-1 }"
@@ -138,7 +137,7 @@
 							<c:if test="${i > 0 && i < totalPages}">
 								<li class="${i==number ? 'page-item active': 'page-item' }">
 									<a class="page-link"
-									href="<c:url value='/admin/products?filter=${filter }&page=${i }'/>">${i + 1 }</a>
+									href="<c:url value='/admin/orders?filter=${filter }&page=${i }'/>">${i + 1 }</a>
 								</li>
 							</c:if>
 
@@ -147,7 +146,7 @@
 						<li
 							class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
 							<a class="page-link"
-							href='<c:url value='/admin/products?filter=${filter }&page=${totalPages }'/>'
+							href='<c:url value='/admin/orders?filter=${filter }&page=${totalPages }'/>'
 							tabindex="-1">Last</a>
 					</ul>
 				</nav>
