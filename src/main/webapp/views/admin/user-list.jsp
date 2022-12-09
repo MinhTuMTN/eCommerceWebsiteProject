@@ -21,7 +21,7 @@
 		<div class="col">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="<c:url value="/admin/users"/>">Home</a></li>
+					<li class="breadcrumb-item"><a href="<c:url value="/admin/home"/>">Home</a></li>
 					<li class="breadcrumb-item"><a
 						href="<c:url value="/admin/users"/>">User list</a></li>
 				</ol>
@@ -119,7 +119,7 @@
 											<a class="page-link"
 											href='<c:url value='/admin/users?page=${0 }'/>' tabindex="-1">First</a>
 										</li>
-										<c:forEach var="i" begin="${number-2 < 0 ? 0 : number-2 }"
+										<c:forEach var="i" begin="${number-1 < 0 ? 0 : number-1 }"
 											end="${number+2 }">
 											<c:if test="${i > 0 && i < totalPages}">
 												<li class="${i==number ? 'page-item active': 'page-item' }">

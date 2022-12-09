@@ -18,7 +18,7 @@
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a
-						href="<c:url value="/admin/users"/>">Home</a></li>
+						href="<c:url value="/admin/home"/>">Home</a></li>
 					<li class="breadcrumb-item"><a
 						href="<c:url value="/admin/users"/>">User list</a></li>
 					<li class="breadcrumb-item"><a
