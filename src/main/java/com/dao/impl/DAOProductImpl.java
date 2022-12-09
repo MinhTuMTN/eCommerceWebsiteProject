@@ -33,7 +33,7 @@ public class DAOProductImpl {
 	
 	public List<Product> getTop4BestSellerProducts(){
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT p FROM Product p ORDER BY p.sold DESC";
+		String jpql = "SELECT p FROM Product p WHERE p.isActive = true ORDER BY p.sold DESC";
 		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
 		query.setFirstResult(0);
 		query.setMaxResults(4);
@@ -42,10 +42,27 @@ public class DAOProductImpl {
 	
 	public List<Product> getTop4LastProducts(){
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT p FROM Product p ORDER BY p.productId DESC";
+		String jpql = "SELECT p FROM Product p WHERE p.isActive = true ORDER BY p.productId DESC";
 		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
 		query.setFirstResult(0);
 		query.setMaxResults(4);
 		return query.getResultList();
+	}
+	
+	public List<Product> getProductsPagination(int pageNumber, int size){
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT p FROM Product p WHERE p.isActive = true ORDER BY p.productId DESC";
+		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
+		query.setFirstResult(pageNumber * size);
+		query.setMaxResults(size);
+		return query.getResultList();
+	}
+	
+	public int countAllProducts() {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT COUNT(p) FROM Product p WHERE p.isActive = true";
+		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+		
+		return query.getSingleResult().intValue();
 	}
 }

@@ -37,8 +37,8 @@ public class Product {
 	private Double prmotionalPrice;
 	private int quantity;
 	private int sold;
-	private Boolean isActive;
-	private Boolean isSelling;
+	private Boolean isActive = true;
+	private Boolean isSelling = true;
 	private String video;
 	private float rating;
 	private String image;

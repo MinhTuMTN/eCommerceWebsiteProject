@@ -26,7 +26,7 @@
 			<property name="hibernate.hbm2ddl.auto" value="none" />
 
 			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.SQLServerDialect" />
+				value="org.hibernate.dialect.SQLServer2008Dialect" />
 
 		</properties>
 
