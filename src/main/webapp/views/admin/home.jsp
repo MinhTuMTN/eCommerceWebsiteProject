@@ -2,7 +2,19 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 
-<!-- home section starts  -->
+<section class="home" id="home">
+	<div class="content">
+		<h5>NEW ARRAIVALS</h5>
+		<h3>
+			<span>Best Price</span> This Year
+		</h3>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+			Aliquam libero nostrum veniam facere tempore nisi.
+		</p>
+		<a href="#" class="btn">Buy now</a>
+	</div>
+</section>
 <!-- Hiển thông báo -->
 <c:if test="${message != null}">
 	<div class="alert alert-primary" role="alert">
@@ -10,7 +22,8 @@
 	</div>
 </c:if>
 <!-- Hêt thông báo -->
-
-<a href="<c:url value="/admin/user"/>">Quản lý người dùng</a>
+<section class="categories" id="categories">
+	<a href="<c:url value="/admin/users"/>"><h1>Quản lý người dùng</h1></a>
+</section>
 
 

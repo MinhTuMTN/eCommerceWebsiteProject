@@ -9,9 +9,8 @@
 	</a>
 
 	<nav class="navbar">
-		<a href='<c:url value="/admin/home" />'>home</a> <a
-			href="<c:url value="#" />">none</a> <a href="#review">review</a> <a
-			href="#contact">contact</a>
+		<a href='<c:url value="/admin/home" />'>home</a> <a href="#">none</a><a
+			href="#review">review</a> <a href="#contact">contact</a>
 	</nav>
 
 	<form action="" class="search-form">
