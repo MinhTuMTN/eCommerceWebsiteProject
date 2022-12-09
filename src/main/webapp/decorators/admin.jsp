@@ -26,6 +26,8 @@
 <!-- custom css file link  -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/views/css/style.css" />
+	<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/views/css/admin-style.css" />
 </head>
 <body>
 	<%@ include file="/common/admin/header.jsp"%>

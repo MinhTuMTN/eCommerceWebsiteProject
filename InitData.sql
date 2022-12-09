@@ -79,4 +79,12 @@ VALUES
     '',            -- slug - varchar(255)
     SYSDATETIME(), -- updatedAt - datetime2(7)
     NULL              -- userLevelId - int
-    ), (N'HCM', NULL, SYSDATETIME(), 0.0, 'admin@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'Bảo', '123', '0987654321', 0, 0, '', '', SYSDATETIME(), NULL)
+    ),
+	(N'HCM', NULL, SYSDATETIME(), 0.0, 'admin@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'Bảo', '123', '0987654321', 0, 0, '', '', SYSDATETIME(), NULL),
+	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvana@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'A', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL),
+	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvanb@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'B', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL),
+	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvanc@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'C', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL),
+	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvand@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'D', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL),
+	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvane@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'E', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL),
+	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvanf@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'F', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL),
+	(N'HCM', NULL, SYSDATETIME(), 0.0, 'nguyenvang@email.com', N'Nguyễn', '', '', 1, NULL, NULL, N'G', '123', '0987654321', 0, 2, '', '', SYSDATETIME(), NULL)

@@ -11,4 +11,6 @@
 </c:if>
 <!-- Hêt thông báo -->
 
+<a href="<c:url value="/admin/user"/>">Quản lý người dùng</a>
+
 
