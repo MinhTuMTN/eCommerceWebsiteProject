@@ -27,10 +27,17 @@ public class CategoriesWebController extends HttpServlet{
 		List<Category> categories = daoCategoryImpl.getAllCategories();
 		Category category = daoCategoryImpl.findCategoryByCategoryId(categoryId);
 		List<Product> products = category.getProducts();
-		
+		products.sort((o1, o2) -> ((Integer)o2.getProductId()).compareTo((Integer)o1.getProductId()));
+		Product topProduct = null;
+		try {
+			topProduct = products.get(0);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		req.setAttribute("categories", categories);
 		req.setAttribute("category", category);
 		req.setAttribute("products", products);
+		req.setAttribute("topProduct", topProduct);
 		req.getRequestDispatcher("/views/web/category-detai.jsp").forward(req, resp);
 	}
 }

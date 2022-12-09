@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
 import com.entity.Category;
+import com.entity.Product;
 
 public class DAOCategoryImpl {
 	public Category findCategoryByCategoryId(Long categoryId) {
@@ -24,4 +25,9 @@ public class DAOCategoryImpl {
 		List<Category> categories = query.getResultList();
 		return categories;
 	}
+	
+//	public Product getProductsOfCategoryP(Long categoryId) {
+//		EntityManager entityManager = JPAConfig.getEntityManager();
+//		String jpql = "SELECT p FROM Product p WHERE p.isActive = true AND p.category.categoryId = "
+//	}
 }
