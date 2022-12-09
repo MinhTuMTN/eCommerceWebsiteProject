@@ -166,9 +166,19 @@ hr{
     width: 95%;
     height:20rem;}
 
+
 .img-product{
     width: 498px;
     height: 498px;
+}
+
+.img-last-product{
+    margin-top: 0%;
+    margin-bottom: 2rem;
+    margin-left: 0%;
+    margin-right: 0rem;
+    width: 95%;
+    height:24rem;;
 }
 
 .header{
@@ -463,6 +473,66 @@ hr{
     border:.2rem solid var(--black);
     background: var(--orange);
     color:var(--black);
+}
+
+/*Category-detail*/
+.a-cate-detai{
+    color: black;
+}
+.a-cate-detai:hover{
+    color:var(--orange);
+}
+.list-cate .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    gap:1.75rem;
+    padding-bottom: 2rem;
+}
+
+.list-cate .box-container .box{
+    padding:3rem 2rem;
+    border-radius: .5rem;
+    background:#fff;
+    box-shadow: var(--box-shadow);
+    outline:var(--outline);
+    outline-offset: -1rem;
+    text-align: center;
+}
+
+.list-cate .box-container .box:hover{
+    outline:var(--outline-hover);
+    outline-offset: 0rem;
+}
+
+.list-cate .box-container .box img{
+    margin:1rem 0;
+    height:15rem;
+}
+
+.list .box-container .box h3{
+   font-size: 2rem;
+   color:var(--black);
+   line-height: 1.8;
+}
+
+.list-cate .box-container .box strong{
+    color: #ab1411;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.list-cate .box-container .box h3:hover{
+    font-size: 2rem;
+    color:#3a90e0;
+    line-height: 1.8;
+    margin-bottom: 8px;
+ }
+
+.list-cate .box-container .box p{
+    font-size: 1.7rem;
+    color:var(--light-color);
+    line-height: 1.8;
+    padding:1rem 0;
 }
 
 /*Footer*/
