@@ -52,4 +52,4 @@
 
 </section>
 
-<!--  last product ends -->
+<!-- Product list ends -->
