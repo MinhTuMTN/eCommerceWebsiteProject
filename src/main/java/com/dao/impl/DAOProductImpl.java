@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
+import org.hibernate.cfg.QuerySecondPass;
+
 import com.JPAConfig;
 import com.entity.Product;
 
@@ -64,5 +66,16 @@ public class DAOProductImpl {
 		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
 		
 		return query.getSingleResult().intValue();
+	}
+	
+	public List<Product> getTop4ProductsByCategoryId(Long categoryId, int productId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT p FROM Product p WHERE p.isActive = true AND p.category.categoryId = :categoryId AND p.productId != :productId";
+		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
+		query.setParameter("categoryId", categoryId);
+		query.setParameter("productId", productId);
+		query.setFirstResult(0);
+		query.setMaxResults(4);
+		return query.getResultList();
 	}
 }

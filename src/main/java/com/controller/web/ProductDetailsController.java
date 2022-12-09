@@ -1,6 +1,7 @@
 package com.controller.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,10 +24,12 @@ public class ProductDetailsController extends HttpServlet{
 				resp.sendRedirect(req.getContextPath() + "/home");
 				return;
 			}
-			
+			List<Product> otherProducts = productImpl.getTop4ProductsByCategoryId(product.getCategory().getCategoryId(), productId);
 			req.setAttribute("product", product);
+			req.setAttribute("otherProducts", otherProducts);
 			req.getRequestDispatcher("/views/web/product-detail.jsp").forward(req, resp);
 		} catch (Exception e) {
+			e.printStackTrace();
 			resp.sendRedirect(req.getContextPath() + "/home");
 		}
 	}
