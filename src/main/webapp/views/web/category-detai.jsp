@@ -45,8 +45,8 @@
 							<c:url value="/categories?categoryId=${c.categoryId }"
 								var="urlCategory"></c:url>
 							<c:if test="${c.categoryId == category.categoryId }">
-								<li class="list-group-item active"
-									style="font-size: 1.7rem; height: 4.25rem;"><a
+								<li class="list-group-item"
+									style="background-color: coral; color: white; font-size: 1.7rem; height: 4.25rem;"><a
 									href="${urlCategory }" class="a-cate-detai">${c.name }</a></li>
 							</c:if>
 							<c:if test="${c.categoryId != category.categoryId }">
@@ -85,7 +85,8 @@
 					<!--Product in category starts-->
 					<section class="list-cate" id=""
 						style="padding-top: 0; padding-left: 2rem; padding-right: 2rem;">
-						<div class="box-container" style="grid-template-columns: auto auto auto">
+						<div class="box-container"
+							style="grid-template-columns: auto auto auto">
 							<c:forEach var="p" items="${products }">
 								<c:url value="/product-details?productId=${p.productId }"
 									var="URLProduct"></c:url>
@@ -101,63 +102,31 @@
 							</c:forEach>
 						</div>
 					</section>
-
 					<!--Phân trang starts-->
-					<div class="col-12">
-						<c:if test="${totalPages > 0 }">
-							<nav aria-label="Page navigation">
-								<ul class="pagination justify-content-end">
-									<li
-										class="${1==(number + 1) ? 'page-item active': 'page-item' }">
-										<a class="page-link"
-										href='<c:url value='/categories?categoryId=${category.categoryId }&page=${1 }'/>'
-										tabindex="-1">First</a>
-									</li>
-									<c:forEach var="i" begin="${number-2 < 0 ? 0 : number-2 }"
-										end="${number+2 }">
-										<c:if test="${i > 0 && i < totalPages}">
-											<li class="${i==number ? 'page-item active': 'page-item' }">
-												<a class="page-link"
-												href="<c:url value='/categories?categoryId=${category.categoryId }&page=${i }'/>">${i + 1 }</a>
-											</li>
-										</c:if>
-									</c:forEach>
-									<li
-										class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
-										<a class="page-link"
-										href='<c:url value='/categories?categoryId=${category.categoryId }&page=${totalPages }'/>'
-										tabindex="-1">Last</a>
-								</ul>
-							</nav>
-						</c:if>
-					</div>
-					<!--Phân trang starts-->
-					<c:set value="${9 }" var="totalPages"></c:set>
 					<c:if test="${totalPages > 0 }">
-		<nav aria-label="Page navigation">
-			<ul class="pagination justify-content-end">
-				<li
-					class="${1==(number + 1) ? 'page-item active': 'page-item' }">
-					<a class="page-link"
-					href='<c:url value='/products?page=${0 }'/>'
-					tabindex="-1">First</a>
-				</li>
-				<c:forEach var = "i" begin = "${number-2 < 0 ? 0 : number-2 }" end = "${number+2 }">
-					<c:if test="${i > 0 && i < totalPages}">
-						<li
-							class="${i==number ? 'page-item active': 'page-item' }">
-							<a class="page-link" href="<c:url value='/products?page=${i }'/>">${i + 1 }</a>
-						</li>
+						<nav aria-label="Page navigation">
+							<ul class="pagination justify-content-end">
+								<li class="page-item"><a class="page-link"
+									style="${0 ==(number) ? 'background-color: coral; color:white;': '' }; font-size: 1.7rem;"
+									href='<c:url value='/categories?categoryId=${category.categoryId }&page=0'/>'
+									tabindex="-1">First</a></li>
+								<c:forEach var="i" begin="${number-2 < 0 ? 0 : number-2 }"
+									end="${number+2 }">
+									<c:if test="${i > 0 && i < totalPages}">
+										<li class="page-item"><a class="page-link"
+											style="${i ==(number) ? 'background-color: coral; color:white;': '' }; font-size: 1.7rem;"
+											href="<c:url value='/categories?categoryId=${category.categoryId }&page=${i }'/>">${i + 1 }</a>
+										</li>
+									</c:if>
+								</c:forEach>
+								<li class="page-item"><a class="page-link"
+									style="${totalPages ==(number) ? 'background-color: coral; color:white;': '' }; font-size: 1.7rem;"
+									href='<c:url value='/categories?categoryId=${category.categoryId }&page=${totalPages }'/>'
+									tabindex="-1">Last</a>
+							</ul>
+						</nav>
 					</c:if>
-				</c:forEach>
-				<li
-					class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
-					<a class="page-link"
-					href='<c:url value='/products?page=${totalPages }'/>'
-					tabindex="-1">Last</a>
-			</ul>
-		</nav>
-	</c:if>
+
 				</div>
 			</div>
 		</div>

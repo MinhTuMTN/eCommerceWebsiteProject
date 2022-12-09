@@ -18,8 +18,7 @@ public class ProductsWebController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		DAOProductImpl daoProductImpl = new DAOProductImpl();
 		int pageSize = 8;
-		int pageNumber = 0;
-		
+		int pageNumber = 0;		
 		
 		float temp = (float)daoProductImpl.countAllProducts() / pageSize;
 		int totalPages = (float)((int) temp) < temp ? (int)temp : (int)temp - 1;
