@@ -20,6 +20,7 @@ import com.entity.Store;
 public class HomeSellerController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("fnProfile", true);
 		int storeId = 0;
 		for(Cookie cookie : req.getCookies())
 			if(cookie.getName().equals("id"))

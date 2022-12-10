@@ -26,6 +26,7 @@ import com.util.Constant;
 public class EditProductSellerController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("fnProducts", true);
 		String uri = req.getRequestURI();
 		int productId = 0;
 		Product product = new Product();

@@ -77,7 +77,11 @@
 												<img alt="" src="../image?fileFolder=Products&fname=${p.image }" width="100rem">
 											</c:if>
 											</td>
-											<td>${p.name }</td>
+											<td>
+												<a href="../product-details?productId=${p.productId }">
+													${p.name }
+												</a>
+											</td>
 											<td><fmt:formatNumber value="${p.price }"
 													maxFractionDigits="2" type="number"></fmt:formatNumber>đ</td>
 											<td>${p.quantity }</td>

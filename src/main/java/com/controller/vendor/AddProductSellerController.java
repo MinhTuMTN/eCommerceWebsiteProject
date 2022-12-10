@@ -26,6 +26,7 @@ import com.util.Constant;
 public class AddProductSellerController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("fnProducts", true);
 		List<Category> categories = new DAOCategoriesSellerImpl().getAllCategories();
 		req.setAttribute("categories", categories);
 		req.getRequestDispatcher("/views/seller/add-product.jsp").forward(req, resp);
