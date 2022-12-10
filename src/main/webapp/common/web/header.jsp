@@ -11,8 +11,8 @@
 	<nav class="navbar">
 		<a href='<c:url value="/home" />'>home</a> <a
 			href="<c:url value="/categories" />">categories</a> <a
-			href="<c:url value="/products" />">products</a> <a href="#review">review</a>
-		<a href="#contact">contact</a>
+			href="<c:url value="/products" />">products</a> 
+		<a href="<c:url value="/contact" />">contact</a>
 	</nav>
 
 	<form action="" class="search-form">

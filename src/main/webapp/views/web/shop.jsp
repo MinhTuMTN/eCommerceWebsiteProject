@@ -33,7 +33,7 @@
 		style="padding-top: 2rem; padding-bottom: 2rem;">
 		<c:forEach var="p" items="${products }">
 			<div class="box">
-				<img src="${p.image }" alt="" /> <a href=""><h3>${p.name }</h3></a>
+				<img src="${p.image }" alt="" /> <a href="<c:url value="/product-details?productId=${p.productId}" />"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
 						maxFractionDigits="2" value="${p.price}" /> đ</strong> 
