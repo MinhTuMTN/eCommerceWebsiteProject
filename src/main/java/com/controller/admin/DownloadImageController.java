@@ -19,17 +19,19 @@ import com.util.Constant;
 public class DownloadImageController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String fileName = req.getParameter("fname");
-		String fileFolder = req.getParameter("fileFolder");
-		if (fileName == null) {
-			fileName = "new";
-		}
+		try {
+			String fileName = req.getParameter("fname");
+			String fileFolder = req.getParameter("fileFolder");
 
-		File file = new File(Constant.DIR + "/" + fileFolder + "/" + fileName);
+			File file = new File(Constant.DIR + "/" + fileFolder + "/" + fileName);
 
-		resp.setContentType("image/jpeg");
-		if (file.exists()) {
-			IOUtils.copy(new FileInputStream(file), resp.getOutputStream());
+			resp.setContentType("image/jpeg");
+			if (file.exists()) {
+				IOUtils.copy(new FileInputStream(file), resp.getOutputStream());
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
+		
 	}
 }

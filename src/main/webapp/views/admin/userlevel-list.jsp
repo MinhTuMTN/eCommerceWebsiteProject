@@ -8,56 +8,45 @@
 		<div class="row mt-2 md-2">
 			<div class="col-md-6 float-right">
 				<a class="button-81" role="button"
-					href="<c:url value="/admin/add-category"/>">Add New Category</a>
+					href="<c:url value="/admin/add-userlevel"/>">Add New User Level</a>
 			</div>
 		</div>
 		<table class="table manage-candidates-top mb-0">
 			<thead>
 				<tr>
-					<th>Category ID</th>
-					<th>Image</th>
+					<th>User Level ID</th>
 					<th>Name</th>
+					<th>Discount</th>
 					<th>Status</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${categories}" var="category">
+				<c:forEach items="${userLevels}" var="userLevel">
 					<tr class="odd gradeX">
-						<td>${category.categoryId }</td>
-						<td><c:set value="${category.image}" var="imageUrl" /> <c:choose>
-								<c:when test="${fn:substring(imageUrl, 0, 4) == 'http' }">
-									<c:url value="${category.image}" var="categoryImgUrl"></c:url>
-
-								</c:when>
-								<c:otherwise>
-									<c:url
-										value="/image?fname=${category.image}&fileFolder=Categories"
-										var="categoryImgUrl"></c:url>
-
-								</c:otherwise>
-							</c:choose> <img src="${categoryImgUrl}" width="100px"
-							alt="${category.name}"></td>
-						<td>${category.name}</td>
-						<td><c:if test="${category.isDeleted == true}">
+						<td>${userLevel.userLevelId }</td>
+						
+						<td>${userLevel.name}</td>
+						<td>${userLevel.discount}</td>
+						<td><c:if test="${userLevel.isDeleted == true}">
 								<span>Deleted</span>
-							</c:if> <c:if test="${category.isDeleted == false}">
+							</c:if> <c:if test="${userLevel.isDeleted == false}">
 								<span>Active</span>
 							</c:if></td>
 						<td><a
-							href="<c:url value="/admin/category-detail?categoryId=${category.categoryId}"/>"
+							href="<c:url value="/admin/userlevel-detail?userLevelId=${userLevel.userLevelId}"/>"
 							class="button-81" role="button"><i class="fa fa-info"></i></a> <a
-							href="<c:url value="/admin/update-category?categoryId=${category.categoryId}"/>"
+							href="<c:url value="/admin/update-userlevel?userLevelId=${userLevel.userLevelId}"/>"
 							class="button-81" role="button"><i class="fa fa-edit"></i></a> <c:if
-								test="${category.isDeleted == true}">
+								test="${userLevel.isDeleted == true}">
 								<a
-									href="<c:url value="/admin/restore-category?categoryId=${category.categoryId}"/>"
+									href="<c:url value="/admin/restore-userlevel?userLevelId=${userLevel.userLevelId}"/>"
 									class="button-81" role="button"
 									onclick="javascript:return YNConfirmation()"><i
 									class="fa fa-refresh"></i></a>
-							</c:if> <c:if test="${category.isDeleted == false}">
+							</c:if> <c:if test="${userLevel.isDeleted == false}">
 								<a
-									href="<c:url value="/admin/delete-category?categoryId=${category.categoryId}"/>"
+									href="<c:url value="/admin/delete-userlevel?userLevelId=${userLevel.userLevelId}"/>"
 									class="button-81" role="button"
 									onclick="javascript:return YNConfirmation()"> <i
 									class="fa fa-trash"></i></a>
@@ -74,7 +63,7 @@
 					<ul class="pagination justify-content-end mb-0">
 						<li class="${1==(number + 1) ? 'page-item active': 'page-item' }">
 							<a class="page-link"
-							href='<c:url value='/admin/categories?filter=${filter }&page=${0 }'/>'
+							href='<c:url value='/admin/userLevels?filter=${filter }&page=${0 }'/>'
 							tabindex="-1">First</a>
 						</li>
 						<c:forEach var="i" begin="${number-1 < 0 ? 0 : number-1 }"
@@ -82,7 +71,7 @@
 							<c:if test="${i > 0 && i < totalPages}">
 								<li class="${i==number ? 'page-item active': 'page-item' }">
 									<a class="page-link"
-									href="<c:url value='/admin/categories?filter=${filter }&page=${i }'/>">${i + 1 }</a>
+									href="<c:url value='/admin/userLevels?filter=${filter }&page=${i }'/>">${i + 1 }</a>
 								</li>
 							</c:if>
 
@@ -91,7 +80,7 @@
 						<li
 							class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
 							<a class="page-link"
-							href='<c:url value='/admin/categories?filter=${filter }&page=${totalPages }'/>'
+							href='<c:url value='/admin/userLevels?filter=${filter }&page=${totalPages }'/>'
 							tabindex="-1">Last</a>
 					</ul>
 				</nav>

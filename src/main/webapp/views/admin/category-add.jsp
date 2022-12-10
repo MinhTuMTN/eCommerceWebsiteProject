@@ -26,6 +26,4 @@
 </div>
 
 <script
-	src="${pageContext.request.contextPath}/views/js/generateSlug.js"></script>
-<script
 	src="${pageContext.request.contextPath}/views/js/confirmation.js"></script>

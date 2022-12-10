@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Nationalized;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class UserLevel {
 	private int userLevelId;
 	
 	@NonNull
+	@Nationalized
 	private String name;
 	
 	@NonNull
@@ -34,7 +37,7 @@ public class UserLevel {
 	private Double discount;
 	
 	@NonNull
-	private Boolean isDeleted;
+	private Boolean isDeleted = false;
 	
 	@NonNull
 	private Date createdAt;

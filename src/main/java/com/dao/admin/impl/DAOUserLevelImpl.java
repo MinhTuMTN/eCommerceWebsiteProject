@@ -1,6 +1,5 @@
 package com.dao.admin.impl;
 
-import java.io.File;
 import java.sql.Date;
 import java.util.List;
 
@@ -9,16 +8,15 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
-import com.entity.Category;
-import com.entity.Product;
+import com.entity.UserLevel;
 
-public class DAOCategoryImpl {
-	public void insertCategory(Category category) {
+public class DAOUserLevelImpl {
+	public void insertUserLevel(UserLevel userLevel) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
-			entityManager.persist(category);
+			entityManager.persist(userLevel);
 			transaction.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,27 +24,12 @@ public class DAOCategoryImpl {
 		}
 	}
 
-	public void updateCategory(Category category) {
+	public void updateUserLevel(UserLevel userLevel) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
-			Category oldCategory = getCategoryById(category.getCategoryId());
-			oldCategory.setName(category.getName());
-			oldCategory.setSlug(category.getSlug());
-			oldCategory.setUpdatedAt(category.getUpdatedAt());
-
-			if (!category.getImage().equals("")) {
-				String fileName = oldCategory.getImage();
-				final String dir = "C:\\upload";
-				File file = new File(dir + "/Categories" + fileName);
-				if (file.exists()) {
-					file.delete();
-				}
-				oldCategory.setImage(category.getImage());
-			}
-
-			entityManager.merge(oldCategory);
+			entityManager.merge(userLevel);
 			transaction.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,15 +37,15 @@ public class DAOCategoryImpl {
 		}
 	}
 
-	public boolean deleteCategory(Category category) {
+	public boolean deleteUserLevel(UserLevel userLevel) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
 			Date updatedAt = new Date(System.currentTimeMillis());
-			category.setUpdatedAt(updatedAt);
-			category.setIsDeleted(true);
-			entityManager.merge(category);
+			userLevel.setUpdatedAt(updatedAt);
+			userLevel.setIsDeleted(true);
+			entityManager.merge(userLevel);
 			transaction.commit();
 			return true;
 		} catch (Exception e) {
@@ -72,15 +55,15 @@ public class DAOCategoryImpl {
 		}
 	}
 
-	public boolean restoreCategory(Category category) {
+	public boolean restoreUserLevel(UserLevel userLevel) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
 			Date updatedAt = new Date(System.currentTimeMillis());
-			category.setUpdatedAt(updatedAt);
-			category.setIsDeleted(false);
-			entityManager.merge(category);
+			userLevel.setUpdatedAt(updatedAt);
+			userLevel.setIsDeleted(false);
+			entityManager.merge(userLevel);
 			transaction.commit();
 			return true;
 		} catch (Exception e) {
@@ -90,26 +73,26 @@ public class DAOCategoryImpl {
 		}
 	}
 
-	public List<Category> getAllCategoriesPagination(int pageNumber, int size) {
+	public List<UserLevel> getAllUserLevelsPagination(int pageNumber, int size) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT c FROM Category c ORDER BY c.categoryId DESC";
-		TypedQuery<Category> query = entityManager.createQuery(jpql, Category.class);
+		String jpql = "SELECT ul FROM UserLevel ul ORDER BY ul.userLevelId DESC";
+		TypedQuery<UserLevel> query = entityManager.createQuery(jpql, UserLevel.class);
 		query.setFirstResult(pageNumber * size);
 		query.setMaxResults(size);
 		return query.getResultList();
 	}
 
-	public int countAllCategories() {
+	public int countAllUserLevels() {
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT COUNT(c) FROM Category c";
+		String jpql = "SELECT COUNT(ul) FROM UserLevel ul";
 		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
 
 		return query.getSingleResult().intValue();
 	}
 
-	public Category getCategoryById(Long categoryId) {
+	public UserLevel getUserLevelById(int userLevelId) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		Category category = entityManager.find(Category.class, categoryId);
-		return category;
+		UserLevel userLevel = entityManager.find(UserLevel.class, userLevelId);
+		return userLevel;
 	}
 }
