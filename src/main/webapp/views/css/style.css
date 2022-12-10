@@ -136,7 +136,7 @@ hr{
     font-size: 1.7rem;
     border-radius: .7rem;
     border:.2rem solid var(--white);
-    color:var(--white);
+    color:var(--black);
     cursor: pointer;
     background: none;
 }
@@ -474,6 +474,7 @@ hr{
     background: var(--orange);
     color:var(--black);
 }
+
 
 /*Category-detail*/
 .a-cate-detai{
