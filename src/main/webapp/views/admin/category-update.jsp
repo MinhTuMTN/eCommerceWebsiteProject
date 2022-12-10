@@ -18,22 +18,20 @@
 			<label>Category name:</label> <input type="text" class="form-control"
 				placeholder="Category name" name="name" value="${category.name}" />
 		</div>
-		<div class="form-group">
-			<label>Slug:</label> <input type="text" class="form-control"
-				placeholder="Slug" name="slug" value="${category.slug }" />
-		</div>
 
 		<div class="form-group">
 			<c:url value="/image?fname=${category.image }&fileFolder=Categories"
 				var="imageUrl"></c:url>
 			<label>Image:</label> <img class="img-responsive" width="100px"
 				src="${imageUrl}" alt=""> <input type="file" name="image"
-				value="${category.image}" />
+				value="${imageUrl}" />
 		</div>
 		<div class="card-footer text-muted">
 			<button type="reset" class="btn btn-primary">Reset</button>
-			<button type="submit" class="btn btn-default">Update</button>
+			<button type="submit" class="btn btn-default" onclick="javascript:return YNConfirmation()">Update</button>
 		</div>
 
 	</form>
 </div>
+<script
+	src="${pageContext.request.contextPath}/views/js/confirmation.js"></script>

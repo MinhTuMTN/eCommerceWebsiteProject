@@ -34,7 +34,8 @@ public class DAOCategoryImpl {
 			oldCategory.setName(category.getName());
 			oldCategory.setSlug(category.getSlug());
 			oldCategory.setUpdatedAt(category.getUpdatedAt());
-			if (category.getImage() != null) {
+
+			if (!category.getImage().equals("")) {
 				String fileName = oldCategory.getImage();
 				final String dir = "C:\\upload";
 				File file = new File(dir + "/Categories" + fileName);
@@ -43,6 +44,7 @@ public class DAOCategoryImpl {
 				}
 				oldCategory.setImage(category.getImage());
 			}
+
 			entityManager.merge(oldCategory);
 			transaction.commit();
 		} catch (Exception e) {

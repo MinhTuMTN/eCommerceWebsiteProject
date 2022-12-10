@@ -10,6 +10,7 @@
 					<th>Category ID</th>
 					<th>Image</th>
 					<th>Name</th>
+					<th>Slug</th>
 					<th>Created At</th>
 					<th>Updated At</th>
 					<th>Status</th>
@@ -31,6 +32,7 @@
 							</c:otherwise>
 						</c:choose> <img src="${categoryImgUrl}" width="100px" alt="${category.name}"></td>
 					<td>${category.name}</td>
+					<th>${category.slug }</th>
 					<td>${category.createdAt }</td>
 					<td>${category.updatedAt }</td>
 					<td><c:if test="${category.isDeleted == true}">

@@ -91,14 +91,15 @@ public class CategoriesController extends HttpServlet {
 			Category category = new Category();
 
 			category.setCategoryId(Long.parseLong(req.getParameter("categoryId")));
-			category.setName(req.getParameter("name"));
-			category.setSlug(req.getParameter("slug"));
+			String name = req.getParameter("name");
+			category.setName(name);
+			category.setSlug(Slugify.makeSlug(name));
 
 			Date updatedAt = new Date(System.currentTimeMillis());
 			category.setUpdatedAt(updatedAt);
-
 			String fileName = category.getSlug() + System.currentTimeMillis();
-			category.setImage(UploadUtils.processUpload("image", req, Constant.DIR + "\\Categories\\", fileName));
+			String image = UploadUtils.processUpload("image", req, Constant.DIR + "\\Categories\\", fileName);
+			category.setImage(image);
 
 			daoCategoryImpl.updateCategory(category);
 
@@ -116,8 +117,9 @@ public class CategoriesController extends HttpServlet {
 		try {
 			Category category = new Category();
 
-			category.setName(req.getParameter("name"));
-			category.setSlug(req.getParameter("slug"));
+			String name = req.getParameter("name");
+			category.setName(name);
+			category.setSlug(Slugify.makeSlug(name));
 
 			Date createdAt = new Date(System.currentTimeMillis());
 			category.setCreatedAt(createdAt);

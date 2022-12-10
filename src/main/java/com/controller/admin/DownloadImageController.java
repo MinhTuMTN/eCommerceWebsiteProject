@@ -16,15 +16,15 @@ import com.util.Constant;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/image")
-public class DownloadImageController extends HttpServlet{
+public class DownloadImageController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String fileName = req.getParameter("fname");
 		String fileFolder = req.getParameter("fileFolder");
-		if(fileName == null) {
+		if (fileName == null) {
 			fileName = "new";
 		}
-		
+
 		File file = new File(Constant.DIR + "/" + fileFolder + "/" + fileName);
 
 		resp.setContentType("image/jpeg");
