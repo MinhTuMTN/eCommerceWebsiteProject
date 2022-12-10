@@ -5,14 +5,16 @@
 	background-color: coral;
 	color: white;
 }
+
 ul {
 	list-style-type: none;
 }
-#nav_accordion > li  > h3 > a {
+
+#nav_accordion>li>h3>a {
 	color: black;
 }
 
-#nav_accordion > li  > a > h3 {
+#nav_accordion>li>a>h3 {
 	color: black;
 }
 </style>
@@ -63,8 +65,13 @@ ul {
 								Orders</a>
 						</h4></li>
 				</ul></li>
+			<li class="nav-item list-group-item"><h3>
+					<a class="nav-link" href="<c:url value="/admin/categories"/>">Categories
+						management</a>
+				</h3></li>
 		</ul>
 
 	</div>
 </div>
-<script src="${pageContext.request.contextPath}/views/js/menuDropdown.js"></script>
+<script
+	src="${pageContext.request.contextPath}/views/js/menuDropdown.js"></script>
