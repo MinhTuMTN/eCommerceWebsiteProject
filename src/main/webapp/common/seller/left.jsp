@@ -15,7 +15,7 @@
 			<i class="fa fa-user"></i> Menu
 		</div>
 		<ul class="list-group category_block">
-			<li class="list-group-item a-cate-detai"
+			<li class="list-group-item a-cate-detai my-active"
 				style="font-size: 15px; height: 4.25rem; padding-left: 3.5rem;"><a
 				href='<c:url value="/seller/home" ></c:url>' >Thông
 					tin cửa hàng</a></li>
