@@ -13,7 +13,7 @@ import com.dao.admin.impl.DAOOrderIpml;
 import com.entity.Order;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/admin/orders", "/admin/order-detail" })
+@WebServlet(urlPatterns = { "/admin/orders", "/admin/order-detail", "/admin/update-status"})
 public class OrdersController extends HttpServlet {
 	DAOOrderIpml daoOrderIpml = new DAOOrderIpml();
 	
@@ -25,6 +25,8 @@ public class OrdersController extends HttpServlet {
 			orderList(req, resp);
 		} else if (url.contains("/order-detail")) {
 			orderDetail(req, resp);
+		} else if (url.contains("/update-status")) {
+			updateStatus(req, resp);
 		}
 	}
 	protected void orderList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -81,5 +83,19 @@ public class OrdersController extends HttpServlet {
 		req.setAttribute("order", order);
 
 		req.getRequestDispatcher("/views/admin/order-detail.jsp").forward(req, resp);
+	}
+	
+	protected void updateStatus(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int orderId = Integer.valueOf(req.getParameter("orderId"));
+		String message = "";
+		if(daoOrderIpml.updateOrderStatus(orderId)) {
+			message = "Cập nhật trạng thái đơn hàng thành công!";
+		} else {
+			message = "Cập nhật trạng thái đơn hàng thất bại!";
+		}
+		
+		req.setAttribute("message", message);
+		
+		req.getRequestDispatcher("/views/admin/home.jsp").forward(req, resp);
 	}
 }

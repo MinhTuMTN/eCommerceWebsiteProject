@@ -3,12 +3,14 @@ package com.dao.admin.impl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
 import com.entity.Order;
 
 public class DAOOrderIpml{
+	
 	public List<Order> getAllOrdersPagination(int pageNumber, int size){
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		String jpql = "SELECT o FROM Order o ORDER BY o.orderId DESC";
@@ -47,5 +49,22 @@ public class DAOOrderIpml{
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		Order order = entityManager.find(Order.class, orderId);
 		return order;
+	}
+	
+	public boolean updateOrderStatus(int orderId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		try {
+			transaction.begin();
+			Order order = new DAOOrderIpml().getOrderById(orderId);
+			order.setStatus(3);
+			entityManager.merge(order);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+			return false;
+		}
 	}
 }
