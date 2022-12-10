@@ -38,13 +38,25 @@
 		</div>
 	</div>
 	<div class="box-container pt-10">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb" style="height: 45px;">
-			</ol>
-		</nav>
-	</div>
+        <div class="shop-inf">
+            <div class="mxBadu">
+                <a class="CrEFt7" href="<c:url value="store?storeId=${product.store.storeId }" />">
+                    <div class="shopee-avatar _92jwbD">
+                        <img class="ava__img" src="${product.store.avatar }" alt="Shop ava img">
+                    </div>
+                    <div class="jxOoP6">
+                        <div class="bpQZ1 Z8rK9d">Yêu thích</div>
+                    </div>
+                </a>
+                <div class="auohmy">
+                    <a href="<c:url value="store?storeId=${product.store.storeId }" />" style="text-decoration: none">
+                        <div class="FbKovn">${product.store.name }</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-<!-- product detail ends -->
 
 <!-- Other product starts-->
 <section class="list" id="" style="padding-top: 0;">

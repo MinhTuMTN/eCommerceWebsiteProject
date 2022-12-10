@@ -15,29 +15,29 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.impl.DAOUserImpl;
 import com.entity.User;
 
-@WebFilter(urlPatterns = {"/addToCart", "/cart", "/updateCart", "/productId"})
-public class UserFeaturesFilter implements Filter{
+@WebFilter(urlPatterns = { "/addToCart", "/cart", "/updateCart", "/productId", "/payment", "/change-password",
+		"/profile", "/change-information", "/contact" })
+public class UserFeaturesFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
-        
+
 		try {
 			Cookie[] cookies = req.getCookies();
-	        if (cookies != null)
-	          for (Cookie ck : cookies) 
-	            if ("id".equals(ck.getName()))  {            
-	            	chain.doFilter(request, response);
-	            	return;
-	            }
-		}catch (Exception e) {
+			if (cookies != null)
+				for (Cookie ck : cookies)
+					if ("id".equals(ck.getName())) {
+						chain.doFilter(request, response);
+						return;
+					}
+		} catch (Exception e) {
 			e.printStackTrace();
 			resp.sendRedirect(req.getContextPath() + "/dang-nhap");
 		}
-        
-                         
+
 		resp.sendRedirect(req.getContextPath() + "/dang-nhap");
 	}
 
