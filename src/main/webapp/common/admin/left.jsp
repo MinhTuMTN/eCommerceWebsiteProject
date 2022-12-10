@@ -69,6 +69,14 @@ ul {
 					<a class="nav-link" href="<c:url value="/admin/categories"/>">Categories
 						management</a>
 				</h3></li>
+				<li class="nav-item list-group-item"><h3>
+					<a class="nav-link" href="<c:url value="/admin/userlevels"/>">User Levels
+						management</a>
+				</h3></li>
+				<li class="nav-item list-group-item"><h3>
+					<a class="nav-link" href="<c:url value="/admin/storelevels"/>">Store Levels
+						management</a>
+				</h3></li>
 		</ul>
 
 	</div>

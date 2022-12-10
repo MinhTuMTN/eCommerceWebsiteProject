@@ -2,14 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <div class="row mt-6">
-	<form action='<c:url value="/admin/add-userlevel"/>' method="post">
+	<form action='<c:url value="/admin/add-storelevel"/>' method="post">
 		<div class="card">
 			<div class="card-header">
-				<h2>Add new user level</h2>
+				<h2>Add new store level</h2>
 			</div>
 			<div class="form-group">
-				<label>User level name:</label> <input type="text"
-					class="form-control" placeholder="User level name" name="name" id="name" />
+				<label>Store level name:</label> <input type="text"
+					class="form-control" placeholder="Store level name" name="name" id="name" />
 			</div>
 			<div class="form-group">
 				<label>Minimum point:</label> <input type="text"
