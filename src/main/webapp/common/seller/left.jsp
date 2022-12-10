@@ -12,7 +12,7 @@
 	<div class="card bg-light mb-1">
 		<div class="card-header text-white"
 			style="background-color: black; font-size: 23px;">
-			<i class="fa fa-user"></i> Menu
+			<i class="fa fa-user"></i> Quản lý shop
 		</div>
 		<ul class="list-group category_block">
 			<li class="list-group-item a-cate-detai my-active"
