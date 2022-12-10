@@ -32,8 +32,8 @@ public class Order {
 	private String address;	
 	private String phone;	
 	private Integer status;	
-	private Boolean isPaidBefore;	
-	private Double amountFromUser;
+	private Boolean isPaidBefore = true;	
+	private Double amountFromUser = 0D;
 	private Double amountFromStore;
 	private Double amountToStore;
 	private Double amountToGD;

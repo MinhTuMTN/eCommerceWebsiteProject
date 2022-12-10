@@ -30,8 +30,8 @@ public class Store {
 	private String name;
 	private String bio;
 	private String slug;
-	private Boolean isActive;
-	private Boolean isOpen;
+	private Boolean isActive = true;
+	private Boolean isOpen = true;
 	private String avatar;
 	private String cover;
 	private Integer point;

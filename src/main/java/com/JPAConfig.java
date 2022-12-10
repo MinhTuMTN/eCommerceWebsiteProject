@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import com.dao.impl.DAOUserImpl;
+import com.dao.impl.DAOUserOrderImpl;
 import com.entity.Product;
 import com.entity.User;
 import com.entity.UserLevel;
@@ -25,7 +26,7 @@ public class JPAConfig {
 	}
 
 	public static void main(String[] args) {
-		getEntityManager();
-		factory.close();
+		DAOUserOrderImpl orderImpl = new DAOUserOrderImpl();
+		orderImpl.payment(1);
 	}
 }
