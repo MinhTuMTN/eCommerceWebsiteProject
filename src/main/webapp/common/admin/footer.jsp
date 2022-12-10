@@ -20,18 +20,17 @@
 
         <div class="box">
             <h3>contact info</h3>
-            <a href="#" class="links"> <i class="fas fa-phone"></i> +111-222-3333 </a>
-            <a href="#" class="links"> <i class="fas fa-envelope"></i> dhspkt@gmail.com </a>
-            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i>Số 1 Võ Văn Ngân, phường Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh </a>
+            <a href="tel:111-222-3333" class="links"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+            <a href="mailto:dhspkt@gmail.com" class="links" style="text-transform: none"> <i class="fas fa-envelope"></i> dhspkt@gmail.com </a>
+            <a href="https://goo.gl/maps/a3gcTev2pLfbkqz69" class="links" target="_blank"> <i class="fas fa-map-marker-alt"></i>Số 1 Võ Văn Ngân, phường Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh </a>
         </div>
 
         <div class="box">
             <h3>quick links</h3>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> categories </a>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> products </a>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> review </a>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> contact </a>
+            <a href="<c:url value="/home" />" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="<c:url value="/categories" />" class="links"> <i class="fas fa-arrow-right"></i> categories </a>
+            <a href="<c:url value="/products" />" class="links"> <i class="fas fa-arrow-right"></i> products </a>
+            <a href="<c:url value="/contact" />" class="links"> <i class="fas fa-arrow-right"></i> contact </a>
         </div>
 
     </div>

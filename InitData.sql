@@ -26,11 +26,11 @@ SET IDENTITY_INSERT [dbo].[Category] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Store] ON 
 GO
-INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (1, NULL, NULL, NULL, CAST(N'2022-12-10T07:16:55.0000000' AS DateTime2), 0, 1, 1, N'Samsung Store', 1000, 5, NULL, NULL, NULL, NULL, 3)
+INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (1, 'https://www.elleman.vn/wp-content/uploads/2019/10/02/logo-thu%CC%9Bo%CC%9Bng-hie%CC%A3%CC%82u-samsung-hi%CC%80nh-elip.png', NULL, NULL, CAST(N'2022-12-10T07:16:55.0000000' AS DateTime2), 0, 1, 1, N'Samsung Store', 1000, 5, NULL, NULL, NULL, NULL, 3)
 GO
-INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (2, NULL, NULL, NULL, CAST(N'2022-12-10T07:17:51.0000000' AS DateTime2), 0, 1, 1, N'Apple Store', 1000, 5, NULL, NULL, NULL, NULL, 4)
+INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Apple-logo.png/640px-Apple-logo.png', NULL, NULL, CAST(N'2022-12-10T07:17:51.0000000' AS DateTime2), 0, 1, 1, N'Apple Store', 1000, 5, NULL, NULL, NULL, NULL, 4)
 GO
-INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (3, NULL, NULL, NULL, CAST(N'2022-12-10T07:18:16.0000000' AS DateTime2), 0, 1, 1, N'Xiaomi Store', 1000, 5, NULL, NULL, NULL, NULL, 5)
+INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (3, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiaomi_logo_%282021-%29.svg/1200px-Xiaomi_logo_%282021-%29.svg.png', NULL, NULL, CAST(N'2022-12-10T07:18:16.0000000' AS DateTime2), 0, 1, 1, N'Xiaomi Store', 1000, 5, NULL, NULL, NULL, NULL, 5)
 GO
 SET IDENTITY_INSERT [dbo].[Store] OFF
 GO

@@ -14,14 +14,9 @@
 <title>HCMUTE Shop</title>
 <link rel="icon" href="${URL }" sizes="any" type="image/svg+xml">
 <link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600"
-	rel="stylesheet" type="text/css">
+
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 <!-- font awesome cdn link  -->
@@ -32,15 +27,25 @@
 <!-- custom css file link  -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/views/css/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/views/css/admin-style.css" />
 </head>
 <body>
 	<%@ include file="/common/admin/header.jsp"%>
-
-	<!-- body -->
-	<dec:body />
-	<!-- body -->
+	<section class="sproduct" style="padding: 10rem 3rem 3rem 3rem;">
+		<!-- Hiển thông báo -->
+		<c:if test="${message != null}">
+			<div class="alert alert-primary" role="alert">
+				<i>${message}</i>
+			</div>
+		</c:if>
+		<div class="box-container w-10">
+			<div class="row">
+				<%@ include file="/common/admin/left.jsp"%>
+				<!-- body -->
+				<dec:body />
+				<!-- body -->
+			</div>
+		</div>
+	</section>
 	<!--=== Footer v4 ===-->
 	<jsp:include page="/common/admin/footer.jsp"></jsp:include>
 
