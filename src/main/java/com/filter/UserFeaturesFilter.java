@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.impl.DAOUserImpl;
 import com.entity.User;
 
-@WebFilter(urlPatterns = {"/addToCart", "/cart", "/updateCart", "/productId", "/payment"})
+@WebFilter(urlPatterns = {"/addToCart", "/cart", "/updateCart", "/productId", "/payment", "/change-password"})
 public class UserFeaturesFilter implements Filter{
 
 	@Override

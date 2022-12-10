@@ -475,6 +475,102 @@ hr{
     color:var(--black);
 }
 
+.shop-inf{
+    background-color: white; 
+    font-size:20px;
+    border: #eae9f0 solid;
+    height: 10rem;
+    display: flex;
+    padding: 1.5rem;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+}
+
+.mxBadu{
+    width: 35rem;
+    box-sizing: border-box;
+    border-right: 2px solid rgba(0,0,0,.05);
+    display: flex;
+    margin-left: 1.5rem;
+}
+
+.CrEFt7 {
+    flex-shrink: 0;
+    margin-right: 1.25rem;
+    position: relative;
+    overflow: visible;
+    outline: 0;
+}
+
+.CrEFt7 ._92jwbD {
+    width: 7rem;
+    height: 7rem;
+}
+
+.shopee-avatar {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    border: 0.0625rem solid rgba(0,0,0,.09);
+    box-sizing: border-box;
+}
+
+.ava__img {
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.jxOoP6 {
+    position: absolute;
+    bottom: -15%;
+    left: -5%;
+    width: 110%;
+    text-align: center;
+}
+
+.Z8rK9d {
+    font-size: 1rem;
+}
+
+.bpQZ1 {
+    bottom: 0;
+    display: inline-block;
+    position: relative;
+    background-color: #ee4d2d;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    padding: 0.1875rem 0.5rem;
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: default;
+    user-select: none;
+}
+
+.auohmy {
+    padding-top: 6%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.FbKovn {
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: rgba(170, 55, 55, 0.87);
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /*Category-detail*/
 .a-cate-detai{
     color: black;

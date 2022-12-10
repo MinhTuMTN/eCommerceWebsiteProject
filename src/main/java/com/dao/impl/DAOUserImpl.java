@@ -100,4 +100,22 @@ public class DAOUserImpl implements IDAOUser{
 		users = query.getResultList();
 		return users.size() > 0 ? users.get(0) : null;
 	}
+	
+	public boolean changeUserPassword(int userId, String oldPassword, String newPassword) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		User user = entityManager.find(User.class, userId);
+		if(!user.getPassword().equals(oldPassword))
+			return false;
+		try {
+			transaction.begin();
+			user.setPassword(newPassword.trim());
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+			return false;
+		}
+	}
 }
