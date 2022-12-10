@@ -26,7 +26,7 @@
 </head>
 <body>
 	<%@ include file="/common/seller/header.jsp"%>
-<section class="sproduct" style="padding-top: 10rem;">
+<section class="sproduct" style="padding: 10rem 3rem 3rem 3rem;">
 	<div class="box-container w-10">
 		<div class="row">
 			<%@ include file="/common/seller/left.jsp"%>
