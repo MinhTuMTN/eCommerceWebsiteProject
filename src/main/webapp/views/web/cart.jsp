@@ -73,8 +73,14 @@ body {
 										value="${c.product.productId }">
 								<td class="p-4">
 										<div class="media align-items-center">
+										<c:if test="${fn:startsWith(c.product.image, 'http')}">
 											<img src="${c.product.image }"
 												class="d-block ui-w-40 ui-bordered mr-4" alt="">
+										</c:if>
+										<c:if test="${!fn:startsWith(c.product.image, 'http')}">
+											<img src="image?fileFolder=Products&fname=${c.product.image }"
+												class="d-block ui-w-40 ui-bordered mr-4" alt="">
+										</c:if>
 											<div class="media-body">
 												<c:url
 													value="/product-details?productId=${c.product.productId }"

@@ -72,20 +72,28 @@
 						style="font-size: 1.7rem">
 						<i class="fa fa-heart"></i> Top product
 					</div>
-					<img class="img-fluid border-0"
-						src="${topProduct.image }"
-						alt="Card image cap" />
+					<c:if test="${fn:startsWith(topProduct.image, 'http')}">
+						<img class="img-fluid border-0" src="${topProduct.image }"
+							alt="Card image cap" />
+					</c:if>
+					<c:if test="${!fn:startsWith(topProduct.image, 'http')}">
+						<img class="img-fluid border-0"
+							src="image?fileFolder=Products&fname=${topProduct.image }"
+							alt="Card image cap" />
+					</c:if>
 					<div class="card-body">
 						<h4 class="card-title text-center">
-							<a href='<c:url value="/product-details?productId=${topProduct.productId }"/>' title="View Product">${topProduct.name }</a>
+							<a
+								href='<c:url value="/product-details?productId=${topProduct.productId }"/>'
+								title="View Product">${topProduct.name }</a>
 						</h4>
 						<div class="row">
 							<div class="col text-center">
 								<strong class="price-top"><fmt:formatNumber
 										type="number" maxFractionDigits="2"
-										value="${topProduct.price}" />đ</strong><br>
-							
-								<a href='<c:url value="/addToCart?productId=${topProduct.productId }"/>' class="btn">Add to cart</a>
+										value="${topProduct.price}" />đ</strong><br> <a
+									href='<c:url value="/addToCart?productId=${topProduct.productId }"/>'
+									class="btn">Add to cart</a>
 							</div>
 						</div>
 					</div>
@@ -103,12 +111,17 @@
 	<div class="box-container">
 		<c:forEach items="${lastProducts }" var="p">
 			<div class="box">
-				<img src="${p.image }" alt="" /> <a href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
+				<c:if test="${fn:startsWith(p.image, 'http')}">
+					<img src="${p.image }" alt="" />
+				</c:if>
+				<c:if test="${!fn:startsWith(p.image, 'http')}">
+					<img src="image?fileFolder=Products&fname=${p.image }" alt="" />
+				</c:if>
+				<a
+					href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
-						maxFractionDigits="2" value="${p.price}" />đ</strong> 
-						<br>
-						<a
+						maxFractionDigits="2" value="${p.price}" />đ</strong> <br> <a
 					href="<c:url value="/addToCart?productId=${p.productId }"/>"
 					class="btn">Add to cart</a>
 			</div>
@@ -127,11 +140,19 @@
 	<div class="box-container">
 		<c:forEach items="${bestProducts }" var="p">
 			<div class="box">
-				<img src="${p.image }" alt="" /> <a href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
+				<<c:if test="${fn:startsWith(p.image, 'http')}">
+					<img src="${p.image }" alt="" />
+				</c:if>
+				<c:if test="${!fn:startsWith(p.image, 'http')}">
+					<img src="image?fileFolder=Products&fname=${p.image }" alt="" />
+				</c:if>
+				
+				<a
+					href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
-						maxFractionDigits="2" value="${p.price}" />đ</strong> <br><a
-					href="<c:url value="/addToCart?productId=${p.productId }"/>"
+						maxFractionDigits="2" value="${p.price}" />đ</strong> <br>
+				<a href="<c:url value="/addToCart?productId=${p.productId }"/>"
 					class="btn">Add to cart</a>
 			</div>
 		</c:forEach>

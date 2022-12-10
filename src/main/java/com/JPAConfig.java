@@ -26,8 +26,7 @@ public class JPAConfig {
 	}
 
 	public static void main(String[] args) {
-		DAOUserOrderImpl orderImpl = new DAOUserOrderImpl();
-		orderImpl.payment(2);
-		factory.close();
+//		DAOUserOrderImpl orderImpl = new DAOUserOrderImpl();
+//		orderImpl.payment(1);
 	}
 }

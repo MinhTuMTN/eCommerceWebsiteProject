@@ -2,3 +2,17 @@ UserRole:
 	0: Admin
 	1: Seller
 	2: User
+UserOrder;
+	0: not processed
+	1: processing
+	2: shipped
+	3: delivered
+	4: cancelled
+
+Category Image Dir: C:/upload/Categories
+Product Images Dir: C:/upload/Products
+
+
+--- Việc cần làm:
+----- Cập nhật số dư khi người dùng nhấn thanh toán
+----- Thay đổi đường dẫn nếu là ảnh cục bộ
