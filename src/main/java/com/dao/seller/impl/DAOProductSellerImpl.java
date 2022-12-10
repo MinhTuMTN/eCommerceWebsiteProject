@@ -45,4 +45,30 @@ public class DAOProductSellerImpl {
 			return null;
 		}
 	}
+	
+	public Boolean changeStatusProduct(int productId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		Product product = entityManager.find(Product.class, productId);
+		if(product == null)
+			return false;
+		
+		product.setIsActive(!product.getIsActive());
+		EntityTransaction transaction = entityManager.getTransaction();
+		try {
+			transaction.begin();
+			entityManager.persist(product);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+			return false;
+		}
+	}
+	
+	public Product getProductsByProductId(int productId){
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		Product product = entityManager.find(Product.class, productId);
+		return product;
+	}
 }

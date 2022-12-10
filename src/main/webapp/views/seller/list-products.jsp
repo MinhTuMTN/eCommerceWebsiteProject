@@ -24,6 +24,13 @@
     background-color: coral !important;
     border-color: coral !important;
 }
+#example > tbody > tr> td > a {
+	text-decoration: none !important;
+	color: gray;
+}
+#example > tbody > tr> td > a:hover {
+	color: coral;
+}
 </style>
 <!-- body starts -->
 <div class="col">
@@ -63,7 +70,12 @@
 										<tr>
 											<td>${p.productId }</td>
 											<td>
+											<c:if test="${fn:startsWith(p.image, 'http')}">
 												<img alt="" src="${p.image }" width="100rem">
+											</c:if>
+											<c:if test="${!fn:startsWith(p.image, 'http')}">
+												<img alt="" src="../image?fileFolder=Products&fname=${p.image }" width="100rem">
+											</c:if>
 											</td>
 											<td>${p.name }</td>
 											<td><fmt:formatNumber value="${p.price }"
@@ -71,10 +83,12 @@
 											<td>${p.quantity }</td>
 											<td>${p.sold }</td>
 											<td>
-												<a>Chỉnh sửa</a>
+												<a href='<c:url value="/seller/edit-product?productId=${p.productId }"></c:url>'>Chỉnh sửa</a>
 											</td>
 											<td>
-												<a>Ngừng bán</a>
+												<a href='<c:url value="/seller/edit-status-product?productId=${p.productId }"></c:url>'>
+													${p.isActive ? "Ngừng bán" : "Mở bán" }
+												</a>
 											</td>
 										</tr>
 									</c:forEach>
