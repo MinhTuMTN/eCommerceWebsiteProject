@@ -26,13 +26,11 @@ public class DAOUserOrderImpl {
 		return null;
 	}
 	
-	public Double payment(int userId) {
-		Double total = 0D;
+	public boolean payment(int userId) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
-			User user = entityManager.find(User.class, userId);
 			Cart cart = new DAOCartImpl().findCartByUserId(userId);
 			List<CartItem> cartItems = cart.getCartItems();
 			List<Order> orders = new ArrayList<Order>();
@@ -40,17 +38,14 @@ public class DAOUserOrderImpl {
 			for(CartItem cartItem : cartItems) {
 				Long storeId = cartItem.getProduct().getStore().getStoreId();
 				Order order = findOrderInListOrders(storeId, orders);
-				Store store = entityManager.find(Store.class, storeId);
-				Product product = entityManager.find(Product.class, cartItem.getProduct().getProductId());
-						
-						
+				
 				// Nếu không tồn tại thì tạo đơn mới
 				if(order == null) {
 					// Tạo đơn hàng mới
 					order = new Order();
 					order.setCreatedAt(new Date());
-					order.setUser(user);
-					order.setStore(store);
+					order.setUser(entityManager.find(User.class, userId));
+					order.setStore(entityManager.find(Store.class, storeId));
 					order.setAmountFromUser(0D);
 					entityManager.persist(order);
 				}
@@ -59,34 +54,33 @@ public class DAOUserOrderImpl {
 				List<OrderItem> orderItems = order.getOrderItems();
 				OrderItem orderItem = new OrderItem();
 				orderItem.setCount(cartItem.getCount());
-				orderItem.setProduct(product);
+				orderItem.setProduct(cartItem.getProduct());
 				orderItem.setCreatedAt(new Date());
 				orderItems.add(orderItem);
-				order.setOrderItems(orderItems);
 				
 				// Cập nhật giá tiền cho đơn hàng
 				Double amount = order.getAmountFromUser();
-				amount += product.getPrice() * cartItem.getCount();
+				amount += cartItem.getProduct().getPrice() * cartItem.getCount();
 				order.setAmountFromUser(amount);
-				total += product.getPrice() * cartItem.getCount();
 				entityManager.merge(order);
 				
 				// Cập nhật số lượng đã bán của Product
+				Product product = cartItem.getProduct();
 				product.setQuantity(product.getQuantity() - cartItem.getCount());
 				product.setSold(product.getSold() + cartItem.getCount());
 				entityManager.persist(product);
 				
 				// Xóa cartItem ra khỏi giỏ hàng
-				CartItem cartItemRemove = entityManager.find(CartItem.class, cartItem.getCartItemId());
-				entityManager.remove(cartItemRemove);
-				orders.add(order); 				
+				entityManager.remove(cartItem);
+				orders.add(order); 
+				
 			}
 			transaction.commit();
-			return total;
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			transaction.rollback();
-			return null;
+			return false;
 		}		
 	}
 }

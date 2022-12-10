@@ -74,8 +74,7 @@ public class User implements Serializable{
 	
 	private Boolean isActived = true;
 	
-	@OneToMany(mappedBy = "user")
-	private List<Message> messages = new ArrayList<Message>();
+	
 	
 	public User(String firstName, String lastName, String slug, String id_card, String email, String phone,
 			Boolean isEmailActive, Boolean isPhoneActive, String salt, String password , String hashed_password, Integer role,

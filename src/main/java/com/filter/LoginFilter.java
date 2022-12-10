@@ -31,7 +31,6 @@ public class LoginFilter implements Filter{
 	            	User user = (new DAOUserImpl()).findUserById(id);
 	            	String userName = user.getFirstName() + " " + user.getLastName();
 	            	req.setAttribute("userName", userName);
-	            	req.setAttribute("role", user.getRole());
 	            }
 		}catch (Exception e) {
 			// TODO: handle exception

@@ -9,11 +9,8 @@
 	</a>
 
 	<nav class="navbar">
-		<a href='<c:url value="/home" />'>home</a> <a
-			href="<c:url value="/categories" />">categories</a> <a
-			href="<c:url value="/products" />">products</a> 
-		<a href="<c:url value="/contact" />">contact</a>
-		<a href="<c:url value="/admin/home" />">Admin's page</a>
+		<a href='<c:url value="/admin/home" />'>home</a> <a href="#">none</a><a
+			href="#review">review</a> <a href="#contact">contact</a>
 	</nav>
 
 	<form action="" class="search-form">
@@ -23,12 +20,10 @@
 
 	<div class="icons">
 		<div class="fas fa-bars" id="menu-btn"></div>
-		<a href="<c:url value="/cart" />">
-			<div class="fas fa-shopping-cart" id="cart-btn"></div>
-		</a>
+		<div class="fas fa-shopping-cart" id="cart-btn"></div>
 		<c:if test="${userName == null }">
 			<a href="<c:url value="/dang-nhap" />">
-				<div class="fas fa-sign-in-alt"" id="login-btn"></div>
+				<div class="fas fa-sign-in-alt" " id="login-btn"></div>
 			</a>
 		</c:if>
 		<c:if test="${userName != null }">
@@ -36,7 +31,7 @@
 				<div class="fas fa-user" id="login-btn"></div>
 			</a>
 			<a href="<c:url value="/dang-xuat" />">
-				<div class="fas fa-sign-out-alt" ></div>
+				<div class="fas fa-sign-out-alt"></div>
 			</a>
 		</c:if>
 	</div>

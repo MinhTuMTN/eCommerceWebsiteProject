@@ -11,14 +11,8 @@
 	<nav class="navbar">
 		<a href='<c:url value="/home" />'>home</a> <a
 			href="<c:url value="/categories" />">categories</a> <a
-			href="<c:url value="/products" />">products</a> 
-		<a href="<c:url value="/contact" />">contact</a>
-		<c:if test="${role == 1 }">
-			<a href="<c:url value="/seller/home" />">seller's page</a>
-		</c:if>
-		<c:if test="${role == 0 }">
-			<a href="<c:url value="/admin/home" />">Admin's page</a>
-		</c:if>
+			href="<c:url value="/products" />">products</a> <a href="#review">review</a>
+		<a href="#contact">contact</a>
 	</nav>
 
 	<form action="" class="search-form">

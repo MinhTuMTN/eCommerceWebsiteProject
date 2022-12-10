@@ -30,15 +30,10 @@ public class LoginController extends HttpServlet {
 			Cookie cookie = new Cookie("id", String.valueOf(user.getUserId()));
 			cookie.setMaxAge(60 * 60 * 24 * 30);
 			resp.addCookie(cookie);
-			
-			Cookie cookie2 = new Cookie("role", String.valueOf(user.getRole()));
-			cookie2.setMaxAge(60 * 60 * 24 * 30);
-			resp.addCookie(cookie2);
-			
 			if (user.getRole() == 0) {
 				resp.sendRedirect(req.getContextPath() + "/admin/home");
 			} else if (user.getRole() == 1) {
-				resp.sendRedirect(req.getContextPath() + "/seller/home");
+				resp.sendRedirect(req.getContextPath() + "/vendor/home");
 			} else {
 				resp.sendRedirect(req.getContextPath() + "/home");
 			}
