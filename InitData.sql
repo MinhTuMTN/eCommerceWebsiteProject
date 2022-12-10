@@ -24,11 +24,11 @@ SET IDENTITY_INSERT [dbo].[Category] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Store] ON 
 GO
-INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (1, NULL, NULL, NULL, CAST(N'2022-12-10T07:16:55.0000000' AS DateTime2), 0, 1, 1, N'Samsung Store', 1000, 5, NULL, NULL, NULL, NULL, 3)
+INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (1, 'https://www.elleman.vn/wp-content/uploads/2019/10/02/logo-thu%CC%9Bo%CC%9Bng-hie%CC%A3%CC%82u-samsung-hi%CC%80nh-elip.png', NULL, NULL, CAST(N'2022-12-10T07:16:55.0000000' AS DateTime2), 0, 1, 1, N'Samsung Store', 1000, 5, NULL, NULL, NULL, NULL, 3)
 GO
-INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (2, NULL, NULL, NULL, CAST(N'2022-12-10T07:17:51.0000000' AS DateTime2), 0, 1, 1, N'Apple Store', 1000, 5, NULL, NULL, NULL, NULL, 4)
+INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Apple-logo.png/640px-Apple-logo.png', NULL, NULL, CAST(N'2022-12-10T07:17:51.0000000' AS DateTime2), 0, 1, 1, N'Apple Store', 1000, 5, NULL, NULL, NULL, NULL, 4)
 GO
-INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (3, NULL, NULL, NULL, CAST(N'2022-12-10T07:18:16.0000000' AS DateTime2), 0, 1, 1, N'Xiaomi Store', 1000, 5, NULL, NULL, NULL, NULL, 5)
+INSERT [dbo].[Store] ([storeId], [avatar], [bio], [cover], [createdAt], [e_wallet], [isActive], [isOpen], [name], [point], [rating], [slug], [updatedAt], [commissionId], [storeLevel_storeLevelId], [userId]) VALUES (3, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiaomi_logo_%282021-%29.svg/1200px-Xiaomi_logo_%282021-%29.svg.png', NULL, NULL, CAST(N'2022-12-10T07:18:16.0000000' AS DateTime2), 0, 1, 1, N'Xiaomi Store', 1000, 5, NULL, NULL, NULL, NULL, 5)
 GO
 SET IDENTITY_INSERT [dbo].[Store] OFF
 GO
@@ -50,7 +50,7 @@ INSERT [dbo].[Product] ([productId], [createdAt], [description], [image], [isAct
 GO
 INSERT [dbo].[Product] ([productId], [createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES (8, NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/7077/286034/samsung-galaxy-watch-5-44-mm-tnew-600x600.jpg', 1, NULL, N'Samsung Galaxy Watch5 44mm', 6490000, NULL, 1000, 5, NULL, 50, NULL, NULL, 2, 1)
 GO
-INSERT [dbo].[Product] ([productId], [createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES (9, NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-trang-kem-thumb-600x600.jpeg', 1, NULL, N'Apple Watch S8 GPS 41mm', 11990000, NULL, 5000, 5, NULL, 1, NULL, NULL, 2, 2)
+INSERT [dbo].[Product] ([productId], [createdAt], [description], [image], [isActive], [isSelling], [name], [price], [prmotionalPrice], [quantity], [rating], [slug], [sold], [updatedAt], [video], [category_categoryId], [store_storeId]) VALUES (9, NULL, N'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero.', N'https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-trang-kem-thumb-600x600.jpeg', 1, NULL, N'Apple Watch S8 GPS 41mm', 11990000, NULL, 5000, 5, NULL, 1, NULL, NULL, 2, 2x)
 GO
 SET IDENTITY_INSERT [dbo].[Product] OFF
 GO
