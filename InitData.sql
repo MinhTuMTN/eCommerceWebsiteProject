@@ -123,3 +123,22 @@ INSERT [dbo].[UserOrder] ([orderId], [address], [amountFromStore], [amountFromUs
 GO
 SET IDENTITY_INSERT [dbo].[UserOrder] OFF
 GO
+
+SET IDENTITY_INSERT [dbo].[Exchange] ON 
+GO
+INSERT [dbo].[Exchange] ([transactionId], [amount], [createdAt], [isUp], [updatedAt], [store_storeId], [user_userId]) VALUES (1, 1000000, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 1, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 1, 1)
+GO
+INSERT [dbo].[Exchange] ([transactionId], [amount], [createdAt], [isUp], [updatedAt], [store_storeId], [user_userId]) VALUES (2, 2000000, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 0, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 2, 3)
+GO
+INSERT [dbo].[Exchange] ([transactionId], [amount], [createdAt], [isUp], [updatedAt], [store_storeId], [user_userId]) VALUES (3, 2200000, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 1, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 3, 4)
+GO
+INSERT [dbo].[Exchange] ([transactionId], [amount], [createdAt], [isUp], [updatedAt], [store_storeId], [user_userId]) VALUES (4, 2000000, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 0, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 1, 3)
+GO
+INSERT [dbo].[Exchange] ([transactionId], [amount], [createdAt], [isUp], [updatedAt], [store_storeId], [user_userId]) VALUES (5, 2000000, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 1, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 2, 4)
+GO
+INSERT [dbo].[Exchange] ([transactionId], [amount], [createdAt], [isUp], [updatedAt], [store_storeId], [user_userId]) VALUES (6, 2000000, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 1, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 3, 3)
+GO
+INSERT [dbo].[Exchange] ([transactionId], [amount], [createdAt], [isUp], [updatedAt], [store_storeId], [user_userId]) VALUES (7, 2000000, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 0, CAST(N'2022-12-11T01:50:20.7898532' AS DateTime2), 1, 3)
+GO
+SET IDENTITY_INSERT [dbo].[Exchange] OFF
+GO
