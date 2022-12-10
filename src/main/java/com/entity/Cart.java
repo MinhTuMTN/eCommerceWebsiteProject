@@ -24,7 +24,7 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cartId;
-	private Boolean isDeleted;
+	private Boolean isDeleted = false;
 	private Date createdAt;
 	private Date updatedAt;
 	
