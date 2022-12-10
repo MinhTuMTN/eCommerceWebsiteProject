@@ -39,7 +39,7 @@
 						maxFractionDigits="2" value="${p.price}" /> đ</strong> 
 						<br>
 						<a
-					href='<c:url value="/addToCart?productId=${productId }"/>'
+					href='<c:url value="/addToCart?productId=${p.productId }"/>'
 					class="btn">Add to cart</a>
 			</div>
 		</c:forEach>
