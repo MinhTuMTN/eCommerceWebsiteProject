@@ -68,7 +68,7 @@ public class DAOUserOrderImpl {
 				Double amount = order.getAmountFromUser();
 				amount += product.getPrice() * cartItem.getCount();
 				order.setAmountFromUser(amount);
-				total += amount;
+				total += product.getPrice() * cartItem.getCount();
 				entityManager.merge(order);
 				
 				// Cập nhật số lượng đã bán của Product
