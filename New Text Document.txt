@@ -8,3 +8,5 @@ UserOrder;
 	2: shipped
 	3: delivered
 	4: cancelled
+
+Category Image Dir: C:/upload/Categories
