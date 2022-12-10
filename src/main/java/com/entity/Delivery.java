@@ -28,7 +28,7 @@ public class Delivery {
 	private String name;
 	private Double price;
 	private String description;
-	private Boolean isDeleted;
+	private Boolean isDeleted = false;
 	private Date createdAt;
 	private Date updatedAt;
 	

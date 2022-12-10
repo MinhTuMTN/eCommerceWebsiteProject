@@ -65,6 +65,7 @@ public class UserLevelsController extends HttpServlet{
 		req.setAttribute("message", message);
 
 		resp.sendRedirect(req.getContextPath() + "/admin/userlevels");
+		return;
 
 	}
 
@@ -80,6 +81,7 @@ public class UserLevelsController extends HttpServlet{
 		req.setAttribute("message", message);
 
 		resp.sendRedirect(req.getContextPath() + "/admin/userlevels");
+		return;
 
 	}
 
@@ -104,6 +106,7 @@ public class UserLevelsController extends HttpServlet{
 		}
 
 		resp.sendRedirect(req.getContextPath() + "/admin/userlevels");
+		return;
 	}
 
 	private void addUserLevel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -126,6 +129,7 @@ public class UserLevelsController extends HttpServlet{
 		}
 
 		resp.sendRedirect(req.getContextPath() + "/admin/userlevels");
+		return;
 	}
 
 	private void userLevelDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

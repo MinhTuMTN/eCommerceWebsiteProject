@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.dao.admin.impl.DAOStoreLevelImpl;
-import com.dao.admin.impl.DAOUserLevelImpl;
-import com.entity.StoreLevel;
-import com.entity.UserLevel;
+import com.entity.StoreLevel;;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = {"/admin/storelevels",  "/admin/storelevel-detail", "/admin/add-storelevel",
@@ -33,7 +31,7 @@ public class StoreLevelsController extends HttpServlet{
 		} else if (url.contains("/add-storelevel")) {
 			req.getRequestDispatcher("/views/admin/storelevel-add.jsp").forward(req, resp);
 		} else if (url.contains("/update-storelevel")) {
-			int storeLevelId = Integer.valueOf(req.getParameter("storeLevelId"));
+			Long storeLevelId = Long.valueOf(req.getParameter("storeLevelId"));
 			StoreLevel storeLevel = daoStoreLevelImpl.getStoreLevelById(storeLevelId);
 			req.setAttribute("storeLevel", storeLevel);
 			req.getRequestDispatcher("/views/admin/storelevel-update.jsp").forward(req, resp);
@@ -56,7 +54,7 @@ public class StoreLevelsController extends HttpServlet{
 
 	private void restoreStoreLevel(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		StoreLevel storeLevel = daoStoreLevelImpl.getStoreLevelById(Integer.valueOf(req.getParameter("storeLevelId")));
+		StoreLevel storeLevel = daoStoreLevelImpl.getStoreLevelById(Long.valueOf(req.getParameter("storeLevelId")));
 		String message = "";
 		if (daoStoreLevelImpl.restoreStoreLevel(storeLevel)) {
 			message = "Khôi phục cấp độ người dùng thành công!";
@@ -67,11 +65,12 @@ public class StoreLevelsController extends HttpServlet{
 		req.setAttribute("message", message);
 
 		resp.sendRedirect(req.getContextPath() + "/admin/storelevels");
+		return;
 
 	}
 
 	private void deleteStoreLevel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		StoreLevel storeLevel = daoStoreLevelImpl.getStoreLevelById(Integer.valueOf(req.getParameter("storeLevelId")));
+		StoreLevel storeLevel = daoStoreLevelImpl.getStoreLevelById(Long.valueOf(req.getParameter("storeLevelId")));
 		String message = "";
 		if (daoStoreLevelImpl.deleteStoreLevel(storeLevel)) {
 			message = "Xóa cấp độ người dùng thành công!";
@@ -82,12 +81,14 @@ public class StoreLevelsController extends HttpServlet{
 		req.setAttribute("message", message);
 
 		resp.sendRedirect(req.getContextPath() + "/admin/storelevels");
+		
+		return;
 
 	}
 
 	private void updateStoreLevel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			int storeLevelId = Integer.valueOf(req.getParameter("storeLevelId"));
+			Long storeLevelId = Long.valueOf(req.getParameter("storeLevelId"));
 			StoreLevel oldStoreLevel = daoStoreLevelImpl.getStoreLevelById(storeLevelId);
 			StoreLevel storeLevel = new StoreLevel();
 			storeLevel.setCreatedAt(oldStoreLevel.getCreatedAt());
@@ -106,6 +107,7 @@ public class StoreLevelsController extends HttpServlet{
 		}
 
 		resp.sendRedirect(req.getContextPath() + "/admin/storelevels");
+		return;
 	}
 
 	private void addStoreLevel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -128,10 +130,11 @@ public class StoreLevelsController extends HttpServlet{
 		}
 
 		resp.sendRedirect(req.getContextPath() + "/admin/storelevels");
+		return;
 	}
 
 	private void storeLevelDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int storeLevelId = Integer.valueOf(req.getParameter("storeLevelId"));
+		Long storeLevelId = Long.valueOf(req.getParameter("storeLevelId"));
 		StoreLevel storeLevel = daoStoreLevelImpl.getStoreLevelById(storeLevelId);
 
 		if (storeLevel == null) {

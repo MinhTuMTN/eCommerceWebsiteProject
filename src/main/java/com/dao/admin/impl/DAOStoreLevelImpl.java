@@ -90,7 +90,7 @@ public class DAOStoreLevelImpl {
 		return query.getSingleResult().intValue();
 	}
 
-	public StoreLevel getStoreLevelById(int storeLevelId) {
+	public StoreLevel getStoreLevelById(Long storeLevelId) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		StoreLevel storeLevel = entityManager.find(StoreLevel.class, storeLevelId);
 		return storeLevel;
