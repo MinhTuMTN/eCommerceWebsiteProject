@@ -7,17 +7,23 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="#">Home</a></li>
-				<li class="breadcrumb-item"><a href="<c:url value="/categories" />">Categories</a></li>
-				<li class="breadcrumb-item active" aria-current="page"><a href="<c:url value="/categories?categoryId=${product.category.categoryId }" />">${product.category.name}</a></li>
+				<li class="breadcrumb-item"><a
+					href="<c:url value="/categories" />">Categories</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a
+					href="<c:url value="/categories?categoryId=${product.category.categoryId }" />">${product.category.name}</a></li>
 			</ol>
 		</nav>
 	</div>
 	<div class="box-container">
 		<div class="row">
 			<div class="col-lg-5 col-md-12 col-12">
-				<img class="img-product"
-					src="${product.image }"
-					alt="">
+				<c:if test="${fn:startsWith(product.image, 'http')}">
+					<img class="img-product" src="${product.image }" alt="">
+				</c:if>
+				<c:if test="${!fn:startsWith(product.image, 'http')}">
+					<img class="img-product"
+						src="image?fileFolder=Products&fname=${product.image }" alt="">
+				</c:if>
 			</div>
 
 			<div class="col-lg-6 col-md-12 col-12">
@@ -38,24 +44,33 @@
 		</div>
 	</div>
 	<div class="box-container pt-10">
-        <div class="shop-inf">
-            <div class="mxBadu">
-                <a class="CrEFt7" href="<c:url value="store?storeId=${product.store.storeId }" />">
-                    <div class="shopee-avatar _92jwbD">
-                        <img class="ava__img" src="${product.store.avatar }" alt="Shop ava img">
-                    </div>
-                    <div class="jxOoP6">
-                        <div class="bpQZ1 Z8rK9d">Yêu thích</div>
-                    </div>
-                </a>
-                <div class="auohmy">
-                    <a href="<c:url value="store?storeId=${product.store.storeId }" />" style="text-decoration: none">
-                        <div class="FbKovn">${product.store.name }</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="shop-inf">
+			<div class="mxBadu">
+				<a class="CrEFt7"
+					href="<c:url value="store?storeId=${product.store.storeId }" />">
+					<div class="shopee-avatar _92jwbD">
+					<c:if test="${fn:startsWith(product.store.avatar, 'http')}">
+						<img class="ava__img" src="${product.store.avatar }"
+							alt="Shop ava img">
+					</c:if>	
+					<c:if test="${!fn:startsWith(product.store.avatar, 'http')}">
+						<img class="ava__img" src="image?fileFolder=Stores&fname=${product.store.avatar }"
+							alt="Shop ava img">
+					</c:if>		
+					</div>
+					<div class="jxOoP6">
+						<div class="bpQZ1 Z8rK9d">Yêu thích</div>
+					</div>
+				</a>
+				<div class="auohmy">
+					<a href="<c:url value="store?storeId=${product.store.storeId }" />"
+						style="text-decoration: none">
+						<div class="FbKovn">${product.store.name }</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- Other product starts-->
@@ -68,14 +83,19 @@
 	<div class="box-container">
 		<c:forEach var="p" items="${otherProducts }">
 			<div class="box">
-				<img
-					src="${p.image }"
-					alt=""> <a href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
+				<c:if test="${fn:startsWith(p.image, 'http')}">
+					<img src="${p.image }" alt="">
+				</c:if>
+				<c:if test="${!fn:startsWith(p.image, 'http')}">
+					<img src="image?fileFolder=Products&fname=${p.image }" alt="">
+				</c:if>
+				<a
+					href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
-						maxFractionDigits="2" value="${p.price}" />đ</strong>
-				<br>
-						 <a href="<c:url value="/addToCart?productId=${p.productId }"/>" class="btn">Add to cart</a>
+						maxFractionDigits="2" value="${p.price}" />đ</strong> <br> <a
+					href="<c:url value="/addToCart?productId=${p.productId }"/>"
+					class="btn">Add to cart</a>
 			</div>
 		</c:forEach>
 	</div>

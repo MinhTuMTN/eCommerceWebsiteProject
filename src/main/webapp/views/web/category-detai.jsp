@@ -63,10 +63,14 @@
 						style="background-color: black; font-size: 18px;">Last
 						product</div>
 					<div class="card-body" style="background-color: white;">
+					<c:if test="${fn:startsWith(topProduct.image, 'http')}">
 						<img class="img-last-product" src="${topProduct.image }"
 							alt="Card image cap">
-
-
+					</c:if>
+					<c:if test="${!fn:startsWith(topProduct.image, 'http')}">
+						<img class="img-last-product" src="image?fileFolder=Products&fname=${topProduct.image }"
+							alt="Card image cap">
+					</c:if>
 						<h5 class="heading1" style="font-size: 2rem;">
 							<a
 								href="<c:url value="product-details?productId=${topProduct.productId }" />">${topProduct.name}</a>
@@ -91,7 +95,13 @@
 								<c:url value="/product-details?productId=${p.productId }"
 									var="URLProduct"></c:url>
 								<div class="box">
-									<img src="${p.image }" alt=""> <a href="${URLProduct }"><h3>${p.name }</h3></a>
+								<c:if test="${fn:startsWith(p.image, 'http')}">
+									<img src="${p.image }" alt=""> 
+								</c:if>	
+								<c:if test="${!fn:startsWith(p.image, 'http')}">
+									<img src="image?fileFolder=Products&fname=${p.image }" alt=""> 
+								</c:if>	
+									<a href="${URLProduct }"><h3>${p.name }</h3></a>
 									<p>${p.description }</p>
 									<strong><fmt:formatNumber type="number"
 											maxFractionDigits="2" value="${p.price}" />đ</strong>
