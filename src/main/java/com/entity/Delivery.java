@@ -27,6 +27,7 @@ public class Delivery {
 	@Nationalized
 	private String name;
 	private Double price;
+	@Nationalized
 	private String description;
 	private Boolean isDeleted = false;
 	private Date createdAt;
