@@ -36,13 +36,13 @@ public class Product {
 	private Double price;
 	private Double prmotionalPrice;
 	private int quantity;
-	private int sold;
+	private int sold = 0;
 	private Boolean isActive = true;
 	private Boolean isSelling = true;
 	private String video;
 	private float rating;
 	private String image;
-	private Date createdAt;
+	private Date createdAt = new Date();
 	private Date updatedAt;
 	
 	

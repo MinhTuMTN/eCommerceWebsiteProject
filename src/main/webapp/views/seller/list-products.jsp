@@ -9,6 +9,11 @@
 	font-size: 1.3rem;
 }
 
+#example > thead > tr > th{
+	vertical-align: middle;
+	text-align: center;
+}
+
 #example > tbody > tr > td{
 	vertical-align: middle;
 	text-align: center;
