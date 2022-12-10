@@ -751,7 +751,7 @@ hr {
 }
 
 .InGfFt {
-  flex: 0.6;
+  flex: 0.75;
 }
 
 ._6-dPdd {
@@ -760,7 +760,7 @@ hr {
   border-left: 0.0625rem solid #efefef;
   justify-content: center;
   display: flex;
-  flex: 0.4;
+  flex: 0.25;
 }
 
 .dghdd9 {
@@ -774,14 +774,14 @@ hr {
 }
 
 .tBgRZR {
-  width: 40%;
+  width: 25%;
   text-align: right;
   color: rgba(85, 85, 85, 0.8);
   overflow: hidden;
   font-size: 1.7rem;
 }
 .gV\+dPk {
-  width: 100%;
+  width: 75% !important;
   box-sizing: border-box;
 }
 

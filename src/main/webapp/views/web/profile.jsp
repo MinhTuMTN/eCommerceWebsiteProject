@@ -45,7 +45,7 @@
 														<div class="tBgRZR">
 															<label for="">Họ và tên: </label>
 														</div>
-														<div class="gV\+dPk">
+														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m">${user.firstName }&nbsp;${user.lastName }</div>
 															</div>
@@ -58,7 +58,7 @@
 														<div class="tBgRZR">
 															<label for="">Email: </label>
 														</div>
-														<div class="gV\+dPk">
+														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m">${user.email }</div>
 															</div>
@@ -71,7 +71,7 @@
 														<div class="tBgRZR">
 															<label for="">Số điện thoại: </label>
 														</div>
-														<div class="gV\+dPk">
+														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m">${user.phone }</div>
 															</div>
@@ -84,7 +84,7 @@
 														<div class="tBgRZR">
 															<label for="">Địa chỉ: </label>
 														</div>
-														<div class="gV\+dPk">
+														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m">${user.address }</div>
 															</div>
@@ -97,7 +97,7 @@
 														<div class="tBgRZR">
 															<label for="">Loại tài khoản: </label>
 														</div>
-														<div class="gV\+dPk">
+														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m">${user.role == 2 ? "User" : (user.role == 1 ? "Seller" : "Admin") }</div>
 															</div>
@@ -110,7 +110,7 @@
 														<div class="tBgRZR">
 															<label for="">Ngày tạo: </label>
 														</div>
-														<div class="gV\+dPk">
+														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m"><fmt:formatDate pattern = "dd-MM-yyy" 
          value = "${user.createdAt}" /></div>
