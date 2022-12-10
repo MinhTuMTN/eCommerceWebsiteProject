@@ -31,7 +31,8 @@
 
 								</c:when>
 								<c:otherwise>
-									<c:url value="/image?fname=${category.image}&fileFolder=Categories"
+									<c:url
+										value="/image?fname=${category.image}&fileFolder=Categories"
 										var="categoryImgUrl"></c:url>
 
 								</c:otherwise>
@@ -47,9 +48,16 @@
 							href="<c:url value="/admin/category-detail?categoryId=${category.categoryId}"/>"
 							class="button-81" role="button"><i class="fa fa-info"></i></a> <a
 							href="<c:url value="/admin/update-category?categoryId=${category.categoryId}"/>"
-							class="button-81" role="button"><i class="fa fa-edit"></i></a> <a
-							href="<c:url value="/admin/delete-category?categoryId=${category.categoryId}"/>"
-							class="button-81" role="button"><i class="fa fa-trash"></i></a></td>
+							class="button-81" role="button"><i class="fa fa-edit"></i></a> <c:if
+								test="${category.isDeleted == true}">
+								<a
+									href="<c:url value="/admin/restore-category?categoryId=${category.categoryId}"/>"
+									class="button-81" role="button"><i class="fa fa-refresh"></i></a>
+							</c:if> <c:if test="${category.isDeleted == false}">
+								<a
+									href="<c:url value="/admin/delete-category?categoryId=${category.categoryId}"/>"
+									class="button-81" role="button"> <i class="fa fa-trash"></i></a>
+							</c:if></td>
 
 					</tr>
 				</c:forEach>
