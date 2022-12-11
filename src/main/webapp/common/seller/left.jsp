@@ -33,7 +33,7 @@ a {
 				class="a-cate-detai">Sản phẩm</a></li>
 			<li class="list-group-item ${fnStatistic ? 'my-active': '' }"
 				style="font-size: 15px; padding-left: 3.5rem;"><a
-				href="<c:url value="/seller/statics" ></c:url>" class="a-cate-detai">Thống
+				href="<c:url value="/seller/statistics" ></c:url>" class="a-cate-detai">Thống
 					kê</a></li>
 		</ul>
 	</div>
