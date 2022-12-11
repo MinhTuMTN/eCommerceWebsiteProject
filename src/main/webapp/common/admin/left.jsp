@@ -77,7 +77,15 @@ ul {
 					<a class="nav-link" href="<c:url value="/admin/storelevels"/>">Store
 						Levels management</a>
 				</h3></li>
-
+			<li class="nav-item list-group-item"><h3>
+					<a class="nav-link" href="<c:url value="/admin/deliveries"/>">Delivery Units management</a>
+				</h3></li>
+				<li class="nav-item list-group-item"><h3>
+					<a class="nav-link" href="<c:url value="/admin/commissions"/>">Commissions management</a>
+				</h3></li>
+				<li class="nav-item list-group-item"><h3>
+					<a class="nav-link" href="<c:url value="/admin/transactions"/>">Transactions management</a>
+				</h3></li>
 			<li class="nav-item has-submenu list-group-item"><a
 				class="nav-link" href="#">
 					<h3>Stores management</h3>
@@ -85,8 +93,7 @@ ul {
 				<ul class="submenu collapse">
 					<li><h4>
 							<a class="nav-link"
-								href="<c:url value="/admin/stores?filter=2"/>">All
-								Stores</a>
+								href="<c:url value="/admin/stores?filter=2"/>">All Stores</a>
 						</h4></li>
 					<li><h4>
 							<a class="nav-link"
@@ -95,8 +102,7 @@ ul {
 						</h4></li>
 					<li><h4>
 							<a class="nav-link"
-								href="<c:url value="/admin/stores?filter=0"/>">Banned
-								Stores</a>
+								href="<c:url value="/admin/stores?filter=0"/>">Banned Stores</a>
 						</h4></li>
 				</ul></li>
 		</ul>
