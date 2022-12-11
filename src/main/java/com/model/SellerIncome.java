@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SellerIncomeByDateModel {
+public class SellerIncome {
 	private Date date;
 	private Double amount;
 }

@@ -12,9 +12,10 @@ import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
 import com.entity.Order;
+import com.entity.Product;
 import com.entity.Store;
 import com.entity.User;
-import com.model.SellerIncomeByDateModel;
+import com.model.SellerIncome;
 
 public class DAOOrderSellerImpl {
 	private List<Order> getAllOrdersByStatus(Long storeId, int status) {
@@ -110,19 +111,26 @@ public class DAOOrderSellerImpl {
 		}
 	}
 
-	public List<SellerIncomeByDateModel> salesStatisticsByDate(Date startDate, Date endDate) {
-		List<SellerIncomeByDateModel> list = new ArrayList<SellerIncomeByDateModel>();
+	public List<SellerIncome> salesStatisticsByDate(Date startDate, Date endDate, int storeId) {
+		List<SellerIncome> list = new ArrayList<SellerIncome>();
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT CAST(o.createdAt AS DATE), SUM(o.amountFromUser) FROM Order o WHERE o.status = 2 GROUP BY CAST(o.createdAt AS DATE)";
+		String jpql = "SELECT cast(o.createdAt as date), SUM(o.amountFromUser) FROM Order o WHERE o.status = 2 AND cast(o.createdAt as date) >= cast(:startDate as date) AND cast(o.createdAt as date) <= cast(:endDate as date) AND o.store.storeId = :storeId GROUP BY cast(o.createdAt as date)";
 		Query query = entityManager.createQuery(jpql);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);
+		query.setParameter("storeId", storeId);
 		
 		List<Object[]> objects = query.getResultList();
 		for (Object[] object : objects) {
 			Date date = (Date) object[0];
 			Double amount =(Double)	object[1];
-			list.add(new SellerIncomeByDateModel(date, amount));
+			list.add(new SellerIncome(date, amount));
 		}		
 		
 		return list;
+	}
+	
+	public Product bestSellingProductStatistics(Date startDate, Date endDate) {
+		return null;
 	}
 }

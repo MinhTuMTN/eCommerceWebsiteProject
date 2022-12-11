@@ -52,8 +52,10 @@
               <canvas id="myChart" height="" width="100%"></canvas>
             </div>
           </div>
+         
         </div>
         <!-- body ends -->
+        
 
         <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -63,10 +65,14 @@
           new Chart(ctx, {
             type: 'bar',
             data: {
-              labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange',],
+              labels: [<c:forEach var="s" items="${sellerIncomes }">
+              '<fmt:formatDate value="${s.date }" pattern="dd/MM"/>', 
+                </c:forEach>],
               datasets: [{
                 label: 'Doanh thu (vnđ)',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [<c:forEach var="s" items="${sellerIncomes }">
+            	${s.amount }, 
+                </c:forEach>],
                 borderWidth: 1
               }]
             },
