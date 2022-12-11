@@ -63,10 +63,16 @@ public class DAOStoreImpl {
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
-			String jpql = "UPDATE Product p SET p.isActive=true WHERE p.store.storeId = :storeId";
-			int query = entityManager.createQuery(jpql).setParameter("storeId", storeId).executeUpdate();
-			transaction.commit();
-			return query > 0 ? true : false;
+			Date updatedAt = new Date(System.currentTimeMillis());
+			String jpql = "UPDATE Product p SET p.isActive=true, p.updatedAt=:updatedAt WHERE p.store.storeId = :storeId";
+			int query = entityManager.createQuery(jpql).setParameter("storeId", storeId).setParameter("updatedAt", updatedAt).executeUpdate();
+			if (query > 0) {
+				transaction.commit();
+				return true;
+			} else {
+				transaction.rollback();
+				return false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			transaction.rollback();
@@ -79,10 +85,16 @@ public class DAOStoreImpl {
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
-			String jpql = "UPDATE Product p SET p.isActive=false WHERE p.store.storeId = :storeId";
-			int query = entityManager.createQuery(jpql).setParameter("storeId", storeId).executeUpdate();
-			transaction.commit();
-			return query > 0 ? true : false;
+			Date updatedAt = new Date(System.currentTimeMillis());
+			String jpql = "UPDATE Product p SET p.isActive=false, p.updatedAt=:updatedAt WHERE p.store.storeId = :storeId";
+			int query = entityManager.createQuery(jpql).setParameter("storeId", storeId).setParameter("updatedAt", updatedAt).executeUpdate();
+			if (query > 0) {
+				transaction.commit();
+				return true;
+			} else {
+				transaction.rollback();
+				return false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			transaction.rollback();
