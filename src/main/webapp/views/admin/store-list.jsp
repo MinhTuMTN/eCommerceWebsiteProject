@@ -29,13 +29,11 @@
 
 								</c:when>
 								<c:otherwise>
-									<c:url
-										value="/image?fname=${store.avatar}&fileFolder=Stores"
+									<c:url value="/image?fname=${store.avatar}&fileFolder=Stores"
 										var="storeImgUrl"></c:url>
 
 								</c:otherwise>
-							</c:choose> <img src="${storeImgUrl}" width="100px"
-							alt="${store.name}"></td>
+							</c:choose> <img src="${storeImgUrl}" width="100px" alt="${store.name}"></td>
 						<td>${store.bio}</td>
 						<td>${store.name}</td>
 						<td>${store.user.userId}</td>
@@ -52,17 +50,23 @@
 							</c:if></td>
 						<td><a
 							href="<c:url value="/admin/store-detail?storeId=${store.storeId}"/>"
-							class="button-81" role="button"><i class="fa fa-info"></i>  Read more</a>
+							class="button-81" role="button"><i class="fa fa-info"></i>
+								Read more</a> <a
+							href="<c:url value="/admin/statistic-revenue?storeId=${store.storeId }"/>"
+							class="button-81" role="button"> <i class="fa fa-line-chart"></i></a>
 							<c:if test="${store.isActive == false}">
-								<a href="<c:url value="/admin/license-store?storeId=${store.storeId}&licensed=1"/>"
+								<a
+									href="<c:url value="/admin/license-store?storeId=${store.storeId}&licensed=1"/>"
 									class="button-81" role="button"
 									onclick="javascript:return YNConfirmation()"><i
-									class="fa fa-check-circle-o"></i>   License</a>
+									class="fa fa-check-circle-o"></i> License</a>
 							</c:if> <c:if test="${store.isActive == true}">
-								<a href="<c:url value="/admin/license-store?storeId=${store.storeId}&licensed=0"/>"
+								<a
+									href="<c:url value="/admin/license-store?storeId=${store.storeId}&licensed=0"/>"
 									class="button-81" role="button"
 									onclick="javascript:return YNConfirmation()"> <i
-									class="fa fa-ban"></i>   Ban</a>
+									class="fa fa-ban"></i> Ban
+								</a>
 							</c:if></td>
 
 					</tr>
