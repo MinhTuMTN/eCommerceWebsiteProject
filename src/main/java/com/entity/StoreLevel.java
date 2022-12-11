@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Nationalized;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,11 +24,11 @@ public class StoreLevel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long storeLevelId;
-	
+	@Nationalized
 	private String name;
 	private int minPoint;
 	private float discount;
-	private Boolean isDeleted;
+	private Boolean isDeleted = false;
 	private Date createdAt;
 	private Date updatedAt;
 	

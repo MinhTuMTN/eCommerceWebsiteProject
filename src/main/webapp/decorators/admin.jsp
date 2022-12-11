@@ -22,11 +22,16 @@
 <!-- font awesome cdn link  -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+	rel="stylesheet" type='text/css'>
 
 
 <!-- custom css file link  -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/views/css/style.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/views/css/admin-style.css" />
 </head>
 <body>
 	<%@ include file="/common/admin/header.jsp"%>

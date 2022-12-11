@@ -1,6 +1,7 @@
 package com.dao.admin.impl;
 
 import java.io.File;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -34,7 +35,8 @@ public class DAOCategoryImpl {
 			oldCategory.setName(category.getName());
 			oldCategory.setSlug(category.getSlug());
 			oldCategory.setUpdatedAt(category.getUpdatedAt());
-			if (category.getImage() != null) {
+
+			if (!category.getImage().equals("")) {
 				String fileName = oldCategory.getImage();
 				final String dir = "C:\\upload";
 				File file = new File(dir + "/Categories" + fileName);
@@ -43,6 +45,7 @@ public class DAOCategoryImpl {
 				}
 				oldCategory.setImage(category.getImage());
 			}
+
 			entityManager.merge(oldCategory);
 			transaction.commit();
 		} catch (Exception e) {
@@ -56,6 +59,8 @@ public class DAOCategoryImpl {
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
+			Date updatedAt = new Date(System.currentTimeMillis());
+			category.setUpdatedAt(updatedAt);
 			category.setIsDeleted(true);
 			entityManager.merge(category);
 			transaction.commit();
@@ -72,6 +77,8 @@ public class DAOCategoryImpl {
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
+			Date updatedAt = new Date(System.currentTimeMillis());
+			category.setUpdatedAt(updatedAt);
 			category.setIsDeleted(false);
 			entityManager.merge(category);
 			transaction.commit();
@@ -89,6 +96,13 @@ public class DAOCategoryImpl {
 		TypedQuery<Category> query = entityManager.createQuery(jpql, Category.class);
 		query.setFirstResult(pageNumber * size);
 		query.setMaxResults(size);
+		return query.getResultList();
+	}
+	
+	public List<Category> getAllCategories() {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT c FROM Category c";
+		TypedQuery<Category> query = entityManager.createQuery(jpql, Category.class);
 		return query.getResultList();
 	}
 
