@@ -14,7 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.admin.impl.DAOStatisticNewUsersImpl;
 import com.dao.admin.impl.DAOUserImpl;
 import com.entity.Order;
+import com.entity.ProductBarChart;
+import com.entity.ProductPieChart;
 import com.entity.User;
+import com.entity.UserBarChart;
+import com.entity.UserPieChart;
+import com.google.gson.Gson;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/admin/statistics")
@@ -29,6 +34,42 @@ public class StatisticsNewUsersController extends HttpServlet{
 			top3Users.add(daoUserImpl.getUserById(userId));
 		}
 		req.setAttribute("top3Users", top3Users);
+		
+		String chart = req.getParameter("chart");
+		if (chart == null) {
+			chart = "0";
+		}
+		String json = getJson(chart);
+		System.out.print(json);
+		req.setAttribute("json", json);
+		req.setAttribute("chart", chart);
+		
 		req.getRequestDispatcher("/views/admin/statistics.jsp").forward(req, resp);
+	}
+	
+	public String getJson(String chart) throws ServletException, IOException {
+		List<Object[]> objects = daoStatisticsNewUsersImpl.getTop10UsersAmount();
+
+		Gson gson = new Gson();
+		if (chart.equals("0")) {
+			List<UserPieChart> userPieCharts = new ArrayList<>();
+			for (Object[] object : objects) {
+				User user = daoUserImpl.getUserById((Integer) object[0]);
+				String name = user.getFirstName() + " " + user.getLastName();
+				userPieCharts.add(new UserPieChart(name, (Double) object[1]));
+			}
+			return gson.toJson(userPieCharts);
+
+		} else if (chart.equals("1")) {
+			List<UserBarChart> userBarCharts = new ArrayList<>();
+			for (Object[] object : objects) {
+				User user = daoUserImpl.getUserById((Integer) object[0]);
+				String name = user.getFirstName() + " " + user.getLastName();
+				userBarCharts.add(new UserBarChart((Double) object[1], name));
+			}
+			return gson.toJson(userBarCharts);
+		}
+		return null;
+
 	}
 }

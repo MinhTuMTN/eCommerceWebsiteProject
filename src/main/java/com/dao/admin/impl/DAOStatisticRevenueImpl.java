@@ -56,7 +56,7 @@ public class DAOStatisticRevenueImpl {
 	@SuppressWarnings("unchecked")
 	public List<Object[]> getTotalSoldProduct(Long storeId) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT p.name, p.sold FROM Product p WHERE p.store.storeId = :storeId";
+		String jpql = "SELECT p.name, p.sold FROM Product p WHERE p.store.storeId = :storeId ORDER BY p.sold";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("storeId", storeId);
 		List<Object[]> obj = query.getResultList();

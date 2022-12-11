@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductColumnChart {
+public class ProductBarChart {
 	private Integer y;
 	private String label;
 }

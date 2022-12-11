@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.admin.impl.DAOStatisticRevenueImpl;
 import com.entity.Order;
 import com.entity.Product;
-import com.entity.ProductColumnChart;
+import com.entity.ProductBarChart;
 import com.entity.ProductPieChart;
 
 import com.google.gson.Gson;
@@ -63,11 +63,11 @@ public class StatisticsRevenueController extends HttpServlet {
 			return gson.toJson(productPieCharts);
 
 		} else if (chart.equals("1")) {
-			List<ProductColumnChart> productColumnCharts = new ArrayList<>();
+			List<ProductBarChart> productBarCharts = new ArrayList<>();
 			for (Object[] object : objects) {
-				productColumnCharts.add(new ProductColumnChart((Integer) object[1], (String) object[0]));
+				productBarCharts.add(new ProductBarChart((Integer) object[1], (String) object[0]));
 			}
-			return gson.toJson(productColumnCharts);
+			return gson.toJson(productBarCharts);
 		}
 		return null;
 
