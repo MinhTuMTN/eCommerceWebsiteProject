@@ -1,6 +1,5 @@
 package com.dao.admin.impl;
 
-import java.io.File;
 import java.sql.Date;
 import java.util.List;
 
@@ -9,16 +8,16 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
-import com.entity.Category;
-import com.entity.Product;
+import com.entity.StoreLevel;
+import com.entity.Style;
 
-public class DAOCategoryImpl {
-	public void insertCategory(Category category) {
+public class DAOStyleImpl {
+	public void insertStyle(Style style) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
-			entityManager.persist(category);
+			entityManager.persist(style);
 			transaction.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,27 +25,12 @@ public class DAOCategoryImpl {
 		}
 	}
 
-	public void updateCategory(Category category) {
+	public void updateStyle(Style style) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
-			Category oldCategory = getCategoryById(category.getCategoryId());
-			oldCategory.setName(category.getName());
-			oldCategory.setSlug(category.getSlug());
-			oldCategory.setUpdatedAt(category.getUpdatedAt());
-
-			if (!category.getImage().equals("")) {
-				String fileName = oldCategory.getImage();
-				final String dir = "C:\\upload";
-				File file = new File(dir + "/Categories" + fileName);
-				if (file.exists()) {
-					file.delete();
-				}
-				oldCategory.setImage(category.getImage());
-			}
-
-			entityManager.merge(oldCategory);
+			entityManager.merge(style);
 			transaction.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,15 +38,15 @@ public class DAOCategoryImpl {
 		}
 	}
 
-	public boolean deleteCategory(Category category) {
+	public boolean deleteStyle(Style style) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
 			Date updatedAt = new Date(System.currentTimeMillis());
-			category.setUpdatedAt(updatedAt);
-			category.setIsDeleted(true);
-			entityManager.merge(category);
+			style.setUpdatedAt(updatedAt);
+			style.setIsDeleted(true);
+			entityManager.merge(style);
 			transaction.commit();
 			return true;
 		} catch (Exception e) {
@@ -72,15 +56,15 @@ public class DAOCategoryImpl {
 		}
 	}
 
-	public boolean restoreCategory(Category category) {
+	public boolean restoreStyle(Style style) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
 			Date updatedAt = new Date(System.currentTimeMillis());
-			category.setUpdatedAt(updatedAt);
-			category.setIsDeleted(false);
-			entityManager.merge(category);
+			style.setUpdatedAt(updatedAt);
+			style.setIsDeleted(false);
+			entityManager.merge(style);
 			transaction.commit();
 			return true;
 		} catch (Exception e) {
@@ -90,33 +74,26 @@ public class DAOCategoryImpl {
 		}
 	}
 
-	public List<Category> getAllCategoriesPagination(int pageNumber, int size) {
+	public List<Style> getAllStylesPagination(int pageNumber, int size) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT c FROM Category c ORDER BY c.categoryId DESC";
-		TypedQuery<Category> query = entityManager.createQuery(jpql, Category.class);
+		String jpql = "SELECT st FROM Style st ORDER BY st.styleId DESC";
+		TypedQuery<Style> query = entityManager.createQuery(jpql, Style.class);
 		query.setFirstResult(pageNumber * size);
 		query.setMaxResults(size);
 		return query.getResultList();
 	}
-	
-	public List<Category> getAllCategories() {
-		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT c FROM Category c";
-		TypedQuery<Category> query = entityManager.createQuery(jpql, Category.class);
-		return query.getResultList();
-	}
 
-	public int countAllCategories() {
+	public int countAllStyles() {
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT COUNT(c) FROM Category c";
+		String jpql = "SELECT COUNT(st) FROM Style st";
 		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
 
 		return query.getSingleResult().intValue();
 	}
 
-	public Category getCategoryById(Long categoryId) {
+	public Style getStyleById(Long styleId) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		Category category = entityManager.find(Category.class, categoryId);
-		return category;
+		Style style = entityManager.find(Style.class, styleId);
+		return style;
 	}
 }

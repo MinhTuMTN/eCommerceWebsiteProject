@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Nationalized;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,9 +26,9 @@ public class Style {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long styleId;
-
+	@Nationalized
 	private String name;
-	private Boolean isDeleted;
+	private Boolean isDeleted = false;
 	private Date createdAt;
 	private Date updatedAt;
 
