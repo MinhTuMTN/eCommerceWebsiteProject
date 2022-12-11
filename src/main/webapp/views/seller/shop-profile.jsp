@@ -53,6 +53,19 @@
 									<div class="dghdd9">
 										<div class="h4eiAQ ">
 											<div class="tBgRZR">
+												<label for="">Số dư ví: </label>
+											</div>
+											<div class="gV\+dPk">
+												<div class="_2NnHla">
+													<div class="Z1Wx1m"><fmt:formatNumber value="${store.e_wallet }" maxFractionDigits="2" type="number"/>&nbsp;đ</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="dghdd9">
+										<div class="h4eiAQ ">
+											<div class="tBgRZR">
 												<label for="">Người quản lý: </label>
 											</div>
 											<div class="gV\+dPk">
