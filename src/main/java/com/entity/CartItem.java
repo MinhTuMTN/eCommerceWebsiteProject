@@ -23,8 +23,8 @@ public class CartItem {
 	private Long cartItemId;
 	
 	private Integer count;
-	private Date createdAt;
-	private Date updatedAt;
+	private Date createdAt = new Date();
+	private Date updatedAt = new Date();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Cart cart;

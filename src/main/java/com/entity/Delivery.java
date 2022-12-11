@@ -26,12 +26,12 @@ public class Delivery {
 	
 	@Nationalized
 	private String name;
-	private Double price;
+	private Double price = 0D;
 	@Nationalized
 	private String description;
 	private Boolean isDeleted = false;
-	private Date createdAt;
-	private Date updatedAt;
+	private Date createdAt = new Date();
+	private Date updatedAt = new Date();
 	
 	@OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
 	private Order order;

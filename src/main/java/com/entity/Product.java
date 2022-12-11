@@ -43,7 +43,7 @@ public class Product {
 	private float rating;
 	private String image;
 	private Date createdAt = new Date();
-	private Date updatedAt;
+	private Date updatedAt = new Date();
 	
 	
 	public Product(String name, String description, Double price, int quantity, int sold, Boolean isActive, Store store,

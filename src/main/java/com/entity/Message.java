@@ -40,7 +40,7 @@ public class Message {
 	@NonNull
 	private String message;
 	
-	private Date createdDate;
+	private Date createdDate = new Date();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;

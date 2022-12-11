@@ -29,8 +29,8 @@ public class Commission {
 	@Nationalized
 	private String description;
 	private Boolean isDeleted = false;
-	private Date createdAt;
-	private Date updatedAt;	
+	private Date createdAt = new Date();
+	private Date updatedAt = new Date();	
 	
 	@OneToOne(mappedBy = "commission", fetch = FetchType.LAZY)
 	private Store store;

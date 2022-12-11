@@ -15,6 +15,7 @@ import com.entity.Order;
 import com.entity.Product;
 import com.entity.Store;
 import com.entity.User;
+import com.model.SellerBestProduct;
 import com.model.SellerIncome;
 
 public class DAOOrderSellerImpl {
@@ -111,26 +112,46 @@ public class DAOOrderSellerImpl {
 		}
 	}
 
-	public List<SellerIncome> salesStatisticsByDate(Date startDate, Date endDate, int storeId) {
+	public List<SellerIncome> salesStatisticsByDate(Date startDate, Date endDate, Long storeId) {
 		List<SellerIncome> list = new ArrayList<SellerIncome>();
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT cast(o.createdAt as date), SUM(o.amountFromUser) FROM Order o WHERE o.status = 2 AND cast(o.createdAt as date) >= cast(:startDate as date) AND cast(o.createdAt as date) <= cast(:endDate as date) AND o.store.storeId = :storeId GROUP BY cast(o.createdAt as date)";
+		String jpql = "SELECT cast(o.createdAt as date), SUM(o.amountFromUser)*0.8 FROM Order o WHERE o.status = 2 AND cast(o.createdAt as date) >= cast(:startDate as date) AND cast(o.createdAt as date) <= cast(:endDate as date) AND o.store.storeId = :storeId GROUP BY cast(o.createdAt as date)";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("startDate", startDate);
 		query.setParameter("endDate", endDate);
 		query.setParameter("storeId", storeId);
-		
+
 		List<Object[]> objects = query.getResultList();
 		for (Object[] object : objects) {
 			Date date = (Date) object[0];
-			Double amount =(Double)	object[1];
+			Double amount = (Double) object[1];
 			list.add(new SellerIncome(date, amount));
-		}		
-		
+		}
+
 		return list;
 	}
-	
-	public Product bestSellingProductStatistics(Date startDate, Date endDate) {
+
+	public SellerBestProduct bestSellingProductStatistics(Date startDate, Date endDate, Long storeId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT o.product.productId, SUM(o.count) FROM OrderItem o "
+				      + "WHERE o.order.status = 2 "
+					  + "AND cast(o.order.createdAt as date) >= cast(:startDate as date) "
+					  + "AND cast(o.order.createdAt as date) <= cast(:endDate as date) "
+					  + "AND o.order.store.storeId = :storeId "
+					  + "GROUP BY o.product.productId "
+					  + "ORDER BY sum(o.count) DESC";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);
+		query.setParameter("storeId", storeId);
+		List<Object[]> objects = query.getResultList();
+		for (Object[] object : objects) {
+			int productId = (int) object[0];
+			Product product = entityManager.find(Product.class, productId);
+			
+			Long count = (Long) object[1];
+			return new SellerBestProduct(product, count);
+		}
 		return null;
 	}
 }

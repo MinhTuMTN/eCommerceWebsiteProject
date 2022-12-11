@@ -29,8 +29,8 @@ public class Style {
 	@Nationalized
 	private String name;
 	private Boolean isDeleted = false;
-	private Date createdAt;
-	private Date updatedAt;
+	private Date createdAt = new Date();
+	private Date updatedAt = new Date();
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Category category;

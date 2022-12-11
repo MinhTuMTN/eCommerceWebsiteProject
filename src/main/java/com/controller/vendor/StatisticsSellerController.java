@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.DateUtils;
 import com.dao.seller.impl.DAOOrderSellerImpl;
 import com.entity.Store;
+import com.model.SellerBestProduct;
 import com.model.SellerIncome;
 
 @WebServlet(urlPatterns = "/seller/statistics")
@@ -42,9 +43,11 @@ public class StatisticsSellerController extends HttpServlet {
 		req.setAttribute("dateStart", format.format(startDate));
 		req.setAttribute("dateEnd", format.format(endDate));
 		
-		//List<SellerIncome> sellerIncomes = daoOrderSellerImpl.salesStatisticsByDate(startDate, endDate) ;
-		//req.setAttribute("sellerIncomes", sellerIncomes);
+		List<SellerIncome> sellerIncomes = daoOrderSellerImpl.salesStatisticsByDate(startDate, endDate, store.getStoreId()) ;
+		req.setAttribute("sellerIncomes", sellerIncomes);
 		
+		SellerBestProduct bestProduct = daoOrderSellerImpl.bestSellingProductStatistics(startDate, endDate, store.getStoreId());
+		req.setAttribute("bestProduct", bestProduct);
 		
 		req.getRequestDispatcher("/views/seller/statistic.jsp").forward(req, resp);
 	}
