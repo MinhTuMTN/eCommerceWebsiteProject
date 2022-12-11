@@ -2,6 +2,7 @@ package com.dao.seller.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -113,8 +114,14 @@ public class DAOOrderSellerImpl {
 		List<SellerIncomeByDateModel> list = new ArrayList<SellerIncomeByDateModel>();
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		String jpql = "SELECT CAST(o.createdAt AS DATE), SUM(o.amountFromUser) FROM Order o WHERE o.status = 2 GROUP BY CAST(o.createdAt AS DATE)";
-		Query query = entityManager.createNamedQuery(jpql);
+		Query query = entityManager.createQuery(jpql);
 		
+		List<Object[]> objects = query.getResultList();
+		for (Object[] object : objects) {
+			Date date = (Date) object[0];
+			Double amount =(Double)	object[1];
+			list.add(new SellerIncomeByDateModel(date, amount));
+		}		
 		
 		return list;
 	}
