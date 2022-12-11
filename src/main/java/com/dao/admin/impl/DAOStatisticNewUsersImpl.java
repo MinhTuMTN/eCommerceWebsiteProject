@@ -3,6 +3,7 @@ package com.dao.admin.impl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
@@ -36,4 +37,24 @@ public class DAOStatisticNewUsersImpl {
 		query.setMaxResults(3);
 		return query.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Object[]> getTop10UsersAmount() {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT o.user.userId, SUM(o.amountFromUser)  FROM Order o WHERE o.status = 3 GROUP BY o.user.userId ORDER BY SUM(o.amountFromUser)";
+		Query query = entityManager.createQuery(jpql);
+		query.setFirstResult(0);
+		query.setMaxResults(10);
+		List<Object[]> obj = query.getResultList();
+		return obj;
+	}
+
+//	public List<Order> getTop10UsersAmount() {
+//		EntityManager entityManager = JPAConfig.getEntityManager();
+//		String jpql = "SELECT o FROM Order WHERE o.status = 3 GROUP BY o.user.userId ORDER BY SUM(o.amountFromUser)";
+//		TypedQuery<Order> query = entityManager.createQuery(jpql, Order.class);
+//		query.setFirstResult(0);
+//		query.setMaxResults(10);
+//		return query.getResultList();
+//	}
 }

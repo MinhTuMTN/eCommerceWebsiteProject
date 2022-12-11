@@ -30,7 +30,8 @@ public class UsersController extends HttpServlet {
 	}
 
 	protected void userList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		int totalUsers = daoUserImpl.countAllUsers();
+		req.setAttribute("totalUsers", totalUsers);
 		int pageSize = 4;
 		int pageNumber = 0;
 

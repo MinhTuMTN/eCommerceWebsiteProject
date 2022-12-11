@@ -49,4 +49,69 @@
 			</table>
 		</div>
 	</div>
+	<a
+		href="<c:url value="/admin/statistics?chart=0"/>"
+		class="button-81" role="button">Pie Chart</a> <a
+		href="<c:url value="/admin/statistics?chart=1"/>"
+		class="button-81" role="button">Bar Chart</a>
+	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+	<c:if test="${chart == 0 }">
+		<script type="text/javascript">
+	window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      zoomEnabled: true,      
+      animationEnabled: true,
+      title:{
+       text: "Top 10 User's Amount Pie Chart"       
+     },
+
+     data: [
+     {        
+      type: "pie",
+      toolTipContent: "{y} - #percent %",
+      indexLabel: "{name}",
+      showInLegend: true,
+      legendText: "{name}",
+      dataPoints: ${json }
+    }
+    ]
+  });
+
+    chart.render();
+  }
+  </script>
+	</c:if>
+	<c:if test="${chart == 1 }">
+		<script>
+window.onload = function () {
+	
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	zoomEnabled: true,
+	title:{
+		text:"Top 10 User's Amount Bar Chart"
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Number of Sold Products"
+	},
+	data: [{
+		type: "bar",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: ${json }
+	}]
+});
+chart.render();
+
+}
+</script>
+	</c:if>
+	<script type="text/javascript"
+		src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </div>
