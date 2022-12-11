@@ -1,9 +1,16 @@
+
 .page-item.active a{
 	background-color: coral !important;
 	color: white !important;
 }
 .col {
 	font-size: 1.3rem !important;
+}
+table td, th {
+	vertical-align: middle !important;
+}
+table th {
+	text-align: center !important;	
 }
 .button-81 {
   background-color: #fff;

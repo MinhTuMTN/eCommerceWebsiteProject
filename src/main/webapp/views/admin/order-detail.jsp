@@ -60,7 +60,7 @@
 			<c:if test="${order.status == 2}">
 				<a
 					href="<c:url value="/admin/update-status?orderId=${order.orderId }"/>"
-					class="btn btn-primary btn-sm"
+					class="btn-buy btn-sm"
 					onclick="javascript:return YNConfirmation()">Cập nhật trạng
 					thái đơn hàng</a>
 			</c:if>

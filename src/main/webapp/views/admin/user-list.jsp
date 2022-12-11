@@ -5,9 +5,9 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row mt-2 md-2">
-				<div class="col-md-6 float-right">
-					<h3>Total: ${totalUsers} users</h3>
-					<a style="margin: 2rem 0rem" href="<c:url value="/admin/statistics"/>" class="button-81"
+				<div class="col-md-6 float-right" style="font-size: 3rem; ">
+					<h3 style="font-size: 2.2rem;">Total: ${totalUsers} users</h3>
+					<a style="margin: 2rem 0rem; font-size: 1.7rem; " href="<c:url value="/admin/statistics"/>" class="button-81"
 						role="button"> <i class="fa fa-line-chart"></i>Show statistics
 					</a>
 				</div>
@@ -64,7 +64,7 @@
 								</td>
 								<td>
 									<div class="text-right">
-										<a role="button" class="btn btn-primary btn-sm"
+										<a role="button" class="btn-buy btn-sm"
 											href="<c:url value="/admin/user-detail?userId=${user.userId }"/>">
 											<i class="far fa-eye"> Read More</i>
 										</a>

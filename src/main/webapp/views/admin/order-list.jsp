@@ -11,6 +11,7 @@
 					<tr>
 						<th>Order ID</th>
 						<th>User ID</th>
+						<th>User Name</th>
 						<th>Address</th>
 						<th>Phone</th>
 						<th>Status</th>
@@ -22,8 +23,9 @@
 						<tr class="odd gradeX">
 							<td>${order.orderId }</td>
 							<td>${order.user.userId }</td>
-							<td>${order.address }</td>
-							<td>${order.phone }</td>
+							<td>${order.user.firstName } ${order.user.lastName }</td>
+							<td>${order.user.address }</td>
+							<td>${order.user.phone }</td>
 							<td><c:if test="${order.status == 0}">
 									<span>Not processed</span>
 								</c:if> <c:if test="${order.status == 1}">
@@ -35,7 +37,7 @@
 								</c:if> <c:if test="${order.status == 4}">
 									<span>Cancelled</span>
 								</c:if></td>
-							<td><a
+							<td style="text-align: center;"><a class="btn-buy" style="font-size: 1.5rem; margin: 0"
 								href="<c:url value="/admin/order-detail?orderId=${order.orderId }"/>">Read
 									more</a></td>
 

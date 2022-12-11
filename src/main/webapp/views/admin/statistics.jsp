@@ -12,7 +12,6 @@
 				<thead>
 					<tr>
 						<th>User ID</th>
-						<th>Avatar</th>
 						<th>Name</th>
 						<th>Phone</th>
 						<th>Email</th>
@@ -23,23 +22,12 @@
 					<c:forEach items="${top3Users}" var="user">
 						<tr class="odd gradeX">
 							<td>${user.userId }</td>
-							<td><c:set value="${user.avatar}" var="avatarUrl" /> <c:choose>
-									<c:when test="${fn:substring(avatarUrl, 0, 4) == 'http' }">
-										<c:url value="${user.avatar}" var="userAvatarUrl"></c:url>
-
-									</c:when>
-									<c:otherwise>
-										<c:url value="/image?fname=${user.avatar}&fileFolder=Users"
-											var="userAvatarUrl"></c:url>
-
-									</c:otherwise>
-								</c:choose> <img src="${userAvatarUrl}" width="100px" alt="${user.slug}"></td>
 							<td><a
 								href="<c:url value="/admin/user-detail?userId=${user.userId }"/>">${user.firstName }
 									${user.lastName }</a></td>
 							<td>${user.phone }</td>
-							<td>${user.email }</td>
-							<td><a
+							<td style="text-transform: none;">${user.email }</td>
+							<td style="text-align: center"><a
 								href="<c:url value="/admin/user-detail?userId=${user.userId }"/>"
 								class="button-81" role="button"><i class="fa fa-info"></i>
 									Read more</a></td>
@@ -49,11 +37,19 @@
 			</table>
 		</div>
 	</div>
-	<a
-		href="<c:url value="/admin/statistics?chart=0"/>"
-		class="button-81" role="button">Pie Chart</a> <a
-		href="<c:url value="/admin/statistics?chart=1"/>"
-		class="button-81" role="button">Bar Chart</a>
+	<style>
+	.wewgfjqc a{
+		font-size: 1.7rem !important;
+		padding: 1rem 2rem !important;
+		margin-right: 1.3rem !important;
+	}
+	</style>
+	<div style="margin: 1.5rem 0rem;" class="wewgfjqc">
+		<a href="<c:url value="/admin/statistics?chart=0"/>" class="button-81"
+			role="button">Pie Chart</a> <a
+			href="<c:url value="/admin/statistics?chart=1"/>" class="button-81"
+			role="button">Bar Chart</a>
+	</div>
 	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 	<c:if test="${chart == 0 }">
 		<script type="text/javascript">

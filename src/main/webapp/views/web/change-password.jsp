@@ -25,7 +25,7 @@ label{
 </style>
 <section class="change-password">
 	<div style="width: 50%">
-		<h1>Change Password</h1>
+		<h1>Đổi mật khẩu</h1>
 		<form action="<c:url value="/change-password" />" method="POST"
 			style="text-transform: none !important; font-size: 1.7rem">
 			<label for="">Mật khẩu cũ:</label><br /> <input type="password"

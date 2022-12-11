@@ -25,12 +25,19 @@
 					<c:forEach items="${products}" var="product">
 						<tr class="odd gradeX">
 							<td>${product.productId }</td>
-							<td><img width="50px" height="50px" src="${product.image }">
+							<td>
+								<c:if test="${fn:startsWith(product.image, 'http')}">
+									<img width="200rem" height="200rem" src="${product.image }">
+								</c:if>
+								<c:if test="${!fn:startsWith(product.image, 'http')}">
+									<img width="200rem" height="200rem" src="../image?fileFolder=Products&fname=${product.image }">
+								</c:if>
 							</td>
 							<td><a
 								href="<c:url value="/admin/product-detail?productId=${product.productId }"/>">${product.name }</a></td>
 							<td>${product.description }</td>
-							<td>${product.price }</td>
+							<td style="width: 10rem"><fmt:formatNumber type="number"
+									maxFractionDigits="2" value="${product.price }" /> đ</td>
 							<td>${product.prmotionalPrice }</td>
 							<td>${product.quantity }</td>
 							<td>${product.sold }</td>

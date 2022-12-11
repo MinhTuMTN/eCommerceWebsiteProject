@@ -2,12 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 
+<style>
+td i{
+	font-size: 1.8rem !important;
+}
+</style>
 
-<div class="row">
-	<div class="container">
+<div class="row" style="flex: 1; font-size: 1.7rem !important;">
+	<div class="container" style="width: 100%">
 		<div class="row mt-2 md-2">
 			<div class="col-md-6 float-right">
-				<a class="button-81" role="button"
+				<a class="btn-buy" style="font-size: 1.3rem; margin-bottom: 1.5rem;" role="button"
 					href="<c:url value="/admin/add-category"/>">Add New Category</a>
 			</div>
 		</div>
@@ -25,7 +30,7 @@
 				<c:forEach items="${categories}" var="category">
 					<tr class="odd gradeX">
 						<td>${category.categoryId }</td>
-						<td><c:set value="${category.image}" var="imageUrl" /> <c:choose>
+						<td style="text-align: center;"><c:set value="${category.image}" var="imageUrl" /> <c:choose>
 								<c:when test="${fn:substring(imageUrl, 0, 4) == 'http' }">
 									<c:url value="${category.image}" var="categoryImgUrl"></c:url>
 
@@ -44,7 +49,7 @@
 							</c:if> <c:if test="${category.isDeleted == false}">
 								<span>Active</span>
 							</c:if></td>
-						<td><a
+						<td style="text-align: center;"><a
 							href="<c:url value="/admin/category-detail?categoryId=${category.categoryId}"/>"
 							class="button-81" role="button"><i class="fa fa-info"></i></a> <a
 							href="<c:url value="/admin/update-category?categoryId=${category.categoryId}"/>"

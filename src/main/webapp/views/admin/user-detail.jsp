@@ -5,42 +5,39 @@
 th {
 	width: 17rem;
 }
+
 table {
 	font-size: 1.7rem !important;
 }
 </style>
 <div class="col">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" style="display: flex;flex-direction: column; justify-content: center;">
+			<div style="display: flex; align-items: center; margin-bottom: 4rem; flex-direction: column;">
+				<img width="200px" height="200px" style="border-radius: 50%; border: 2px solid coral;"
+					src="https://bootdey.com/img/Content/avatar/avatar7.png">
+				<div style="font-weight: bold; margin-top: 1rem; font-size: 1.7rem">User ID: ${user.userId }</div>
+			</div>
 			<table class="table table-striped table-bordered table-hover">
 				<thead>
 					<tr>
-						<th>User ID</th>
-						<th>Avatar</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Address</th>
-						<th>Created At</th>
-						<th>Updated At</th>
-						<th>E Wallet</th>
-						<th>Email</th>
-						<th>Phone</th>
-						<th>Point</th>
-						<th>Role</th>
-						<th>Salt</th>
-						<th>Slug</th>
-						<th>User Level ID</th>
+						<th style="text-align: left !important;">First Name</th>
+						<th style="text-align: left !important;">Last Name</th>
+						<th style="text-align: left !important;">Address</th>
+						<th style="text-align: left !important;">Created At</th>
+						<th style="text-align: left !important;">Updated At</th>
+						<th style="text-align: left !important;">E Wallet</th>
+						<th style="text-align: left !important;">Email</th>
+						<th style="text-align: left !important;">Phone</th>
+						<th style="text-align: left !important;">Point</th>
+						<th style="text-align: left !important;">Role</th>
+						<th style="text-align: left !important;">Salt</th>
+						<th style="text-align: left !important;">Slug</th>
+						<th style="text-align: left !important;">User Level ID</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr class="odd gradeX">
-						<td>${user.userId }</td>
-						<td>
-							<%-- <c:url
-								value="/image?fname=video/${item.poster!=null?item.poster:'uploads/abc.jpg'}"
-								var="imgUrl"></c:url> --%> <img width="50px" height="50px"
-							src="https://bootdey.com/img/Content/avatar/avatar7.png">
-						</td>
 						<td>${user.firstName }</td>
 						<td>${user.lastName }</td>
 						<td>${user.address }</td>
@@ -67,6 +64,8 @@ table {
 		</div>
 	</div>
 </div>
+<style>
+</style>
 <script type="text/javascript">
 	$("table").each(function() {
 		var $this = $(this);

@@ -30,6 +30,8 @@ public class DAOProductImpl {
 	public Product getProductById(int id) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		Product product = entityManager.find(Product.class, id);
+		if(product.getIsActive() == false)
+			return null;
 		return product;
 	}
 	
