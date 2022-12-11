@@ -109,7 +109,8 @@
                       </table>
                       <c:if test="${order.status == 1 }">
                       	<div style="display: flex; justify-content: flex-end; width: 100%;">
-                        	<a  href="/seller/order-complete?orderId=${order.orderId }" class="btn-buy" style="color: white; text-decoration: none">Giao hàng</a>
+                        	<a  href="accept?orderId=${order.orderId }" class="btn-buy" style="color: white; text-decoration: none">Giao hàng</a>
+                      		<a  href="refuse?orderId=${order.orderId }" class="btn-buy" style="color: white; text-decoration: none; background-color: #f75948">Từ chối</a>
                       	</div>
                       </c:if>
                     </div>

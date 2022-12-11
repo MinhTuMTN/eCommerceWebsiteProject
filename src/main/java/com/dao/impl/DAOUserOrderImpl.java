@@ -36,7 +36,21 @@ public class DAOUserOrderImpl {
 			Cart cart = new DAOCartImpl().findCartByUserId(userId);
 			List<CartItem> cartItems = cart.getCartItems();
 			List<Order> orders = new ArrayList<Order>();
-
+			
+			for (CartItem cartItem : cartItems) {
+				total += cartItem.getCount() * cartItem.getProduct().getPrice();
+			}
+			if(total > user.getE_wallet()) {
+				transaction.rollback();
+				return null;
+			}
+			
+			// Trừ tiền
+			user.setE_wallet(user.getE_wallet() - total);
+			entityManager.merge(user);
+			total = 0D;	
+			
+					
 			for (CartItem cartItem : cartItems) {
 				Long storeId = cartItem.getProduct().getStore().getStoreId();
 				Order order = findOrderInListOrders(storeId, orders);

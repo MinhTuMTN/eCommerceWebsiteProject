@@ -88,4 +88,22 @@ public class DAOProductImpl {
 		query.setMaxResults(size);
 		return query.getResultList();
 	}
+	
+	public int countAllProductsSearch(String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT COUNT(p) FROM Product p WHERE p.isActive = true AND p.name LIKE :searchText";
+		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+		query.setParameter("searchText", "%" + searchText + "%");
+		return query.getSingleResult().intValue();
+	}
+	
+	public List<Product> findProductsPaginationByName(int pageNumber, int size, String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT p FROM Product p WHERE p.isActive = true AND p.name like :searchText";
+		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
+		query.setParameter("searchText", '%' + searchText + '%');
+		query.setFirstResult(pageNumber * size);
+		query.setMaxResults(size);
+		return query.getResultList();	
+	}
 }

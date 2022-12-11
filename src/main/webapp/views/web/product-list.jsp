@@ -32,29 +32,58 @@
 		</c:forEach>
 	</div>
 
-	<c:if test="${totalPages > 0 }">
-		<nav aria-label="Page navigation">
-			<ul class="pagination justify-content-end">
-				<li class="${1==(number + 1) ? 'page-item active': 'page-item' }">
-					<a class="page-link" href='<c:url value='/products?page=${0 }'/>'
-					tabindex="-1">First</a>
-				</li>
-				<c:forEach var="i" begin="${number-2 < 0 ? 0 : number-2 }"
-					end="${number+2 }">
-					<c:if test="${i > 0 && i < totalPages}">
-						<li class="${i==number ? 'page-item active': 'page-item' }">
-							<a class="page-link" href="<c:url value='/products?page=${i }'/>">${i + 1 }</a>
-						</li>
-					</c:if>
-				</c:forEach>
-				<li
-					class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
-					<a class="page-link"
-					href='<c:url value='/products?page=${totalPages }'/>' tabindex="-1">Last</a>
-			</ul>
-		</nav>
+	<c:if test="${isSearch }">
+		<c:if test="${totalPages > 0 }">
+			<nav aria-label="Page navigation">
+				<ul class="pagination justify-content-end">
+					<li class="${1==(number + 1) ? 'page-item active': 'page-item' }">
+						<a class="page-link" href='<c:url value='/search-product?search-text=${searchText }&?page=${0 }'/>'
+						tabindex="-1">First</a>
+					</li>
+					<c:forEach var="i" begin="${number-2 < 0 ? 0 : number-2 }"
+						end="${number+2 }">
+						<c:if test="${i > 0 && i < totalPages}">
+							<li class="${i==number ? 'page-item active': 'page-item' }">
+								<a class="page-link"
+								href="<c:url value='/search-product?search-text=${searchText }&page=${i }'/>">${i + 1 }</a>
+							</li>
+						</c:if>
+					</c:forEach>
+					<li
+						class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
+						<a class="page-link"
+						href='<c:url value='/search-product?search-text=${searchText }&?page=${totalPages }'/>'
+						tabindex="-1">Last</a>
+				</ul>
+			</nav>
+		</c:if>
 	</c:if>
-
+	<c:if test="${!isSearch }">
+		<c:if test="${totalPages > 0 }">
+			<nav aria-label="Page navigation">
+				<ul class="pagination justify-content-end">
+					<li class="${1==(number + 1) ? 'page-item active': 'page-item' }">
+						<a class="page-link" href='<c:url value='/products?page=${0 }'/>'
+						tabindex="-1">First</a>
+					</li>
+					<c:forEach var="i" begin="${number-2 < 0 ? 0 : number-2 }"
+						end="${number+2 }">
+						<c:if test="${i > 0 && i < totalPages}">
+							<li class="${i==number ? 'page-item active': 'page-item' }">
+								<a class="page-link"
+								href="<c:url value='/products?page=${i }'/>">${i + 1 }</a>
+							</li>
+						</c:if>
+					</c:forEach>
+					<li
+						class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
+						<a class="page-link"
+						href='<c:url value='/products?page=${totalPages }'/>'
+						tabindex="-1">Last</a>
+				</ul>
+			</nav>
+		</c:if>
+	</c:if>
 </section>
 
 <!-- Product list ends -->
