@@ -69,14 +69,36 @@ ul {
 					<a class="nav-link" href="<c:url value="/admin/categories"/>">Categories
 						management</a>
 				</h3></li>
-				<li class="nav-item list-group-item"><h3>
-					<a class="nav-link" href="<c:url value="/admin/userlevels"/>">User Levels
-						management</a>
+			<li class="nav-item list-group-item"><h3>
+					<a class="nav-link" href="<c:url value="/admin/userlevels"/>">User
+						Levels management</a>
 				</h3></li>
-				<li class="nav-item list-group-item"><h3>
-					<a class="nav-link" href="<c:url value="/admin/storelevels"/>">Store Levels
-						management</a>
+			<li class="nav-item list-group-item"><h3>
+					<a class="nav-link" href="<c:url value="/admin/storelevels"/>">Store
+						Levels management</a>
 				</h3></li>
+
+			<li class="nav-item has-submenu list-group-item"><a
+				class="nav-link" href="#">
+					<h3>Stores management</h3>
+			</a>
+				<ul class="submenu collapse">
+					<li><h4>
+							<a class="nav-link"
+								href="<c:url value="/admin/stores?filter=2"/>">All
+								Stores</a>
+						</h4></li>
+					<li><h4>
+							<a class="nav-link"
+								href="<c:url value="/admin/stores?filter=1"/>">Licensed
+								Stores</a>
+						</h4></li>
+					<li><h4>
+							<a class="nav-link"
+								href="<c:url value="/admin/stores?filter=0"/>">Banned
+								Stores</a>
+						</h4></li>
+				</ul></li>
 		</ul>
 
 	</div>

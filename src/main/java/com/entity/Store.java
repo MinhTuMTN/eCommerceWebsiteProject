@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Nationalized;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +29,9 @@ public class Store {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long storeId;
 	
+	@Nationalized
 	private String name;
+	@Nationalized
 	private String bio;
 	private String slug;
 	private Boolean isActive = true;
