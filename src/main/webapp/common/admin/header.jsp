@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- header section starts  -->
 
+<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
 <header class="header">
 	<a href="#" class="logo"> <i class="fas fa-shopping-basket"></i>
 		HCMUTE

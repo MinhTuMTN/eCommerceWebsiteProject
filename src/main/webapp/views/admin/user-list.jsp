@@ -7,7 +7,7 @@
 			<div class="row mt-2 md-2">
 				<div class="col-md-6 float-right">
 					<h3>Total: ${totalUsers} users</h3>
-					<a href="<c:url value="/admin/statistics"/>" class="button-81"
+					<a style="margin: 2rem 0rem" href="<c:url value="/admin/statistics"/>" class="button-81"
 						role="button"> <i class="fa fa-line-chart"></i>Show statistics
 					</a>
 				</div>
