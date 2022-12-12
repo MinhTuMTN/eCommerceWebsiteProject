@@ -48,7 +48,7 @@ public class EditProductSellerController extends HttpServlet {
 			resp.sendRedirect(req.getContextPath() + "/seller/products");
 		}
 		
-		
+				req.setAttribute("isEdit", true);
 		List<Category> categories = new DAOCategoriesSellerImpl().getAllCategories();
 		req.setAttribute("categories", categories);
 		req.setAttribute("product", product);
