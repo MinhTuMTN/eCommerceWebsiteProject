@@ -2,17 +2,36 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <section class="sproduct" style="padding-bottom: 2rem;">
-	<div class="box-container pt-10">
-		<div class="shop-inf">
-			<div class="mxBadu">
-				<a class="CrEFt7" href="">
-					<div class="shopee-avatar _92jwbD">
-						<img class="ava__img" src="${store.avatar }" alt="Shop ava img">
-					</div>
-					<div class="jxOoP6">
-						<div class="bpQZ1 Z8rK9d">Yêu thích</div>
-					</div>
-				</a>
+	<div class="box-container pt-10" style="">
+
+		<div class="shop-inf"
+			style="display: flex; flex-direction: column; height: auto; position: relative; padding-bottom: 15rem;">
+			<div style="width: 100%; border-radius: 0; height: 35rem">
+				<c:if test="${fn:startsWith(store.cover, 'http')}">
+					<img src="${store.cover }" alt="Shop ava img"
+						style="width: 100%; height: 35rem">
+				</c:if>
+				<c:if test="${!fn:startsWith(store.cover, 'http')}">
+					<img style="width: 100%; height: 35rem"
+						src="image?fileFolder=Stores&fname=${store.cover }"
+						alt="Shop ava img" />
+				</c:if>
+			</div>
+			<div class="mxBadu"
+				style="position: absolute; bottom: 2rem; display: flex; flex-direction: row; align-items: center; width: 100%">
+
+				<div class="shopee-avatar _92jwbD" style="width: 20rem; height: 20rem; margin-right: 2rem ">
+					<c:if test="${fn:startsWith(store.avatar, 'http')}">
+						<img class="ava__img" src="${store.avatar }" alt="Shop ava img"
+							style="width: 20rem; height: 20rem;">
+					</c:if>
+					<c:if test="${!fn:startsWith(store.avatar, 'http')}">
+						<img class="ava__img" style="width: 20rem; height: 20rem;"
+							src="image?fileFolder=Stores&fname=${store.avatar }"
+							alt="Shop ava img" />
+					</c:if>
+				</div>
+
 				<div class="auohmy">
 					<a href="">
 						<div class="FbKovn">${store.name }</div>
@@ -33,12 +52,18 @@
 		style="padding-top: 2rem; padding-bottom: 2rem;">
 		<c:forEach var="p" items="${products }">
 			<div class="box">
-				<img src="${p.image }" alt="" /> <a href="<c:url value="/product-details?productId=${p.productId}" />"><h3>${p.name }</h3></a>
+				<c:if test="${fn:startsWith(p.image, 'http')}">
+					<img src="${p.image }" alt="Card image cap" />
+				</c:if>
+				<c:if test="${!fn:startsWith(topProduct.image, 'http')}">
+					<img src="image?fileFolder=Products&fname=${p.image }"
+						alt="Card image cap" />
+				</c:if>
+				<a
+					href="<c:url value="/product-details?productId=${p.productId}" />"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
-						maxFractionDigits="2" value="${p.price}" /> đ</strong> 
-						<br>
-						<a
+						maxFractionDigits="2" value="${p.price}" /> đ</strong> <br> <a
 					href='<c:url value="/addToCart?productId=${p.productId }"/>'
 					class="btn">Add to cart</a>
 			</div>
