@@ -3,12 +3,18 @@
 <%@include file="/common/taglib.jsp"%>
 
 
-<div class="row">
-	<div class="container">
+<style>
+td i {
+	font-size: 1.8rem !important;
+}
+</style>
+<div class="row" style="flex: 1; font-size: 1.7rem !important;">
+	<div class="container" style="width: 100%">
 		<div class="row mt-2 md-2">
 			<div class="col-md-6 float-right">
-				<a class="button-81" role="button"
-					href="<c:url value="/admin/add-commission"/>">Add New Commission</a>
+				<a class="btn-buy" style="font-size: 1.3rem; margin-bottom: 1.5rem;"
+					role="button" href="<c:url value="/admin/add-commission"/>">Add
+					New Commission</a>
 			</div>
 		</div>
 		<table class="table manage-candidates-top mb-0">
@@ -25,7 +31,7 @@
 				<c:forEach items="${commissions}" var="commission">
 					<tr class="odd gradeX">
 						<td>${commission.commissionId }</td>
-						
+
 						<td>${commission.name}</td>
 						<td>${commission.cost}</td>
 						<td><c:if test="${commission.isDeleted == true}">
@@ -33,7 +39,7 @@
 							</c:if> <c:if test="${commission.isDeleted == false}">
 								<span>Active</span>
 							</c:if></td>
-						<td><a
+						<td style="text-align: center;"><a
 							href="<c:url value="/admin/commission-detail?commissionId=${commission.commissionId}"/>"
 							class="button-81" role="button"><i class="fa fa-info"></i></a> <a
 							href="<c:url value="/admin/update-commission?commissionId=${commission.commissionId}"/>"

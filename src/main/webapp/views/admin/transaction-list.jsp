@@ -2,9 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 
-
-<div class="row">
-	<div class="container">
+<style>
+td i {
+	font-size: 1.8rem !important;
+}
+</style>
+<div class="row" style="flex: 1; font-size: 1.7rem !important;">
+	<div class="container" style="width: 100%">
 		<table class="table manage-candidates-top mb-0">
 			<thead>
 				<tr>
@@ -27,9 +31,11 @@
 							</c:if> <c:if test="${transaction.isUp == false}">
 								<span>Not Up</span>
 							</c:if></td>
-						<td><a
-							href="<c:url value="/admin/transaction-detail?transactionId=${transaction.transactionId }"/>">Read
-								more</a></td>
+						<td style="text-align: center;"><a class="btn-buy"
+							style="font-size: 1.5rem; margin: 0"
+							href="<c:url value="/admin/transaction-detail?transactionId=${transaction.transactionId }"/>"><i
+								class="far fa-eye"> Read More</i></a></td>
+
 
 					</tr>
 				</c:forEach>

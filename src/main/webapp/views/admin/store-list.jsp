@@ -2,9 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 
+<style>
+td i {
+	font-size: 1.8rem !important;
+}
+</style>
 
-<div class="row">
-	<div class="container">
+<div class="row" style="flex: 1; font-size: 1.7rem !important;">
+	<div class="container" style="width: 100%">
 		<table class="table manage-candidates-top mb-0">
 			<thead>
 				<tr>
@@ -23,7 +28,8 @@
 				<c:forEach items="${stores}" var="store">
 					<tr class="odd gradeX">
 						<td>${store.storeId }</td>
-						<td><c:set value="${store.avatar}" var="imageUrl" /> <c:choose>
+						<td style="text-align: center;"><c:set
+								value="${store.avatar}" var="imageUrl" /> <c:choose>
 								<c:when test="${fn:substring(imageUrl, 0, 4) == 'http' }">
 									<c:url value="${store.avatar}" var="storeImgUrl"></c:url>
 
@@ -48,10 +54,10 @@
 							</c:if> <c:if test="${store.isOpen == false}">
 								<span>Closed</span>
 							</c:if></td>
-						<td><a
+						<td style="text-align: center;"><a
 							href="<c:url value="/admin/store-detail?storeId=${store.storeId}"/>"
 							class="button-81" role="button"><i class="fa fa-info"></i>
-								Read more</a> <a
+								</a> <a
 							href="<c:url value="/admin/statistic-revenue?storeId=${store.storeId }"/>"
 							class="button-81" role="button"> <i class="fa fa-line-chart"></i></a>
 							<c:if test="${store.isActive == false}">
@@ -59,13 +65,13 @@
 									href="<c:url value="/admin/license-store?storeId=${store.storeId}&licensed=1"/>"
 									class="button-81" role="button"
 									onclick="javascript:return YNConfirmation()"><i
-									class="fa fa-check-circle-o"></i> License</a>
+									class="fa fa-check-circle-o"></i></a>
 							</c:if> <c:if test="${store.isActive == true}">
 								<a
 									href="<c:url value="/admin/license-store?storeId=${store.storeId}&licensed=0"/>"
 									class="button-81" role="button"
 									onclick="javascript:return YNConfirmation()"> <i
-									class="fa fa-ban"></i> Ban
+									class="fa fa-ban"></i>
 								</a>
 							</c:if></td>
 

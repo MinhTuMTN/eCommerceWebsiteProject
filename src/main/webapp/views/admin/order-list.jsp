@@ -23,7 +23,7 @@
 						<tr class="odd gradeX">
 							<td>${order.orderId }</td>
 							<td>${order.user.userId }</td>
-							<td>${order.user.firstName } ${order.user.lastName }</td>
+							<td>${order.user.firstName }${order.user.lastName }</td>
 							<td>${order.user.address }</td>
 							<td>${order.user.phone }</td>
 							<td><c:if test="${order.status == 0}">
@@ -37,9 +37,11 @@
 								</c:if> <c:if test="${order.status == 4}">
 									<span>Cancelled</span>
 								</c:if></td>
-							<td style="text-align: center;"><a class="btn-buy" style="font-size: 1.5rem; margin: 0"
-								href="<c:url value="/admin/order-detail?orderId=${order.orderId }"/>">Read
-									more</a></td>
+
+							<td style="text-align: center;"><a class="btn-buy"
+								style="font-size: 1.5rem; margin: 0"
+								href="<c:url value="/admin/order-detail?orderId=${order.orderId }"/>"><i
+									class="far fa-eye"> Read More</i></a></td>
 
 						</tr>
 					</c:forEach>

@@ -3,12 +3,19 @@
 <%@include file="/common/taglib.jsp"%>
 
 
-<div class="row">
-	<div class="container">
+
+<style>
+td i {
+	font-size: 1.8rem !important;
+}
+</style>
+<div class="row" style="flex: 1; font-size: 1.7rem !important;">
+	<div class="container" style="width: 100%">
 		<div class="row mt-2 md-2">
 			<div class="col-md-6 float-right">
-				<a class="button-81" role="button"
-					href="<c:url value="/admin/add-userlevel"/>">Add New User Level</a>
+				<a class="btn-buy" style="font-size: 1.3rem; margin-bottom: 1.5rem;"
+					role="button" href="<c:url value="/admin/add-userlevel"/>">Add
+					New User Level</a>
 			</div>
 		</div>
 		<table class="table manage-candidates-top mb-0">
@@ -25,7 +32,7 @@
 				<c:forEach items="${userLevels}" var="userLevel">
 					<tr class="odd gradeX">
 						<td>${userLevel.userLevelId }</td>
-						
+
 						<td>${userLevel.name}</td>
 						<td>${userLevel.discount}</td>
 						<td><c:if test="${userLevel.isDeleted == true}">
@@ -33,7 +40,7 @@
 							</c:if> <c:if test="${userLevel.isDeleted == false}">
 								<span>Active</span>
 							</c:if></td>
-						<td><a
+						<td style="text-align: center;"><a
 							href="<c:url value="/admin/userlevel-detail?userLevelId=${userLevel.userLevelId}"/>"
 							class="button-81" role="button"><i class="fa fa-info"></i></a> <a
 							href="<c:url value="/admin/update-userlevel?userLevelId=${userLevel.userLevelId}"/>"
