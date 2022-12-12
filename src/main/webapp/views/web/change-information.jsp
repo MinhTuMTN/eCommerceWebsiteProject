@@ -24,19 +24,19 @@ input {
 		<form action=""
 			style="text-transform: none !important; font-size: 1.7rem"
 			method="post">
-			<label for="">First name:</label><br /> <input type="text"
+			<label for="">Họ và tên lót:</label><br /> <input type="text"
 				name="firstName" required value="${user.firstName }" /><br /> <label
-				for="">Last name:</label><br /> <input type="text" name="lastName"
+				for="">Tên:</label><br /> <input type="text" name="lastName"
 				required id="newPassword" value="${user.lastName }" /><br /> <label
-				for="" >Phone number:</label><br /> <input type="text" name="phone" pattern="[0][789][0-9]{8}"
+				for="" >Số điện thoại:</label><br /> <input type="text" name="phone" pattern="[0][789][0-9]{8}"
 				required id="reNewPassword" value="${user.phone }" /><br /> <label
-				for="" style="text-transform: none">Email address:</label><br /> <input
+				for="" style="text-transform: none">Email:</label><br /> <input
 				type="email" name="email" required id="reNewPassword"
-				value="${user.email }" /><br /> <label for="">Address:</label><br />
+				value="${user.email }" /><br /> <label for="">Địa chỉ:</label><br />
 			<input type="text" name="address" style="text-transform: none"
 				required id="reNewPassword" value="${user.address }" /><br />
 			<button class="btn-buy" type="submit" id="submit">
-				Change</button>
+				Cập nhật hồ sơ</button>
 		</form>
 	</div>
 </section>
