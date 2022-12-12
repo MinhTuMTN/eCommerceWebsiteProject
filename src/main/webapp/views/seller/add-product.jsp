@@ -103,8 +103,7 @@ textarea {
 						</div>
 					</div>
 					<div class="col-12">
-						<button type="submit" class="btn-buy btn-block text-uppercase">Add
-							Product Now</button>
+						<button type="submit" class="btn-buy btn-block text-uppercase">Thêm sản phẩm</button>
 					</div>
 					</form>
 				</div>
