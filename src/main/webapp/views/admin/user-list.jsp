@@ -43,10 +43,10 @@
 											alt="">
 									</div> -->
 								<div class="thumb" style="width: 50%;">
-									<c:if test="${fn:startsWith(product.image, 'http')}">
+									<c:if test="${fn:startsWith(user.avatar, 'http')}">
 										<img width="200rem" height="200rem" src="${user.avatar }">
 									</c:if>
-									<c:if test="${!fn:startsWith(product.image, 'http')}">
+									<c:if test="${!fn:startsWith(user.avatar, 'http')}">
 										<img width="200rem" height="200rem"
 											src="../image?fileFolder=Products&fname=${user.avatar }">
 									</c:if>
