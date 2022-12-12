@@ -12,11 +12,23 @@ table {
 </style>
 <div class="col">
 	<div class="row">
-		<div class="col-md-12" style="display: flex;flex-direction: column; justify-content: center;">
-			<div style="display: flex; align-items: center; margin-bottom: 4rem; flex-direction: column;">
-				<img width="200px" height="200px" style="border-radius: 50%; border: 2px solid coral;"
-					src="https://bootdey.com/img/Content/avatar/avatar7.png">
-				<div style="font-weight: bold; margin-top: 1rem; font-size: 1.7rem">User ID: ${user.userId }</div>
+		<div class="col-md-12"
+			style="display: flex; flex-direction: column; justify-content: center;">
+			<div
+				style="display: flex; align-items: center; margin-bottom: 4rem; flex-direction: column;">
+				<c:if test="${fn:startsWith(user.avatar, 'http')}">
+					<img width="200px" height="200px"
+						style="border-radius: 50%; border: 2px solid coral;"
+						src="${user.avatar }">
+				</c:if>
+				<c:if test="${!fn:startsWith(user.avatar, 'http')}">
+					<img width="200px" height="200px"
+						style="border-radius: 50%; border: 2px solid coral;"
+						src="../image?fileFolder=Users&fname=${user.avatar }">
+				</c:if>
+
+				<div style="font-weight: bold; margin-top: 1rem; font-size: 1.7rem">User
+					ID: ${user.userId }</div>
 			</div>
 			<table class="table table-striped table-bordered table-hover">
 				<thead>
