@@ -1,6 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
+
+<style>
+.row {
+	flex: 0.9 !important;
+	font-size: 1.7rem !important;
+}
+
+body>section.sproduct>div>div>div.row>div>table>tbody>tr>th {
+	text-align: left !important;
+	width: 20% !important;
+}
+body > section.sproduct > div > div > div.col > div > div > table > tbody > tr > th {
+	width: 20% !important;
+}
+</style>
 <div class="col">
 	<div class="row">
 		<div class="col-md-12">
@@ -32,7 +47,7 @@
 						<td>${order.address }</td>
 						<td>${order.phone }</td>
 						<td>${order.amountFromStore }</td>
-						<td>${order.amountFromUser }</td>
+						<td><fmt:formatNumber value="${order.amountFromUser }" maxFractionDigits="2" type="number"></fmt:formatNumber> đ</td>
 						<td>${order.amountToGD }</td>
 						<td>${order.amountToStore }</td>
 						<td>${order.createdAt }</td>
@@ -71,3 +86,35 @@
 
 <script
 	src="${pageContext.request.contextPath}/views/js/confirmation.js"></script>
+	
+<script type="text/javascript">
+	$("table").each(function() {
+		var $this = $(this);
+		var newrows = [];
+		$this.find("tr").each(function() {
+			var i = 0;
+			var e = true;
+			$(this).find("td").each(function() {
+				e = false;
+				i++;
+				if (newrows[i] === undefined) {
+					newrows[i] = $("<tr></tr>");
+				}
+				newrows[i].append($(this));
+			});
+			if (e) {
+				$(this).find("th").each(function() {
+					i++;
+					if (newrows[i] === undefined) {
+						newrows[i] = $("<tr></tr>");
+					}
+					newrows[i].append($(this));
+				});
+			}
+		});
+		$this.find("tr").remove();
+		$.each(newrows, function() {
+			$this.append(this);
+		});
+	});
+</script>

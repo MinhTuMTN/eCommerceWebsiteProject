@@ -23,7 +23,7 @@
 						<tr class="odd gradeX">
 							<td>${order.orderId }</td>
 							<td>${order.user.userId }</td>
-							<td>${order.user.firstName }${order.user.lastName }</td>
+							<td>${order.user.firstName } ${order.user.lastName }</td>
 							<td>${order.user.address }</td>
 							<td>${order.user.phone }</td>
 							<td><c:if test="${order.status == 0}">
