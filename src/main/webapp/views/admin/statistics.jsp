@@ -42,11 +42,11 @@ td i {
 					<c:forEach items="${top3Users}" var="user">
 						<tr class="odd gradeX" style="height: 100px;">
 							<td>${user.userId }</td>
-							<td><c:if test="${fn:startsWith(product.image, 'http')}">
+							<td><c:if test="${fn:startsWith(user.avatar, 'http')}">
 									<img width="200rem" height="200rem" src="${user.avatar }">
-								</c:if> <c:if test="${!fn:startsWith(product.image, 'http')}">
+								</c:if> <c:if test="${!fn:startsWith(user.avatar, 'http')}">
 									<img width="200rem" height="200rem"
-										src="../image?fileFolder=Products&fname=${user.avatar }">
+										src="../image?fileFolder=Users&fname=${user.avatar }">
 								</c:if></td>
 							<td><a
 								href="<c:url value="/admin/user-detail?userId=${user.userId }"/>">${user.firstName }

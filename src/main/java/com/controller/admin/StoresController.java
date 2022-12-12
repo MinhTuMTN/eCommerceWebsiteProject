@@ -45,7 +45,6 @@ public class StoresController extends HttpServlet {
 
 		int totalPages = (float) ((int) temp) < temp ? (int) temp : (int) temp - 1;
 
-		totalPages = (float) ((int) temp) < temp ? (int) temp : (int) temp - 1;
 		try {
 			pageNumber = Integer.valueOf(req.getParameter("page"));
 		} catch (Exception e) {

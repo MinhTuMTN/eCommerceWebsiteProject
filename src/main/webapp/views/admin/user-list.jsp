@@ -48,7 +48,7 @@
 									</c:if>
 									<c:if test="${!fn:startsWith(user.avatar, 'http')}">
 										<img width="200rem" height="200rem"
-											src="../image?fileFolder=Products&fname=${user.avatar }">
+											src="../image?fileFolder=Users&fname=${user.avatar }">
 									</c:if>
 								</div>
 								<div class="candidate-list-details">
