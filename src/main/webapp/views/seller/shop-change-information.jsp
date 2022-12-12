@@ -39,7 +39,7 @@ input {
 }
 </style>
 
-<section class="hfwehhfej-1" style="padding: 3rem 3rem 3rem 3rem">
+<section class="hfwehhfej-1" style="padding: 3rem 3rem 3rem 3rem; background-color: #faeae8">
 	<h1 style="margin-bottom: 2rem;">Thay đổi thông tin</h1>
 	<div class="my-container-1234">
 		<div class="item-number-1">
