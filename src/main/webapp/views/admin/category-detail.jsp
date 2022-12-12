@@ -46,7 +46,7 @@ body > section.sproduct > div > div > div.row > div > table > tbody > tr > th {
 						</c:choose> <img src="${categoryImgUrl}" width="100px" alt="${category.name}"></td>
 					<td>${category.categoryId }</td>
 					<td>${category.name}</td>
-					<th>${category.slug }</th>
+					<td>${category.slug}</td>
 					<td>${category.createdAt }</td>
 					<td>${category.updatedAt }</td>
 					<td><c:if test="${category.isDeleted == true}">
