@@ -10,7 +10,8 @@ td i {
 
 <div class="row" style="flex: 1; font-size: 1.7rem !important;">
 	<div class="container" style="width: 100%">
-		<table class="table manage-candidates-top mb-0">
+		<table class="table table-striped table-bordered table-hover"
+					style="width: 100%">
 			<thead>
 				<tr>
 					<th>Store ID</th>

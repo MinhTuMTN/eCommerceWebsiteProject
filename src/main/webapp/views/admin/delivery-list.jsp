@@ -16,7 +16,8 @@ td i {
 					New Delivery Unit</a>
 			</div>
 		</div>
-		<table class="table manage-candidates-top mb-0">
+		<table class="table table-striped table-bordered table-hover"
+					style="width: 100%">
 			<thead>
 				<tr>
 					<th>Delivery Unit ID</th>

@@ -3,7 +3,7 @@
 <%@include file="/common/taglib.jsp"%>
 
 <style>
-td i{
+td i {
 	font-size: 1.8rem !important;
 }
 </style>
@@ -12,11 +12,13 @@ td i{
 	<div class="container" style="width: 100%">
 		<div class="row mt-2 md-2">
 			<div class="col-md-6 float-right">
-				<a class="btn-buy" style="font-size: 1.3rem; margin-bottom: 1.5rem;" role="button"
-					href="<c:url value="/admin/add-category"/>">Add New Category</a>
+				<a class="btn-buy" style="font-size: 1.3rem; margin-bottom: 1.5rem;"
+					role="button" href="<c:url value="/admin/add-category"/>">Add
+					New Category</a>
 			</div>
 		</div>
-		<table class="table manage-candidates-top mb-0">
+		<table class="table table-striped table-bordered table-hover"
+			style="width: 100%">
 			<thead>
 				<tr>
 					<th>Category ID</th>
@@ -30,7 +32,8 @@ td i{
 				<c:forEach items="${categories}" var="category">
 					<tr class="odd gradeX">
 						<td>${category.categoryId }</td>
-						<td style="text-align: center;"><c:set value="${category.image}" var="imageUrl" /> <c:choose>
+						<td style="text-align: center;"><c:set
+								value="${category.image}" var="imageUrl" /> <c:choose>
 								<c:when test="${fn:substring(imageUrl, 0, 4) == 'http' }">
 									<c:url value="${category.image}" var="categoryImgUrl"></c:url>
 

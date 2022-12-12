@@ -2,16 +2,36 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 
-<div class="col">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card-header">
-				<h2>Top 3 Users With Most Amount</h2>
+<style>
+td i {
+	font-size: 1.8rem !important;
+}
+</style>
+<style>
+.wewgfjqc a {
+	font-size: 1.7rem !important;
+	padding: 1rem 2rem !important;
+	margin-right: 1.3rem !important;
+}
+</style>
+
+<div class="row" style="flex: 1; font-size: 1.7rem !important;">
+	<div class="container" style="width: 100%">
+		<div class="row mt-2 md-2">
+			<h2>Top 3 người dùng thanh toán nhiều nhất</h2>
+			<hr style="width: 100%;">
+			<div
+				style="display: flex; font-size: 1.5rem; justify-content: space-between; width: 100%;">
 			</div>
-			<table class="table table-striped table-bordered table-hover">
+			<div style="flex: 0.7; line-height: 6rem;"></div>
+
+
+			<table class="table table-striped table-bordered table-hover"
+				style="width: 100%">
 				<thead>
-					<tr>
+					<tr style="height: 100%; vertical-align: top; overflow: auto">
 						<th>User ID</th>
+						<th>Avatar</th>
 						<th>Name</th>
 						<th>Phone</th>
 						<th>Email</th>
@@ -20,39 +40,50 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${top3Users}" var="user">
-						<tr class="odd gradeX">
+						<tr class="odd gradeX" style="height: 100px;">
 							<td>${user.userId }</td>
+							<td><c:if test="${fn:startsWith(product.image, 'http')}">
+									<img width="200rem" height="200rem" src="${user.avatar }">
+								</c:if> <c:if test="${!fn:startsWith(product.image, 'http')}">
+									<img width="200rem" height="200rem"
+										src="../image?fileFolder=Products&fname=${user.avatar }">
+								</c:if></td>
 							<td><a
 								href="<c:url value="/admin/user-detail?userId=${user.userId }"/>">${user.firstName }
 									${user.lastName }</a></td>
 							<td>${user.phone }</td>
 							<td style="text-transform: none;">${user.email }</td>
-							<td style="text-align: center"><a
-								href="<c:url value="/admin/user-detail?userId=${user.userId }"/>"
-								class="button-81" role="button"><i class="fa fa-info"></i>
-									Read more</a></td>
+							<td style="text-align: center"><a role="button"
+								class="btn-buy btn-sm"
+								href="<c:url value="/admin/user-detail?userId=${user.userId }"/>">
+									<i class="far fa-eye"> Read More</i>
+							</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+
+
+		<div class="row mt-2 md-2">
+			<h2>Biểu đồ 10 người dùng thanh toán nhiều nhất</h2>
+			<hr style="width: 100%;">
+			<div
+				style="display: flex; font-size: 1.5rem; justify-content: space-between; width: 100%;">
+			</div>
+			<div style="flex: 0.7; line-height: 6rem;"></div>
+			<div style="margin: 1.5rem 0rem;" class="wewgfjqc">
+				<a href="<c:url value="/admin/statistics?chart=0"/>"
+					class="button-81" role="button">Pie Chart</a> <a
+					href="<c:url value="/admin/statistics?chart=1"/>" class="button-81"
+					role="button">Bar Chart</a>
+			</div>
+			<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+		</div>
 	</div>
-	<style>
-	.wewgfjqc a{
-		font-size: 1.7rem !important;
-		padding: 1rem 2rem !important;
-		margin-right: 1.3rem !important;
-	}
-	</style>
-	<div style="margin: 1.5rem 0rem;" class="wewgfjqc">
-		<a href="<c:url value="/admin/statistics?chart=0"/>" class="button-81"
-			role="button">Pie Chart</a> <a
-			href="<c:url value="/admin/statistics?chart=1"/>" class="button-81"
-			role="button">Bar Chart</a>
-	</div>
-	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-	<c:if test="${chart == 0 }">
-		<script type="text/javascript">
+</div>
+<c:if test="${chart == 0 }">
+	<script type="text/javascript">
 	window.onload = function () {
     var chart = new CanvasJS.Chart("chartContainer",
     {
@@ -77,9 +108,9 @@
     chart.render();
   }
   </script>
-	</c:if>
-	<c:if test="${chart == 1 }">
-		<script>
+</c:if>
+<c:if test="${chart == 1 }">
+	<script>
 window.onload = function () {
 	
 var chart = new CanvasJS.Chart("chartContainer", {
@@ -107,7 +138,6 @@ chart.render();
 
 }
 </script>
-	</c:if>
-	<script type="text/javascript"
-		src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</div>
+</c:if>
+<script type="text/javascript"
+	src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
