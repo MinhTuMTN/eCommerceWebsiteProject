@@ -28,7 +28,7 @@ input {
 				name="firstName" required value="${user.firstName }" /><br /> <label
 				for="">Tên:</label><br /> <input type="text" name="lastName"
 				required id="newPassword" value="${user.lastName }" /><br /> <label
-				for="" >Số điện thoại:</label><br /> <input type="text" name="phone" pattern="[0][789][0-9]{8}"
+				for="" >Số điện thoại:</label><br /> <input type="text" name="phone" pattern="[0][1-9][0-9]{8}"
 				required id="reNewPassword" value="${user.phone }" /><br /> <label
 				for="" style="text-transform: none">Email:</label><br /> <input
 				type="email" name="email" required id="reNewPassword"
