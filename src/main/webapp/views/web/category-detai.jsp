@@ -104,7 +104,7 @@
 									<a href="${URLProduct }"><h3>${p.name }</h3></a>
 									<p>${p.description }</p>
 									<strong><fmt:formatNumber type="number"
-											maxFractionDigits="2" value="${p.price}" />đ</strong>
+											maxFractionDigits="2" value="${p.price}" />đ</strong> <br>
 									<c:url value="/addToCart?productId=${p.productId }"
 										var="addCartURL"></c:url>
 									<a href="${addCartURL }" class="btn">Add to cart</a>

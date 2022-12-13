@@ -46,5 +46,4 @@ public class AdminFeaturesFilter implements Filter {
 		resp.sendRedirect(req.getContextPath() + "/dang-nhap");
 
 	}
-
 }
