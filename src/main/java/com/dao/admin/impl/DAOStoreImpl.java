@@ -20,6 +20,7 @@ public class DAOStoreImpl {
 			Date updatedAt = new Date(System.currentTimeMillis());
 			store.setUpdatedAt(updatedAt);
 			store.setIsActive(true);
+			store.setIsOpen(true);
 			if (licenseStoreProducts(store.getStoreId())) {
 				entityManager.merge(store);
 				transaction.commit();
