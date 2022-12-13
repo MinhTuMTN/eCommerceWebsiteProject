@@ -63,10 +63,11 @@
 								</c:if> <c:if test="${order.status == 4}">
 									<span>Cancelled</span>
 								</c:if></td>
-							<td><a
-								href="<c:url value="/admin/order-detail?orderId=${order.orderId }"/>"
-								class="button-81" role="button"><i class="fa fa-info"></i>
-									Read more</a></td>
+								<td style="text-align: center"><a role="button"
+								class="btn-buy btn-sm"
+								href="<c:url value="/admin/order-detail?orderId=${order.orderId }"/>">
+									<i class="far fa-eye"> Read More</i>
+							</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

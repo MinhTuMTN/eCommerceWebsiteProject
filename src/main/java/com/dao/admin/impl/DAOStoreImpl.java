@@ -43,6 +43,7 @@ public class DAOStoreImpl {
 			Date updatedAt = new Date(System.currentTimeMillis());
 			store.setUpdatedAt(updatedAt);
 			store.setIsActive(false);
+			store.setIsOpen(false);
 			if (banStoreProducts(store.getStoreId())) {
 				entityManager.merge(store);
 				transaction.commit();
