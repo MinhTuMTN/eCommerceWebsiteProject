@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile customer page</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./views/css/style.css" />
+</head>
+
+<body>
+    <!-- header section starts  -->
+
+    <header class="header">
+        <a href="#" class="logo">
+            <i class="fas fa-shopping-basket"></i> HCMUTE
+        </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#categories">categories</a>
+            <a href="#products">products</a>
+            <a href="#review">review</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="Search here..." />
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+    </header>
+
+    <!-- header section ends -->
+
+    <section class="srecharge">
+        <h1>Nạp tiền vào ví</h1>
+        <hr>
+
+        <div class="amount">
+            <h2>Nhập số tiền:</h2>
+            <input type="number" name="amount">
+        </div>
+
+        <form action="" method="post">
+            <div class="recharge-details">
+                <div class="payment-methods">
+                    <h2>Phương thức thanh toán</h2>
+                    <div class="container">
+                        <div class="credit">
+                            <input type="radio" name="method">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+                                alt="">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/640px-Mastercard-logo.svg.png"
+                                alt="">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/800px-American_Express_logo_%282018%29.svg.png"
+                                alt="">
+                        </div>
+                        <div class="paypal">
+                            <input type="radio" name="method">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/2560px-PayPal_logo.svg.png"
+                                alt="">
+                        </div>
+                        <div class="momo">
+                            <input type="radio" name="method">
+                            <img src="https://images.viblo.asia/e3155ca5-5d16-455a-9449-fdc95d4a9664.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <input type="submit" class="btn-buy" value="Nạp tiền" style="margin-top: 1.5rem; width: 25rem;">
+            </div>
+        </form>
+    </section>
+
+    <!-- footer section starts  -->
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>HCMUTE <i class="fas fa-shopping-basket"></i></h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
+                    saepe.
+                </p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" class="links">
+                    <i class="fas fa-phone"></i> +111-222-3333
+                </a>
+                <a href="#" class="links">
+                    <i class="fas fa-envelope"></i> dhspkt@gmail.com
+                </a>
+                <a href="#" class="links">
+                    <i class="fas fa-map-marker-alt"></i>Số 1 Võ Văn Ngân, phường Linh
+                    Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
+                </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#" class="links">
+                    <i class="fas fa-arrow-right"></i> home
+                </a>
+                <a href="#" class="links">
+                    <i class="fas fa-arrow-right"></i> categories
+                </a>
+                <a href="#" class="links">
+                    <i class="fas fa-arrow-right"></i> products
+                </a>
+                <a href="#" class="links">
+                    <i class="fas fa-arrow-right"></i> review
+                </a>
+                <a href="#" class="links">
+                    <i class="fas fa-arrow-right"></i> contact
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer section ends -->
+
+    <!-- JS -->
+
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+
+</html>

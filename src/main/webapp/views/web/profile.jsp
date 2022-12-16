@@ -18,6 +18,9 @@
 						<li class="list-group-item"
 							style="font-size: 15px; padding-left: 3.5rem;"><a href="<c:url value="/change-password" ></c:url>"
 							class="a-cate-detai">Đổi Mật Khẩu</a></li>
+						<li class="list-group-item"
+							style="font-size: 15px; padding-left: 3.5rem;"><a href="<c:url value="/recharge" ></c:url>"
+							class="a-cate-detai">Nạp tiền vào ví</a></li>
 					</ul>
 				</div>
 				<!--Danh mục profile ends-->

@@ -588,7 +588,6 @@ hr {
   white-space: nowrap;
 }
 
-
 /*Category-detail*/
 .a-cate-detai {
   color: black;
@@ -752,7 +751,7 @@ hr {
 }
 
 .InGfFt {
-  flex: 0.75;
+  flex: 0.6;
 }
 
 ._6-dPdd {
@@ -761,7 +760,7 @@ hr {
   border-left: 0.0625rem solid #efefef;
   justify-content: center;
   display: flex;
-  flex: 0.25;
+  flex: 0.4;
 }
 
 .dghdd9 {
@@ -782,7 +781,7 @@ hr {
   font-size: 1.7rem;
 }
 .gV\+dPk {
-  width: 75% !important;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -964,4 +963,50 @@ hr {
   .footer .box-container .box .payment-img {
     margin: 2rem auto;
   }
+}
+
+.srecharge {
+  display: flex;
+  background-color: white;
+  width: 80%;
+  margin: 5% 10%;
+  flex-direction: column;
+  padding-top: 5rem;
+}
+
+.srecharge hr {
+  width: 100%;
+}
+
+.srecharge .amount {
+  margin: 3rem 0rem;
+}
+
+.srecharge .amount input {
+  border: 2px solid coral;
+  width: 70%;
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 0rem 1rem;
+  margin: 1rem 0rem;
+}
+.payment-methods .container {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin: 0;
+}
+.payment-methods input {
+  width: 2rem;
+  height: 2rem;
+}
+.credit,
+.paypal,
+.momo {
+  display: flex;
+  align-items: center;
+}
+.payment-methods img {
+  width: 5rem;
+  margin: 1rem;
 }
