@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Nationalized;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +32,7 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 	
+	@Nationalized
 	private String address;	
 	private String phone;	
 	private Integer status;	
@@ -38,8 +41,8 @@ public class Order {
 	private Double amountFromStore;
 	private Double amountToStore;
 	private Double amountToGD;
-	private Date createdAt;
-	private Date updatedAt;
+	private Date createdAt = new Date();
+	private Date updatedAt = new Date();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;

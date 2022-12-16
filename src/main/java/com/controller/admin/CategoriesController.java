@@ -16,14 +16,13 @@ import com.entity.Category;
 import com.util.Constant;
 import com.util.UploadUtils;
 
-
 @SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet(urlPatterns = { "/admin/categories", "/admin/category-detail", "/admin/add-category",
 		"/admin/update-category", "/admin/delete-category", "/admin/restore-category" })
 public class CategoriesController extends HttpServlet {
 	DAOCategoryImpl daoCategoryImpl = new DAOCategoryImpl();
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String url = req.getRequestURL().toString();
@@ -45,6 +44,7 @@ public class CategoriesController extends HttpServlet {
 			restoreCategory(req, resp);
 		}
 	}
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String url = req.getRequestURL().toString();
@@ -54,24 +54,34 @@ public class CategoriesController extends HttpServlet {
 			updateCategory(req, resp);
 		}
 	}
-	
+
 	private void restoreCategory(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		Category category = daoCategoryImpl.getCategoryById(Long.valueOf(req.getParameter("categoryId")));
+		String message = "";
+		if (daoCategoryImpl.restoreCategory(category)) {
+			message = "Khôi phục sản phẩm thành công!";
+		} else {
+			message = "Khôi phục sản phẩm thất bại!";
+		}
+
+		req.setAttribute("message", message);
+
+		resp.sendRedirect(req.getContextPath() + "/admin/categories");
 
 	}
 
 	private void deleteCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Category category = daoCategoryImpl.getCategoryById(Long.valueOf(req.getParameter("categoryId")));
 		String message = "";
-		if(daoCategoryImpl.deleteCategory(category)) {
-			message = "Cập nhật trạng thái đơn hàng thành công!";
+		if (daoCategoryImpl.deleteCategory(category)) {
+			message = "Xóa sản phẩm thành công!";
 		} else {
-			message = "Cập nhật trạng thái đơn hàng thất bại!";
+			message = "Xóa sản phẩm thất bại!";
 		}
-		
+
 		req.setAttribute("message", message);
-		
+
 		resp.sendRedirect(req.getContextPath() + "/admin/categories");
 
 	}
@@ -79,26 +89,27 @@ public class CategoriesController extends HttpServlet {
 	private void updateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			Category category = new Category();
-			
+
 			category.setCategoryId(Long.parseLong(req.getParameter("categoryId")));
-			category.setName(req.getParameter("name"));
-			category.setSlug(req.getParameter("slug"));
-			
+			String name = req.getParameter("name");
+			category.setName(name);
+			category.setSlug(Slugify.makeSlug(name));
+
 			Date updatedAt = new Date(System.currentTimeMillis());
 			category.setUpdatedAt(updatedAt);
-			
 			String fileName = category.getSlug() + System.currentTimeMillis();
-			category.setImage(UploadUtils.processUpload("image", req, Constant.DIR + "\\Categories\\", fileName));
+			String image = UploadUtils.processUpload("image", req, Constant.DIR + "\\Categories\\", fileName);
+			category.setImage(image);
 
 			daoCategoryImpl.updateCategory(category);
-			
+
 			req.setAttribute("message", "Cập nhật loại sản phẩm thành công!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			req.setAttribute("message", "Cập nhật loại sản phẩm thất bại. Eror: " + e.getMessage());
 		}
-		
+
 		resp.sendRedirect(req.getContextPath() + "/admin/categories");
 	}
 
@@ -106,25 +117,26 @@ public class CategoriesController extends HttpServlet {
 		try {
 			Category category = new Category();
 
-			category.setName(req.getParameter("name"));
-			category.setSlug(req.getParameter("slug"));
-			
+			String name = req.getParameter("name");
+			category.setName(name);
+			category.setSlug(Slugify.makeSlug(name));
+
 			Date createdAt = new Date(System.currentTimeMillis());
 			category.setCreatedAt(createdAt);
 			category.setUpdatedAt(createdAt);
-			
+
 			String fileName = category.getSlug() + System.currentTimeMillis();
 			category.setImage(UploadUtils.processUpload("image", req, Constant.DIR + "\\Categories\\", fileName));
 
 			daoCategoryImpl.insertCategory(category);
-			
+
 			req.setAttribute("message", "Thêm loại sản phẩm thành công!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			req.setAttribute("message", "Thêm loại sản phẩm thất bại. Eror: " + e.getMessage());
 		}
-		
+
 		resp.sendRedirect(req.getContextPath() + "/admin/categories");
 	}
 

@@ -84,11 +84,11 @@ textarea {
 								style="display: block; width: 35rem; height: 35rem;">
 								<c:if test="${!fn:startsWith(product.image, 'http')}">
 									<img id="output_image" src="../image?fileFolder=Products&fname=${product.image }" alt="" width="100%" height="100%"
-										style="border-radius: 50%;">
+										>
 								</c:if>
 								<c:if test="${fn:startsWith(product.image, 'http')}">
 									<img id="output_image" src="${product.image }" alt="" width="100%" height="100%"
-										style="border-radius: 50% ;">
+										>
 								</c:if>
 							</div>
 							<input id="image" type="file" name="image" style="display: none;"
@@ -103,8 +103,7 @@ textarea {
 						</div>
 					</div>
 					<div class="col-12">
-						<button type="submit" class="btn-buy btn-block text-uppercase">Add
-							Product Now</button>
+						<button type="submit" class="btn-buy btn-block text-uppercase">${isEdit ? "Cập nhật" : "Thêm sản phẩm" }</button>
 					</div>
 					</form>
 				</div>

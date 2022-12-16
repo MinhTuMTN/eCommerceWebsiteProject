@@ -96,6 +96,6 @@ public class OrdersController extends HttpServlet {
 		
 		req.setAttribute("message", message);
 		
-		req.getRequestDispatcher("/views/admin/home.jsp").forward(req, resp);
+		resp.sendRedirect(req.getContextPath() + "/admin/orders");
 	}
 }

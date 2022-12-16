@@ -13,11 +13,17 @@
 					</div>
 					<ul class="list-group category_block">
 						<li class="list-group-item"
-							style="font-size: 15px; height: 4.25rem; padding-left: 3.5rem;"><a
+							style="font-size: 15px; padding-left: 3.5rem;"><a
 							href='<c:url value="/change-information" ></c:url>' class="a-cate-detai">Hồ Sơ</a></li>
 						<li class="list-group-item"
 							style="font-size: 15px; padding-left: 3.5rem;"><a href="<c:url value="/change-password" ></c:url>"
 							class="a-cate-detai">Đổi Mật Khẩu</a></li>
+						<li class="list-group-item"
+							style="font-size: 15px; padding-left: 3.5rem;"><a href="<c:url value="/orders-processing" ></c:url>"
+							class="a-cate-detai">Đơn hàng của tôi</a></li>
+						<li class="list-group-item"
+							style="font-size: 15px; padding-left: 3.5rem;"><a href="<c:url value="/recharge" ></c:url>"
+							class="a-cate-detai">Nạp tiền vào ví</a></li>
 					</ul>
 				</div>
 				<!--Danh mục profile ends-->
@@ -100,6 +106,24 @@
 														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m">${user.role == 2 ? "User" : (user.role == 1 ? "Seller" : "Admin") }</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="dghdd9">
+													<div class="h4eiAQ ">
+														<div class="tBgRZR">
+															<label for="">Số dư ví: </label>
+														</div>
+														<div class="gV\+dPk" style="width: 75%">
+															<div class="_2NnHla">
+																<div class="Z1Wx1m">
+																	<strong>
+																		<fmt:formatNumber value="${user.e_wallet }" maxFractionDigits="2" type="number"></fmt:formatNumber>
+																	 đ
+																	</strong>
+																</div>
 															</div>
 														</div>
 													</div>

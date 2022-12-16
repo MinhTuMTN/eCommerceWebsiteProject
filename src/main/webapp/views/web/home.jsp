@@ -100,6 +100,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </section>
 
 <!-- last product starts  -->
@@ -140,19 +141,20 @@
 	<div class="box-container">
 		<c:forEach items="${bestProducts }" var="p">
 			<div class="box">
-				<<c:if test="${fn:startsWith(p.image, 'http')}">
+				
+				<c:if test="${fn:startsWith(p.image, 'http')}">
 					<img src="${p.image }" alt="" />
 				</c:if>
 				<c:if test="${!fn:startsWith(p.image, 'http')}">
 					<img src="image?fileFolder=Products&fname=${p.image }" alt="" />
 				</c:if>
-				
+
 				<a
 					href="<c:url value="/product-details?productId=${p.productId }"/>"><h3>${p.name }</h3></a>
 				<p>${p.description }</p>
 				<strong><fmt:formatNumber type="number"
-						maxFractionDigits="2" value="${p.price}" />đ</strong> <br>
-				<a href="<c:url value="/addToCart?productId=${p.productId }"/>"
+						maxFractionDigits="2" value="${p.price}" />đ</strong> <br> <a
+					href="<c:url value="/addToCart?productId=${p.productId }"/>"
 					class="btn">Add to cart</a>
 			</div>
 		</c:forEach>

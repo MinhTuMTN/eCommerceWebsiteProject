@@ -36,6 +36,7 @@ public class UserFeaturesFilter implements Filter {
 		} catch (Exception e) {
 			e.printStackTrace();
 			resp.sendRedirect(req.getContextPath() + "/dang-nhap");
+			return;
 		}
 
 		resp.sendRedirect(req.getContextPath() + "/dang-nhap");

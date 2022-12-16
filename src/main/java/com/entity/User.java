@@ -57,7 +57,7 @@ public class User implements Serializable{
 	
 	private String hashed_password;
 	
-	private Integer role;
+	private Integer role = 2;
 	
 	@Nationalized
 	private String address;
@@ -66,11 +66,11 @@ public class User implements Serializable{
 	
 	private int point;
 	
-	private Double e_wallet;
+	private Double e_wallet = 0D;
 	
-	private Date createdAt;
+	private Date createdAt = new Date();
 	
-	private Date updatedAt;
+	private Date updatedAt = new Date();
 	
 	private Boolean isActived = true;
 	

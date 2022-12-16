@@ -1,4 +1,16 @@
-
+.page-item.active a{
+	background-color: coral !important;
+	color: white !important;
+}
+.col {
+	font-size: 1.3rem !important;
+}
+table td, th {
+	vertical-align: middle !important;
+}
+table th {
+	text-align: center !important;	
+}
 .button-81 {
   background-color: #fff;
   border: 0 solid #e2e8f0;
@@ -41,7 +53,7 @@
 }
 
 .category_block li:hover {
-	background-color: #007bff;
+	background-color: coral;
 }
 
 .category_block li:hover a {

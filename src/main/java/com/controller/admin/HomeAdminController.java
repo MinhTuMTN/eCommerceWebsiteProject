@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/admin/home")
 public class HomeAdminController extends HttpServlet{
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/views/admin/home.jsp").forward(req, resp);
+		resp.sendRedirect(req.getContextPath() + "/admin/users");
 	}
 }

@@ -26,6 +26,7 @@ import com.util.Constant;
 public class EditProductSellerController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("fnProducts", true);
 		String uri = req.getRequestURI();
 		int productId = 0;
 		Product product = new Product();
@@ -47,7 +48,7 @@ public class EditProductSellerController extends HttpServlet {
 			resp.sendRedirect(req.getContextPath() + "/seller/products");
 		}
 		
-		
+				req.setAttribute("isEdit", true);
 		List<Category> categories = new DAOCategoriesSellerImpl().getAllCategories();
 		req.setAttribute("categories", categories);
 		req.setAttribute("product", product);

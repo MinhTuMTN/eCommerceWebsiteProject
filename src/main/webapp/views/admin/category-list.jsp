@@ -2,106 +2,23 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 
+<style>
+td i {
+	font-size: 1.8rem !important;
+}
+</style>
 
-<section class="home" id="home">
-	<div class="content">
-
-		<h3>
-			<span>Quản lý loại sản phẩm</span>
-		</h3>
-		<p>Xem danh sách loại sản phẩm</p>
-	</div>
-
-</section>
-<c:if test="${message != null}">
-	<div class="alert alert-primary" role="alert">
-		<i>${message}</i>
-	</div>
-</c:if>
-<div class="container">
-	<div class="row">
-		<div class="col">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a
-						href="<c:url value="/admin/home"/>">Home</a></li>
-					<li class="breadcrumb-item"><a
-						href="<c:url value="/admin/categories"/>">Category list</a></li>
-				</ol>
-			</nav>
-		</div>
-	</div>
-</div>
-
-<div class="container">
-	<div class="row">
-		<div class="col-12 col-sm-3">
-			<div class="sidebar card bg-light mb-3">
-				<div class="card-header bg-primary text-white text-uppercase">
-					<h2>
-						<i class="fa fa-list"></i> Menu
-					</h2>
-				</div>
-				<ul class="list-group category_block" id="nav_accordion">
-					<li class="nav-item list-group-item"><h3>
-							<a class="nav-link" href="<c:url value="/admin/users"/>">Users
-								management</a>
-						</h3></li>
-					<li class="nav-item has-submenu list-group-item"><a
-						class="nav-link" href="#">
-							<h3>Products management</h3>
-					</a>
-						<ul class="submenu collapse">
-							<li><h4>
-									<a class="nav-link"
-										href="<c:url value="/admin/products?filter=2"/>">All
-										Products</a>
-								</h4></li>
-							<li><h4>
-									<a class="nav-link"
-										href="<c:url value="/admin/products?filter=1"/>">Active
-										Products</a>
-								</h4></li>
-							<li><h4>
-									<a class="nav-link"
-										href="<c:url value="/admin/products?filter=0"/>">Inactive
-										Products</a>
-								</h4></li>
-						</ul></li>
-					<li class="nav-item has-submenu list-group-item"><a
-						class="nav-link" href="#">
-							<h3>Orders management</h3>
-					</a>
-						<ul class="submenu collapse">
-							<li><h4>
-									<a class="nav-link"
-										href="<c:url value="/admin/orders?filter=1"/>">All Orders</a>
-								</h4></li>
-							<li><h4>
-									<a class="nav-link"
-										href="<c:url value="/admin/orders?filter=0"/>">Shipped
-										Orders</a>
-								</h4></li>
-						</ul></li>
-					<li class="nav-item list-group-item"><h3>
-							<a class="nav-link" href="<c:url value="/admin/categories"/>">Categories
-								management</a>
-						</h3></li>
-				</ul>
-
-			</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="container">
+<div class="row" style="flex: 1; font-size: 1.7rem !important;">
+	<div class="container" style="width: 100%">
 		<div class="row mt-2 md-2">
 			<div class="col-md-6 float-right">
-				<a class="button-81" role="button"
-					href="<c:url value="/admin/add-category"/>">Add New Category</a>
+				<a class="btn-buy" style="font-size: 1.3rem; margin-bottom: 1.5rem;"
+					role="button" href="<c:url value="/admin/add-category"/>">Add
+					New Category</a>
 			</div>
 		</div>
-		<table class="table table-striped table-bordered table-hover">
+		<table class="table table-striped table-bordered table-hover"
+			style="width: 100%">
 			<thead>
 				<tr>
 					<th>Category ID</th>
@@ -115,13 +32,15 @@
 				<c:forEach items="${categories}" var="category">
 					<tr class="odd gradeX">
 						<td>${category.categoryId }</td>
-						<td><c:set value="${category.image}" var="imageUrl" /> <c:choose>
+						<td style="text-align: center;"><c:set
+								value="${category.image}" var="imageUrl" /> <c:choose>
 								<c:when test="${fn:substring(imageUrl, 0, 4) == 'http' }">
 									<c:url value="${category.image}" var="categoryImgUrl"></c:url>
 
 								</c:when>
 								<c:otherwise>
-									<c:url value="/image?fname=${category.image}&fileFolder=Categories"
+									<c:url
+										value="/image?fname=${category.image}&fileFolder=Categories"
 										var="categoryImgUrl"></c:url>
 
 								</c:otherwise>
@@ -133,13 +52,24 @@
 							</c:if> <c:if test="${category.isDeleted == false}">
 								<span>Active</span>
 							</c:if></td>
-						<td><a
+						<td style="text-align: center;"><a
 							href="<c:url value="/admin/category-detail?categoryId=${category.categoryId}"/>"
 							class="button-81" role="button"><i class="fa fa-info"></i></a> <a
 							href="<c:url value="/admin/update-category?categoryId=${category.categoryId}"/>"
-							class="button-81" role="button"><i class="fa fa-edit"></i></a> <a
-							href="<c:url value="/admin/delete-category?categoryId=${category.categoryId}"/>"
-							class="button-81" role="button"><i class="fa fa-trash"></i></a></td>
+							class="button-81" role="button"><i class="fa fa-edit"></i></a> <c:if
+								test="${category.isDeleted == true}">
+								<a
+									href="<c:url value="/admin/restore-category?categoryId=${category.categoryId}"/>"
+									class="button-81" role="button"
+									onclick="javascript:return YNConfirmation()"><i
+									class="fa fa-refresh"></i></a>
+							</c:if> <c:if test="${category.isDeleted == false}">
+								<a
+									href="<c:url value="/admin/delete-category?categoryId=${category.categoryId}"/>"
+									class="button-81" role="button"
+									onclick="javascript:return YNConfirmation()"> <i
+									class="fa fa-trash"></i></a>
+							</c:if></td>
 
 					</tr>
 				</c:forEach>
@@ -178,6 +108,5 @@
 		</div>
 	</div>
 </div>
-
 <script
-	src="${pageContext.request.contextPath}/views/js/menuDropdown.js"></script>
+	src="${pageContext.request.contextPath}/views/js/confirmation.js"></script>

@@ -30,8 +30,8 @@ public class Category {
 	private String slug;
 	private String image;
 	private Boolean isDeleted = false;
-	private Date createdAt;
-	private Date updatedAt;
+	private Date createdAt = new Date();
+	private Date updatedAt = new Date();
 	
 	@OneToMany(mappedBy = "category")
 	private List<Product> products = new ArrayList<Product>();

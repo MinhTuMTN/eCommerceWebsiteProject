@@ -47,9 +47,7 @@ public class StoreWebController extends HttpServlet{
 			req.setAttribute("totalPages", totalPages);	
 			req.setAttribute("number", pageNumber);
 		}catch (Exception e) {
-			// TODO: handle exception
 		}
-		
 		req.getRequestDispatcher("/views/web/shop.jsp").forward(req, resp);
 	}
 }

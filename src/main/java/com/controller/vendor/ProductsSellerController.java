@@ -16,6 +16,7 @@ import com.entity.Store;
 public class ProductsSellerController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("fnProducts", true);
 		Store store = SellerConfig.getStoreByCookies(req);
 		List<Product> products = store.getProducts();
 		req.setAttribute("products", products);

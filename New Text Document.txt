@@ -11,8 +11,5 @@ UserOrder;
 
 Category Image Dir: C:/upload/Categories
 Product Images Dir: C:/upload/Products
+Store Images Dir: C:/upload/Store
 
-
---- Việc cần làm:
------ Cập nhật số dư khi người dùng nhấn thanh toán
------ Thay đổi đường dẫn nếu là ảnh cục bộ

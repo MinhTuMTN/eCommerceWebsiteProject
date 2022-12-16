@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- header section starts  -->
 
+<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
 <header class="header">
 	<a href="#" class="logo"> <i class="fas fa-shopping-basket"></i>
 		HCMUTE
@@ -16,9 +17,11 @@
 		<a href="<c:url value="/admin/home" />">Admin's page</a>
 	</nav>
 
-	<form action="" class="search-form">
-		<input type="search" id="search-box" placeholder="Search here..." />
-		<label for="search-box" class="fas fa-search"></label>
+	<c:url value="/search-product" var="searchURL"></c:url>
+	<form action="${searchURL }" class="search-form">
+		<input type="search" id="search-box" name="search-text" placeholder="Search here..." value="${searchText }" />
+		<input type="submit" id="btn-search-123" hidden="" >
+		<label for="btn-search-123" class="fas fa-search"></label>
 	</form>
 
 	<div class="icons">

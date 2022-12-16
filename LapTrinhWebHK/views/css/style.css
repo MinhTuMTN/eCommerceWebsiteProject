@@ -964,3 +964,160 @@ hr {
     margin: 2rem auto;
   }
 }
+
+.srecharge {
+  display: flex;
+  background-color: white;
+  width: 80%;
+  margin: 5% 10%;
+  flex-direction: column;
+  padding-top: 5rem;
+}
+
+.srecharge hr {
+  width: 100%;
+}
+
+.srecharge .amount {
+  margin: 3rem 0rem;
+}
+
+.srecharge .amount input {
+  border: 2px solid coral;
+  width: 70%;
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 0rem 1rem;
+  margin: 1rem 0rem;
+}
+.payment-methods .container {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin: 0;
+}
+.payment-methods input {
+  width: 2rem;
+  height: 2rem;
+}
+.credit,
+.paypal,
+.momo {
+  display: flex;
+  align-items: center;
+}
+.payment-methods img {
+  width: 5rem;
+  margin: 1rem;
+}
+#example_wrapper {
+  width: 100% !important;
+  font-size: 1.3rem;
+}
+
+#example > thead > tr > th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+#example > tbody > tr > td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: coral !important;
+  border-color: coral !important;
+}
+
+#example > tbody > tr > td > a {
+  text-decoration: none !important;
+  color: gray;
+}
+
+#example > tbody > tr > td > a:hover {
+  color: coral;
+}
+#example_paginate > ul {
+  justify-content: flex-end;
+}
+#example_wrapper > div:nth-child(1) {
+  font-size: 1.5rem;
+}
+#example_wrapper > div:nth-child(1) > div:nth-child(2) {
+  visibility: hidden;
+}
+#example_length > label > select {
+  font-size: 1.3rem;
+  height: 3rem;
+}
+.shop-info {
+  display: flex;
+  justify-content: space-between;
+}
+.order-details .shop-info div {
+  display: flex;
+  align-items: center;
+}
+.order-details .shop-info div div,
+strong {
+  margin-left: 2rem;
+  font-size: 1.4rem;
+}
+
+.shop-info div div a {
+  text-decoration: none;
+  color: black;
+}
+.shop-info div div a:hover {
+  color: coral;
+}
+.order-items {
+  display: flex;
+}
+.order-items-image {
+  width: 20%;
+}
+.order-items-details {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+.order-items-details span.price {
+  color: coral;
+  font-size: 1.5rem;
+}
+.order-items-details .name-count {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  height: 100%;
+  align-items: flex-start;
+  justify-content: center;
+}
+.orders-nav {
+  display: block;
+  background-color: rgb(255, 255, 255);
+  font-size: 1.7rem;
+  display: flex;
+  justify-content: space-around;
+}
+.orders-nav div {
+  display: block;
+  width: 20%;
+  text-align: center;
+}
+.orders-nav a {
+  text-decoration: none;
+  color: black;
+}
+.orders-nav a.active {
+  color: coral;
+}
+.orders-nav a:hover {
+  color: coral;
+}

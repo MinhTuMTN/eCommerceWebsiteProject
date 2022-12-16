@@ -20,7 +20,7 @@ import com.entity.User;
 public class ChangeInformationController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int userId = getUserIdFromCookie(req);
+		Integer userId = getUserIdFromCookie(req);
 		User user = new DAOUserImpl().findUserById(userId);
 		req.setAttribute("user", user);
 		req.getRequestDispatcher("/views/web/change-information.jsp").forward(req, resp);
@@ -28,7 +28,7 @@ public class ChangeInformationController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int userId = getUserIdFromCookie(req);
+		Integer userId = getUserIdFromCookie(req);
 		User user = new DAOUserImpl().findUserById(userId);
 		try {
 			BeanUtils.populate(user, req.getParameterMap());
@@ -42,7 +42,7 @@ public class ChangeInformationController extends HttpServlet{
 	}
 	
 	private int getUserIdFromCookie(HttpServletRequest req) {
-		int userId = 0;
+		Integer userId = 0;
 		for(Cookie cookie : req.getCookies())
 			if(cookie.getName().equals("id"))
 				userId = Integer.valueOf(cookie.getValue());
