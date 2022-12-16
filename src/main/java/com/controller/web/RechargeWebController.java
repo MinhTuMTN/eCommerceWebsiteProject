@@ -22,7 +22,6 @@ public class RechargeWebController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println(req.getParameter("amount"));
 		Double amount = Double.valueOf(req.getParameter("amount"));
-		System.out.println(amount);
 		
 		int userId = 0;
 		for(Cookie cookie : req.getCookies())

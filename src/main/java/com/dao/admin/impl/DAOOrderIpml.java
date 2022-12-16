@@ -67,4 +67,29 @@ public class DAOOrderIpml{
 			return false;
 		}
 	}
+	
+	private List<Order> getUserOrdersByStatus(int userId, int status){
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT o FROM Order o WHERE o.status = :status AND o.user.userId = :userId";
+		TypedQuery<Order> query = entityManager.createQuery(jpql, Order.class);
+		query.setParameter("status", status);
+		query.setParameter("userId", userId);
+		return query.getResultList();
+	}
+
+	public List<Order> getUserOrdersProcessing(int userId) {
+		return getUserOrdersByStatus(userId, 1);
+	}
+
+	public List<Order> getUserOrdersShipping(int userId) {
+		return getUserOrdersByStatus(userId, 2);
+	}
+
+	public List<Order> getUserOrdersShipped(int userId) {
+		return getUserOrdersByStatus(userId, 3);
+	}
+
+	public List<Order> getUserOrdersRefused(int userId) {
+		return getUserOrdersByStatus(userId, 4);
+	}
 }

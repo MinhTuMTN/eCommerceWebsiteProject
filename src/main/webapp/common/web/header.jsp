@@ -48,5 +48,6 @@
 		</c:if>
 	</div>
 </header>
+<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
 
 <!-- header section ends -->

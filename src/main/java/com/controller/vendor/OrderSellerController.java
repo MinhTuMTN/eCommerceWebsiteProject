@@ -5,10 +5,12 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.admin.impl.DAOOrderIpml;
 import com.dao.seller.impl.DAOOrderSellerImpl;
 import com.entity.Order;
 import com.entity.Store;
@@ -23,7 +25,11 @@ public class OrderSellerController extends HttpServlet {
 		Store store = SellerConfig.getStoreByCookies(req);
 		req.setAttribute("fnOrders", true);
 		String uri = req.getRequestURI();
-
+		int userId = 0;
+		for(Cookie cookie : req.getCookies())
+			if(cookie.getName().equals("id"))
+				userId = Integer.valueOf(cookie.getValue());
+		
 		if (uri.contains("seller/orders")) {
 			req.setAttribute("o1", true);
 			List<Order> orders = daoOrderSellerImpl.getAllOrdersProcessing(store.getStoreId());
