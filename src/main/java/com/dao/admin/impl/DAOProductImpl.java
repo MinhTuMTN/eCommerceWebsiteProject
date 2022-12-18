@@ -111,4 +111,22 @@ public class DAOProductImpl {
 			return false;
 		}
 	}
+	
+	public int countAllProductsSearch(String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT COUNT(p) FROM Product p WHERE p.name like :searchText OR p.category.name like :searchText";
+		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+		query.setParameter("searchText", "%" + searchText + "%");
+		return query.getSingleResult().intValue();
+	}
+	
+	public List<Product> findProductsPaginationByName(int pageNumber, int size, String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT p FROM Product p WHERE p.name like :searchText OR p.category.name like :searchText";
+		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
+		query.setParameter("searchText", '%' + searchText + '%');
+		query.setFirstResult(pageNumber * size);
+		query.setMaxResults(size);
+		return query.getResultList();	
+	}
 }

@@ -10,12 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.admin.impl.DAOStoreImpl;
+import com.entity.Category;
 import com.entity.Commission;
 import com.entity.Product;
 import com.entity.Store;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/admin/stores", "/admin/store-detail", "/admin/license-store" })
+@WebServlet(urlPatterns = { "/admin/stores", "/admin/store-detail", "/admin/license-store", "/admin/search-stores" })
 public class StoresController extends HttpServlet {
 	DAOStoreImpl daoStoreImpl = new DAOStoreImpl();
 
@@ -29,7 +30,37 @@ public class StoresController extends HttpServlet {
 			storeDetail(req, resp);
 		} else if (url.contains("/license-store")) {
 			storeLicensed(req, resp);
+		} else if (url.contains("/search-stores")) {
+			searchStores(req, resp);
 		}
+	}
+
+	private void searchStores(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String searchText = "";
+		try {
+			searchText = req.getParameter("search-text").trim();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		req.setAttribute("isSearch", true);
+		req.setAttribute("searchText", searchText);
+		int pageSize = 4;
+		int pageNumber = 0;
+
+		float temp = (float) daoStoreImpl.countAllStoresSearch(searchText) / pageSize;
+		int totalPages = (float) ((int) temp) < temp ? (int) temp : (int) temp - 1;
+		try {
+			pageNumber = Integer.valueOf(req.getParameter("page"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		List<Store> stores = daoStoreImpl.findStoresPaginationByName(pageNumber, pageSize, searchText);
+		req.setAttribute("stores", stores);
+		req.setAttribute("totalPages", totalPages);
+		req.setAttribute("number", pageNumber);
+		req.getRequestDispatcher("/views/admin/store-list.jsp").forward(req, resp);
+
 	}
 
 	private void storeList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -20,6 +20,15 @@
 		<div
 			class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
 			<h2 style="font-size: 2.2rem;">Danh sách người dùng</h2>
+			<form action="<c:url value="/admin/search-users"/>">
+				<div class="input-group">
+					<input type="search" class="form-control rounded"
+						placeholder="Search" aria-label="Search"
+						aria-describedby="search-addon" value="${searchText }"
+						name="search-text" />
+					<button type="submit" class="button-81">Search</button>
+				</div>
+			</form>
 			<hr style="width: 100%;">
 			<div
 				style="display: flex; font-size: 1.5rem; justify-content: space-between; width: 100%;">
@@ -95,31 +104,60 @@
 			</table>
 			<div class="text-center mt-3 mt-sm-3">
 
-				<c:if test="${totalPages > 0 }">
-					<nav aria-label="Page navigation">
-						<ul class="pagination justify-content-end mb-0">
-							<li class="${1==(number + 1) ? 'page-item active': 'page-item' }">
-								<a class="page-link"
-								href='<c:url value='/admin/users?page=${0 }'/>' tabindex="-1">First</a>
-							</li>
-							<c:forEach var="i" begin="${number-1 < 0 ? 0 : number-1 }"
-								end="${number+2 }">
-								<c:if test="${i > 0 && i < totalPages}">
-									<li class="${i==number ? 'page-item active': 'page-item' }">
-										<a class="page-link"
-										href="<c:url value='/admin/users?page=${i }'/>">${i + 1 }</a>
-									</li>
-								</c:if>
-
-
-							</c:forEach>
-							<li
-								class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
-								<a class="page-link"
-								href='<c:url value='/admin/users?page=${totalPages }'/>'
-								tabindex="-1">Last</a>
-						</ul>
-					</nav>
+				<c:if test="${isSearch }">
+					<c:if test="${totalPages > 0 }">
+						<nav aria-label="Page navigation">
+							<ul class="pagination justify-content-end">
+								<li
+									class="${1==(number + 1) ? 'page-item active': 'page-item' }">
+									<a class="page-link"
+									href='<c:url value='/admin/search-users?search-text=${searchText }&?page=${0 }'/>'
+									tabindex="-1">First</a>
+								</li>
+								<c:forEach var="i" begin="${number-2 < 0 ? 0 : number-2 }"
+									end="${number+2 }">
+									<c:if test="${i > 0 && i < totalPages}">
+										<li class="${i==number ? 'page-item active': 'page-item' }">
+											<a class="page-link"
+											href="<c:url value='/admin/search-users?search-text=${searchText }&page=${i }'/>">${i + 1 }</a>
+										</li>
+									</c:if>
+								</c:forEach>
+								<li
+									class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
+									<a class="page-link"
+									href='<c:url value='/admin/search-users?search-text=${searchText }&?page=${totalPages }'/>'
+									tabindex="-1">Last</a>
+							</ul>
+						</nav>
+					</c:if>
+				</c:if>
+				<c:if test="${!isSearch }">
+					<c:if test="${totalPages > 0 }">
+						<nav aria-label="Page navigation">
+							<ul class="pagination justify-content-end">
+								<li
+									class="${1==(number + 1) ? 'page-item active': 'page-item' }">
+									<a class="page-link"
+									href='<c:url value='/admin/users?page=${0 }'/>' tabindex="-1">First</a>
+								</li>
+								<c:forEach var="i" begin="${number-2 < 0 ? 0 : number-2 }"
+									end="${number+2 }">
+									<c:if test="${i > 0 && i < totalPages}">
+										<li class="${i==number ? 'page-item active': 'page-item' }">
+											<a class="page-link"
+											href="<c:url value='/admin/users?page=${i }'/>">${i + 1 }</a>
+										</li>
+									</c:if>
+								</c:forEach>
+								<li
+									class="${totalPages ==(number) ? 'page-item active': 'page-item' }">
+									<a class="page-link"
+									href='<c:url value='/admin/users?page=${totalPages }'/>'
+									tabindex="-1">Last</a>
+							</ul>
+						</nav>
+					</c:if>
 				</c:if>
 
 			</div>

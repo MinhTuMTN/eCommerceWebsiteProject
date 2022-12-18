@@ -14,7 +14,7 @@ import com.dao.admin.impl.DAOProductImpl;
 import com.entity.Product;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/admin/products", "/admin/product-detail", "/admin/delete-product", "/admin/restore-product" })
+@WebServlet(urlPatterns = { "/admin/products", "/admin/product-detail", "/admin/delete-product", "/admin/restore-product", "/admin/search-products" })
 public class ProductsController extends HttpServlet {
 	DAOProductImpl daoProductImpl = new DAOProductImpl();
 	DAOCategoryImpl daoCategoryImpl = new DAOCategoryImpl();
@@ -31,7 +31,37 @@ public class ProductsController extends HttpServlet {
 			deleteProduct(req, resp);
 		} else if (url.contains("/restore-product")) {
 			restoreProduct(req, resp);
+		} else if (url.contains("/search-products")) {
+			searchProducts(req, resp);
 		}
+	}
+
+	private void searchProducts(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String searchText = "";
+		try {
+			searchText = req.getParameter("search-text").trim();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		req.setAttribute("isSearch", true);
+		req.setAttribute("searchText", searchText);
+		int pageSize = 4;
+		int pageNumber = 0;		
+		
+		float temp = (float)daoProductImpl.countAllProductsSearch(searchText) / pageSize;
+		int totalPages = (float)((int) temp) < temp ? (int)temp : (int)temp - 1;
+		try {
+			pageNumber = Integer.valueOf(req.getParameter("page"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		List<Product> products = daoProductImpl.findProductsPaginationByName(pageNumber, pageSize, searchText);
+		req.setAttribute("products", products);
+		req.setAttribute("totalPages", totalPages);	
+		req.setAttribute("number", pageNumber);	
+		req.getRequestDispatcher("/views/admin/product-list.jsp").forward(req, resp);
+		
 	}
 
 	private void restoreProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {

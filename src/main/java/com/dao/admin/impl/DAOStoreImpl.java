@@ -153,4 +153,22 @@ public class DAOStoreImpl {
 		Store store = entityManager.find(Store.class, storeId);
 		return store;
 	}
+	
+	public int countAllStoresSearch(String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT COUNT(s) FROM Store s WHERE s.name like :searchText";
+		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+		query.setParameter("searchText", "%" + searchText + "%");
+		return query.getSingleResult().intValue();
+	}
+	
+	public List<Store> findStoresPaginationByName(int pageNumber, int size, String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT s FROM Store s WHERE s.name like :searchText";
+		TypedQuery<Store> query = entityManager.createQuery(jpql, Store.class);
+		query.setParameter("searchText", '%' + searchText + '%');
+		query.setFirstResult(pageNumber * size);
+		query.setMaxResults(size);
+		return query.getResultList();	
+	}
 }
