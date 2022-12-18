@@ -8,7 +8,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
-import com.entity.Category;
 import com.entity.Product;
 
 public class DAOProductImpl {
@@ -60,6 +59,14 @@ public class DAOProductImpl {
 		String jpql = "SELECT COUNT(p) FROM Product p";
 		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
 
+		return query.getSingleResult().intValue();
+	}
+	
+	public int countActiveProductsByCategory(Long categoryId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT COUNT(p) FROM Product p WHERE p.isActive=true and p.category.categoryId=:categoryId";
+		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+		query.setParameter("categoryId", categoryId);
 		return query.getSingleResult().intValue();
 	}
 

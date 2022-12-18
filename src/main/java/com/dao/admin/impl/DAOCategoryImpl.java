@@ -10,7 +10,6 @@ import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
 import com.entity.Category;
-import com.entity.Product;
 
 public class DAOCategoryImpl {
 	public void insertCategory(Category category) {
@@ -119,4 +118,5 @@ public class DAOCategoryImpl {
 		Category category = entityManager.find(Category.class, categoryId);
 		return category;
 	}
+	
 }

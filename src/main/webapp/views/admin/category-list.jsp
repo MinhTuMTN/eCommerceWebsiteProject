@@ -63,12 +63,6 @@ td i {
 									class="button-81" role="button"
 									onclick="javascript:return YNConfirmation()"><i
 									class="fa fa-refresh"></i></a>
-							</c:if> <c:if test="${category.isDeleted == false}">
-								<a
-									href="<c:url value="/admin/delete-category?categoryId=${category.categoryId}"/>"
-									class="button-81" role="button"
-									onclick="javascript:return YNConfirmation()"> <i
-									class="fa fa-trash"></i></a>
 							</c:if></td>
 
 					</tr>

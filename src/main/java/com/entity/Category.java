@@ -29,7 +29,7 @@ public class Category {
 	private String name;
 	private String slug;
 	private String image;
-	private Boolean isDeleted = false;
+	private Boolean isDeleted = true;
 	private Date createdAt = new Date();
 	private Date updatedAt = new Date();
 	

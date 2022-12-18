@@ -9,14 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.admin.impl.DAOCategoryImpl;
 import com.dao.admin.impl.DAOProductImpl;
-import com.entity.Category;
 import com.entity.Product;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/admin/products", "/admin/product-detail", "/admin/delete-product", "/admin/restore-product" })
 public class ProductsController extends HttpServlet {
 	DAOProductImpl daoProductImpl = new DAOProductImpl();
+	DAOCategoryImpl daoCategoryImpl = new DAOCategoryImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,6 +38,9 @@ public class ProductsController extends HttpServlet {
 		Product product = daoProductImpl.getProductById(Integer.valueOf(req.getParameter("productId")));
 		String message = "";
 		if (daoProductImpl.restoreProduct(product)) {
+			if(product.getCategory().getIsDeleted()) {
+				daoCategoryImpl.restoreCategory(product.getCategory());
+			}
 			message = "Khôi phục sản phẩm thành công!";
 		} else {
 			message = "Khôi phục sản phẩm thất bại!";
@@ -52,6 +56,9 @@ public class ProductsController extends HttpServlet {
 		Product product = daoProductImpl.getProductById(Integer.valueOf(req.getParameter("productId")));
 		String message = "";
 		if (daoProductImpl.deleteProduct(product)) {
+			if(daoProductImpl.countActiveProductsByCategory(product.getCategory().getCategoryId()) == 0) {
+				daoCategoryImpl.deleteCategory(product.getCategory());
+			}
 			message = "Xóa sản phẩm thành công!";
 		} else {
 			message = "Xóa sản phẩm thất bại!";

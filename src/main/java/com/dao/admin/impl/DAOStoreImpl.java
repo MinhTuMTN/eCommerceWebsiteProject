@@ -8,7 +8,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
-import com.entity.Product;
 import com.entity.Store;
 
 public class DAOStoreImpl {
