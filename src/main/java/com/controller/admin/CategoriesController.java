@@ -60,9 +60,9 @@ public class CategoriesController extends HttpServlet {
 		Category category = daoCategoryImpl.getCategoryById(Long.valueOf(req.getParameter("categoryId")));
 		String message = "";
 		if (daoCategoryImpl.restoreCategory(category)) {
-			message = "Khôi phục sản phẩm thành công!";
+			message = "Khôi phục loại sản phẩm thành công!";
 		} else {
-			message = "Khôi phục sản phẩm thất bại!";
+			message = "Khôi phục loại sản phẩm thất bại!";
 		}
 
 		req.setAttribute("message", message);
@@ -75,9 +75,9 @@ public class CategoriesController extends HttpServlet {
 		Category category = daoCategoryImpl.getCategoryById(Long.valueOf(req.getParameter("categoryId")));
 		String message = "";
 		if (daoCategoryImpl.deleteCategory(category)) {
-			message = "Xóa sản phẩm thành công!";
+			message = "Xóa loại sản phẩm thành công!";
 		} else {
-			message = "Xóa sản phẩm thất bại!";
+			message = "Xóa loại sản phẩm thất bại!";
 		}
 
 		req.setAttribute("message", message);

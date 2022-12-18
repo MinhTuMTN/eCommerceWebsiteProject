@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.admin.impl.DAOProductImpl;
+import com.entity.Category;
 import com.entity.Product;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/admin/products", "/admin/product-detail" })
+@WebServlet(urlPatterns = { "/admin/products", "/admin/product-detail", "/admin/delete-product", "/admin/restore-product" })
 public class ProductsController extends HttpServlet {
 	DAOProductImpl daoProductImpl = new DAOProductImpl();
 
@@ -25,7 +26,41 @@ public class ProductsController extends HttpServlet {
 			productList(req, resp);
 		} else if (url.contains("/product-detail")) {
 			productDetail(req, resp);
+		} else if (url.contains("/delete-product")) {
+			deleteProduct(req, resp);
+		} else if (url.contains("/restore-product")) {
+			restoreProduct(req, resp);
 		}
+	}
+
+	private void restoreProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		Product product = daoProductImpl.getProductById(Integer.valueOf(req.getParameter("productId")));
+		String message = "";
+		if (daoProductImpl.restoreProduct(product)) {
+			message = "Khôi phục sản phẩm thành công!";
+		} else {
+			message = "Khôi phục sản phẩm thất bại!";
+		}
+
+		req.setAttribute("message", message);
+
+		resp.sendRedirect(req.getContextPath() + "/admin/products");
+		
+	}
+
+	private void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		Product product = daoProductImpl.getProductById(Integer.valueOf(req.getParameter("productId")));
+		String message = "";
+		if (daoProductImpl.deleteProduct(product)) {
+			message = "Xóa sản phẩm thành công!";
+		} else {
+			message = "Xóa sản phẩm thất bại!";
+		}
+
+		req.setAttribute("message", message);
+
+		resp.sendRedirect(req.getContextPath() + "/admin/products");
+		
 	}
 
 	protected void productList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

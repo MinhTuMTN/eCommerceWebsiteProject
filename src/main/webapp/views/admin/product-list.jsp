@@ -18,21 +18,19 @@
 						<th>Sold</th>
 						<th>Rating</th>
 						<th>Status</th>
-						<th>Is Selling</th>
+						<th>Active</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${products}" var="product">
 						<tr class="odd gradeX">
 							<td>${product.productId }</td>
-							<td>
-								<c:if test="${fn:startsWith(product.image, 'http')}">
+							<td><c:if test="${fn:startsWith(product.image, 'http')}">
 									<img width="200rem" height="200rem" src="${product.image }">
-								</c:if>
-								<c:if test="${!fn:startsWith(product.image, 'http')}">
-									<img width="200rem" height="200rem" src="../image?fileFolder=Products&fname=${product.image }">
-								</c:if>
-							</td>
+								</c:if> <c:if test="${!fn:startsWith(product.image, 'http')}">
+									<img width="200rem" height="200rem"
+										src="../image?fileFolder=Products&fname=${product.image }">
+								</c:if></td>
 							<td><a
 								href="<c:url value="/admin/product-detail?productId=${product.productId }"/>">${product.name }</a></td>
 							<td>${product.description }</td>
@@ -47,7 +45,22 @@
 								</c:if> <c:if test="${product.isActive == false}">
 									<span>Inactive</span>
 								</c:if></td>
-							<td>${product.isSelling }</td>
+							<td style="text-align: center;"><a
+								href="<c:url value="/admin/product-detail?productId=${product.productId}"/>"
+								class="button-81" role="button"><i class="fa fa-info"></i></a>
+							<c:if test="${product.isActive == false}">
+									<a
+										href="<c:url value="/admin/restore-product?productId=${product.productId}"/>"
+										class="button-81" role="button"
+										onclick="javascript:return YNConfirmation()"><i
+										class="fa fa-refresh"></i></a>
+								</c:if> <c:if test="${product.isActive == true}">
+									<a
+										href="<c:url value="/admin/delete-product?productId=${product.productId}"/>"
+										class="button-81" role="button"
+										onclick="javascript:return YNConfirmation()"> <i
+										class="fa fa-trash"></i></a>
+								</c:if></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -86,3 +99,5 @@
 		</div>
 	</div>
 </div>
+<script
+	src="${pageContext.request.contextPath}/views/js/confirmation.js"></script>

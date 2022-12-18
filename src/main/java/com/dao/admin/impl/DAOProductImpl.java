@@ -1,11 +1,14 @@
 package com.dao.admin.impl;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
+import com.entity.Category;
 import com.entity.Product;
 
 public class DAOProductImpl {
@@ -64,5 +67,41 @@ public class DAOProductImpl {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		Product product = entityManager.find(Product.class, id);
 		return product;
+	}
+	
+	public boolean deleteProduct(Product product) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		try {
+			transaction.begin();
+			Date updatedAt = new Date(System.currentTimeMillis());
+			product.setUpdatedAt(updatedAt);
+			product.setIsActive(false);
+			entityManager.merge(product);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+			return false;
+		}
+	}
+
+	public boolean restoreProduct(Product product) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		try {
+			transaction.begin();
+			Date updatedAt = new Date(System.currentTimeMillis());
+			product.setUpdatedAt(updatedAt);
+			product.setIsActive(true);
+			entityManager.merge(product);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+			return false;
+		}
 	}
 }
