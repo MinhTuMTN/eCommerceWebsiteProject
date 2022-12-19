@@ -93,7 +93,7 @@ public class DAOProductImpl {
 	
 	public int countAllProductsSearch(String searchText) {
 		EntityManager entityManager = JPAConfig.getEntityManager();
-		String jpql = "SELECT COUNT(p) FROM Product p WHERE p.isActive = true AND p.category.isDeleted = false AND p.name LIKE :searchText";
+		String jpql = "SELECT COUNT(p) FROM Product p WHERE p.isActive = true AND p.category.isDeleted = false AND (p.name like :searchText OR p.category.name like :searchText)";
 		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
 		query.setParameter("searchText", "%" + searchText + "%");
 		return query.getSingleResult().intValue();

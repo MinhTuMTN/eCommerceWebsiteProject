@@ -42,4 +42,22 @@ public class DAOUserImpl {
 		User user = entityManager.find(User.class, userId);
 		return user;
 	}
+	
+	public int countAllUsersSearch(String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT COUNT(u) FROM User u WHERE u.lastName LIKE :searchText OR u.firstName LIKE :searchText";
+		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+		query.setParameter("searchText", "%" + searchText + "%");
+		return query.getSingleResult().intValue();
+	}
+	
+	public List<User> findUsersPaginationByName(int pageNumber, int size, String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT u FROM User u WHERE u.lastName LIKE :searchText OR u.firstName LIKE :searchText";
+		TypedQuery<User> query = entityManager.createQuery(jpql, User.class);
+		query.setParameter("searchText", '%' + searchText + '%');
+		query.setFirstResult(pageNumber * size);
+		query.setMaxResults(size);
+		return query.getResultList();	
+	}
 }
