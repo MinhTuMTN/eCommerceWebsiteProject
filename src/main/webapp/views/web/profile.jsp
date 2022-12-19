@@ -119,8 +119,7 @@
 														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m">
-																	<strong>
-																		<fmt:formatNumber value="${user.e_wallet }" maxFractionDigits="2" type="number"></fmt:formatNumber>
+																	<strong><fmt:formatNumber value="${user.e_wallet }" maxFractionDigits="2" type="number"></fmt:formatNumber>
 																	 đ
 																	</strong>
 																</div>

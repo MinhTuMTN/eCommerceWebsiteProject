@@ -3,7 +3,7 @@
 <%@ include file="/common/taglib.jsp"%>
 <section class="srecharge" style="width: 90%; padding: 3rem; margin: 5%">
 	<h1 style="margin-bottom: 1rem">Đơn hàng của tôi</h1>
-	<div class="orders-nav" style="margin-bottom: 1.5rem;">
+	<div class="orders-nav" style="margin-bottom: 1.5rem; background-color: white">
 		<div>
 			<a href="orders-processing" class="${o1 ? 'active': '' }">Chờ xác nhận</a>
 		</div>

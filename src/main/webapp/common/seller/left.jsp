@@ -10,6 +10,21 @@ a {
 	text-decoration: none;
 	color: black;
 }
+li div.orders-count {
+	display: inline-flex;
+	font-weight: bold;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background-color: coral;
+	color: white;		
+}
+li div.orders-count-active {
+	background-color: white;
+	color: coral;
+}
 </style>
 <div class="col-12 col-sm-3">
 	<!--Danh mục profile starts-->
@@ -26,7 +41,7 @@ a {
 			<li class="list-group-item ${fnOrders ? 'my-active': '' }"
 				style="font-size: 15px; padding-left: 3.5rem;"><a
 				href="<c:url value="/seller/orders" ></c:url>" class="a-cate-detai">Đơn
-					hàng</a></li>
+					hàng <div class="orders-count ${fnOrders? 'orders-count-active': '' }">${ordersCount }</div></a></li>
 			<li class="list-group-item ${fnProducts ? 'my-active': '' }"
 				style="font-size: 15px; padding-left: 3.5rem;"><a
 				href="<c:url value="/seller/products" ></c:url>"
