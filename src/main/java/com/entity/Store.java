@@ -41,8 +41,8 @@ public class Store {
 	private Integer point;
 	private Float rating;
 	private Double e_wallet;
-	private Date createdAt;
-	private Date updatedAt;
+	private Date createdAt = new Date();
+	private Date updatedAt = new Date();
 	
 	@OneToOne
 	@JoinColumn(name = "userId", referencedColumnName = "userId")

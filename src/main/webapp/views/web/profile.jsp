@@ -24,6 +24,9 @@
 						<li class="list-group-item"
 							style="font-size: 15px; padding-left: 3.5rem;"><a href="<c:url value="/recharge" ></c:url>"
 							class="a-cate-detai">Nạp tiền vào ví</a></li>
+						<li class="list-group-item"
+							style="font-size: 15px; padding-left: 3.5rem;"><a href="<c:url value="/register-seller" ></c:url>"
+							class="a-cate-detai">Trở thành nhà bán hàng</a></li>
 					</ul>
 				</div>
 				<!--Danh mục profile ends-->
@@ -119,8 +122,7 @@
 														<div class="gV\+dPk" style="width: 75%">
 															<div class="_2NnHla">
 																<div class="Z1Wx1m">
-																	<strong>
-																		<fmt:formatNumber value="${user.e_wallet }" maxFractionDigits="2" type="number"></fmt:formatNumber>
+																	<strong><fmt:formatNumber value="${user.e_wallet }" maxFractionDigits="2" type="number"></fmt:formatNumber>
 																	 đ
 																	</strong>
 																</div>

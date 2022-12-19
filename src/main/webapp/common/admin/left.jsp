@@ -82,10 +82,7 @@ ul {
 				</h3></li>
 				<li class="nav-item list-group-item"><h3>
 					<a class="nav-link" href="<c:url value="/admin/commissions"/>">Commissions management</a>
-				</h3></li>
-				<li class="nav-item list-group-item"><h3>
-					<a class="nav-link" href="<c:url value="/admin/transactions"/>">Transactions management</a>
-				</h3></li>
+				</h3>
 			<li class="nav-item has-submenu list-group-item"><a
 				class="nav-link" href="#">
 					<h3>Stores management</h3>

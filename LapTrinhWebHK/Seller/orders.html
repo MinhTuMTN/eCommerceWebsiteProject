@@ -1,328 +1,288 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Site meta -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>HCMUTE Shop</title>
-    <link
-      rel="icon"
-      href="/LTWeb_eCommerceWebsite/views/images/shopping-basket-solid.svg"
-      sizes="any"
-      type="image/svg+xml"
-    />
-    <link
-      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-    />
-    <!-- font awesome cdn link  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+<head>
+  <!-- Site meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>HCMUTE Shop</title>
+  <link rel="icon" href="/LTWeb_eCommerceWebsite/views/images/shopping-basket-solid.svg" sizes="any"
+    type="image/svg+xml" />
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="views/css/seller-style.css" />
-  </head>
-  <body>
-    <!-- header section starts  -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-    <header class="header">
-      <a href="#" class="logo">
-        <i class="fas fa-shopping-basket"></i>
-        HCMUTE
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="views/css/seller-style.css" />
+</head>
+
+<body>
+  <!-- header section starts  -->
+
+  <header class="header">
+    <a href="#" class="logo">
+      <i class="fas fa-shopping-basket"></i>
+      HCMUTE
+    </a>
+
+    <nav class="navbar">
+      <a href="/LTWeb_eCommerceWebsite/home">home</a>
+      <a href="/LTWeb_eCommerceWebsite/categories">categories</a>
+      <a href="/LTWeb_eCommerceWebsite/products">products</a>
+      <a href="/LTWeb_eCommerceWebsite/contact">contact</a>
+      <a href="/LTWeb_eCommerceWebsite/seller/home">seller's page</a>
+    </nav>
+
+    <form action="" class="search-form">
+      <input type="search" id="search-box" placeholder="Search here..." />
+      <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="icons">
+      <div class="fas fa-bars" id="menu-btn"></div>
+      <a href="/LTWeb_eCommerceWebsite/cart">
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
       </a>
 
-      <nav class="navbar">
-        <a href="/LTWeb_eCommerceWebsite/home">home</a>
-        <a href="/LTWeb_eCommerceWebsite/categories">categories</a>
-        <a href="/LTWeb_eCommerceWebsite/products">products</a>
-        <a href="/LTWeb_eCommerceWebsite/contact">contact</a>
-        <a href="/LTWeb_eCommerceWebsite/seller/home">seller's page</a>
-      </nav>
+      <a href="/LTWeb_eCommerceWebsite/profile">
+        <div class="fas fa-user" id="login-btn"></div>
+      </a>
+      <a href="/LTWeb_eCommerceWebsite/dang-xuat">
+        <div class="fas fa-sign-out-alt"></div>
+      </a>
+    </div>
+  </header>
 
-      <form action="" class="search-form">
-        <input type="search" id="search-box" placeholder="Search here..." />
-        <label for="search-box" class="fas fa-search"></label>
-      </form>
-
-      <div class="icons">
-        <div class="fas fa-bars" id="menu-btn"></div>
-        <a href="/LTWeb_eCommerceWebsite/cart">
-          <div class="fas fa-shopping-cart" id="cart-btn"></div>
-        </a>
-
-        <a href="/LTWeb_eCommerceWebsite/profile">
-          <div class="fas fa-user" id="login-btn"></div>
-        </a>
-        <a href="/LTWeb_eCommerceWebsite/dang-xuat">
-          <div class="fas fa-sign-out-alt"></div>
-        </a>
-      </div>
-    </header>
-
-    <!-- header section ends -->
-    <section class="sproduct" style="padding: 10rem 3rem 3rem 3rem">
-      <div class="box-container w-10">
-        <div class="row">
-          <style>
-            .my-active,
-            .my-active a {
-              background-color: coral;
-              color: white;
-            }
-          </style>
-          <div class="col-12 col-sm-3">
-            <!--Danh mục profile starts-->
-            <div class="card bg-light mb-1">
-              <div
-                class="card-header text-white"
-                style="background-color: black; font-size: 23px"
-              >
-                <i class="fa fa-user"></i> Menu
-              </div>
-              <ul class="list-group category_block">
-                <li
-                  class="list-group-item a-cate-detai"
-                  style="font-size: 15px; height: 4.25rem; padding-left: 3.5rem"
-                >
-                  <a href="/LTWeb_eCommerceWebsite/seller/home"
-                    >Thông tin cửa hàng</a
-                  >
-                </li>
-                <li
-                  class="list-group-item"
-                  style="font-size: 15px; padding-left: 3.5rem"
-                >
-                  <a
-                    href="/LTWeb_eCommerceWebsite/seller/orders"
-                    class="a-cate-detai"
-                    >Đơn hàng</a
-                  >
-                </li>
-                <li
-                  class="list-group-item"
-                  style="font-size: 15px; padding-left: 3.5rem"
-                >
-                  <a
-                    href="/LTWeb_eCommerceWebsite/seller/products"
-                    class="a-cate-detai"
-                    >Sản phẩm</a
-                  >
-                </li>
-                <li
-                  class="list-group-item"
-                  style="font-size: 15px; padding-left: 3.5rem"
-                >
-                  <a
-                    href="/LTWeb_eCommerceWebsite/seller/statics"
-                    class="a-cate-detai"
-                    >Thống kê</a
-                  >
-                </li>
-              </ul>
+  <!-- header section ends -->
+  <section class="sproduct" style="padding: 10rem 3rem 3rem 3rem">
+    <div class="box-container w-10">
+      <div class="row">
+        <style>
+          .my-active,
+          .my-active a {
+            background-color: coral;
+            color: white;
+          }
+        </style>
+        <div class="col-12 col-sm-3">
+          <!--Danh mục profile starts-->
+          <div class="card bg-light mb-1">
+            <div class="card-header text-white" style="background-color: black; font-size: 23px">
+              <i class="fa fa-user"></i> Menu
             </div>
-            <!--Danh mục profile ends-->
+            <ul class="list-group category_block">
+              <li class="list-group-item a-cate-detai" style="font-size: 15px; height: 4.25rem; padding-left: 3.5rem">
+                <a href="/LTWeb_eCommerceWebsite/seller/home">Thông tin cửa hàng</a>
+              </li>
+              <li class="list-group-item" style="font-size: 15px; padding-left: 3.5rem">
+                <a href="/LTWeb_eCommerceWebsite/seller/orders" class="a-cate-detai">Đơn hàng</a>
+              </li>
+              <li class="list-group-item" style="font-size: 15px; padding-left: 3.5rem">
+                <a href="/LTWeb_eCommerceWebsite/seller/products" class="a-cate-detai">Sản phẩm</a>
+              </li>
+              <li class="list-group-item" style="font-size: 15px; padding-left: 3.5rem">
+                <a href="/LTWeb_eCommerceWebsite/seller/statics" class="a-cate-detai">Thống kê</a>
+              </li>
+            </ul>
           </div>
+          <!--Danh mục profile ends-->
+        </div>
 
-          <link
-            rel="stylesheet"
-            href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"
-          />
-          <style>
-            #example_wrapper {
-              width: 100% !important;
-              font-size: 1.3rem;
-            }
-            .my-container-orders{
-              margin-top: 3rem;
-              width: 100%;
-              height: 5rem;
-              font-size: 1.7rem;
-              background-color: rgb(238, 235, 229);
-              display: flex;
-              justify-content: space-around;
-              align-items: center;
-            }
-            .my-container-orders span {
-              flex: 0.2;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              position: relative;
-            }
-            .my-container-orders span.my-order-active::after {
-              content: "";
-              height: 0.5rem;
-              width: 100%;
-              background-color: coral;
-              position: absolute;
-              bottom: 0;
-            }
-            .my-container-orders span a{
-              text-decoration: none;
-              color: black;
-            }
-            .my-container-orders span a:hover{
-              text-decoration: none;
-              color: coral;
-            }
-          </style>
-          <!-- body starts -->
-          <div class="col">
-            <div class="row">
-              <!--Product in category starts-->
-              <section
-                class="list-cate"
-                id=""
-                style="padding-top: 0; padding-left: 0; padding-right: 0"
-              >
-                <div class="box-container">
-                  <div class="xMDeox">
-                    <div style="padding: 1.875rem 0.625rem">
-                      <div class="Q5feZb">
-                        <h1 class="OomjNA">Quản lý đơn hàng</h1>
-                        <div class="my-container-orders">
-                          <span class="my-order-active"><a href="">Chờ xác nhận</a></span>
-                          <span><a href="">Đang giao hàng</a></span>
-                          <span><a href=""></a>Đã giao</a></span>
-                          <span><a href=""></a>Từ chối</a></span>
-                        </div>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
+        <style>
+          #example_wrapper {
+            width: 100% !important;
+            font-size: 1.3rem;
+          }
+
+          .my-container-orders {
+            margin-top: 3rem;
+            width: 100%;
+            height: 5rem;
+            font-size: 1.7rem;
+            background-color: rgb(238, 235, 229);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          }
+
+          .my-container-orders span {
+            flex: 0.2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+          }
+
+          .my-container-orders span.my-order-active::after {
+            content: "";
+            height: 0.5rem;
+            width: 100%;
+            background-color: coral;
+            position: absolute;
+            bottom: 0;
+          }
+
+          .my-container-orders span a {
+            text-decoration: none;
+            color: black;
+          }
+
+          .my-container-orders span a:hover {
+            text-decoration: none;
+            color: coral;
+          }
+
+          #example>tbody>tr>td:nth-child(5)>a>i {
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            color: coral;
+          }
+
+          .orders-count {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            color: white;
+            background-color: coral;
+          }
+        </style>
+        <!-- body starts -->
+        <div class="col">
+          <div class="row">
+            <!--Product in category starts-->
+            <section class="list-cate" id="" style="padding-top: 0; padding-left: 0; padding-right: 0">
+              <div class="box-container">
+                <div class="xMDeox">
+                  <div style="padding: 1.875rem 0.625rem">
+                    <div class="Q5feZb">
+                      <h1 class="OomjNA">Quản lý đơn hàng</h1>
+                      <div class="my-container-orders">
+                        <span class="my-order-active"><a href="">Chờ xác nhận <div class="orders-count">6</div>
+                          </a></span>
+                        <span><a href="">Đang giao hàng</a></span>
+                        <span><a href=""></a>Đã giao</a></span>
+                        <span><a href=""></a>Từ chối</a></span>
+                      </div>
                       <div class="+eqaLN">
-                        <table
-                          id="example"
-                          class="table table-striped"
-                          style="width: 100%"
-                        >
+                        <table id="example" class="table table-striped" style="width: 100%">
                           <thead>
                             <tr>
-                              <th>Name</th>
-                              <th>Position</th>
-                              <th>Office</th>
-                              <th>Age</th>
-                              <th>Start date</th>
-                              <th>Salary</th>
+                              <th>Mã đơn hàng</th>
+                              <th>Tên người mua</th>
+                              <th>Ngày tạo đơn</th>
+                              <th>Tổng giá trị</th>
+                              <th>Chức năng</th>
+                              </c:if>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>Garrett Winters</td>
-                              <td>Accountant</td>
-                              <td>Tokyo</td>
-                              <td>63</td>
-                              <td>2011-07-25</td>
-                              <td>$170,750</td>
-                            </tr>
-                            <tr>
-                              <td>Donna Snider</td>
-                              <td>Customer Support</td>
-                              <td>New York</td>
-                              <td>27</td>
-                              <td>2011-01-25</td>
-                              <td>$112,000</td>
-                            </tr>
+                            <c:forEach var="order" items="${orders }">
+                              <tr>
+                                <td>${order.orderId }</td>
+                                <td>${order.user.firstName } ${order.user.lastName }</td>
+                                <td>
+                                  <fmt:formatDate value="${order.createdAt }" pattern="dd/MM/yyy hh:mm:ss" />
+                                </td>
+                                <td>
+                                  <fmt:formatNumber value="${order.amountFromUser }" maxFractionDigits="2"
+                                    type="number"></fmt:formatNumber> đ
+                                </td>
+                                <td>
+                                  <a href='<c:url value="/seller/order-items?orderId=${order.orderId }"></c:url>'
+                                    title="Chi tiết"><i class="fas fa-info-circle"></i></a>
+                                  <a href='<c:url value="/seller/accept?orderId=${order.orderId }"></c:url>'
+                                    title="Giao hàng"><i class="fas fa-truck"></i></a>
+                                  <a href='<c:url value="/seller/refuse?orderId=${order.orderId }"></c:url>'
+                                    title="Từ chối"><i class="fas fa-times"></i></a>
+                                </td>
+                              </tr>
+                            </c:forEach>
                           </tbody>
                         </table>
                       </div>
                     </div>
                   </div>
                 </div>
-              </section>
-              <!--Product in category starts-->
-            </div>
-          </div>
-          <!-- body ends -->
-          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-          <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-          <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-          <script>
-            $(document).ready(function () {
-              $("#example").DataTable();
-            });
-          </script>
-        </div>
-      </div>
-    </section>
-    <!--=== Footer v4 ===-->
-
-    <!-- footer section starts  -->
-
-    <section class="footer">
-      <div class="box-container">
-        <div class="box">
-          <h3>HCMUTE <i class="fas fa-shopping-basket"></i></h3>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
-            saepe.
-          </p>
-          <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
+            </section>
+            <!--Product in category starts-->
           </div>
         </div>
+        <!-- body ends -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            $("#example").DataTable();
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+  <!--=== Footer v4 ===-->
 
-        <div class="box">
-          <h3>contact info</h3>
-          <a href="tel:111-222-3333" class="links">
-            <i class="fas fa-phone"></i> +111-222-3333
-          </a>
-          <a
-            href="mailto:dhspkt@gmail.com"
-            class="links"
-            style="text-transform: none"
-          >
-            <i class="fas fa-envelope"></i> dhspkt@gmail.com
-          </a>
-          <a
-            href="https://goo.gl/maps/a3gcTev2pLfbkqz69"
-            class="links"
-            target="_blank"
-          >
-            <i class="fas fa-map-marker-alt"></i>Số 1 Võ Văn Ngân, phường Linh
-            Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
-          </a>
-        </div>
+  <!-- footer section starts  -->
 
-        <div class="box">
-          <h3>quick links</h3>
-          <a href="/LTWeb_eCommerceWebsite/home" class="links">
-            <i class="fas fa-arrow-right"></i> home
-          </a>
-          <a href="/LTWeb_eCommerceWebsite/categories" class="links">
-            <i class="fas fa-arrow-right"></i> categories
-          </a>
-          <a href="/LTWeb_eCommerceWebsite/products" class="links">
-            <i class="fas fa-arrow-right"></i> products
-          </a>
-          <a href="/LTWeb_eCommerceWebsite/contact" class="links">
-            <i class="fas fa-arrow-right"></i> contact
-          </a>
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>HCMUTE <i class="fas fa-shopping-basket"></i></h3>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
+          saepe.
+        </p>
+        <div class="share">
+          <a href="#" class="fab fa-facebook-f"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-instagram"></a>
+          <a href="#" class="fab fa-linkedin"></a>
         </div>
       </div>
-    </section>
 
-    <!-- footer section ends -->
+      <div class="box">
+        <h3>contact info</h3>
+        <a href="tel:111-222-3333" class="links">
+          <i class="fas fa-phone"></i> +111-222-3333
+        </a>
+        <a href="mailto:dhspkt@gmail.com" class="links" style="text-transform: none">
+          <i class="fas fa-envelope"></i> dhspkt@gmail.com
+        </a>
+        <a href="https://goo.gl/maps/a3gcTev2pLfbkqz69" class="links" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>Số 1 Võ Văn Ngân, phường Linh
+          Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
+        </a>
+      </div>
 
-    <!-- JS -->
-    <script
-      src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      type="text/javascript"
-    ></script>
-  </body>
+      <div class="box">
+        <h3>quick links</h3>
+        <a href="/LTWeb_eCommerceWebsite/home" class="links">
+          <i class="fas fa-arrow-right"></i> home
+        </a>
+        <a href="/LTWeb_eCommerceWebsite/categories" class="links">
+          <i class="fas fa-arrow-right"></i> categories
+        </a>
+        <a href="/LTWeb_eCommerceWebsite/products" class="links">
+          <i class="fas fa-arrow-right"></i> products
+        </a>
+        <a href="/LTWeb_eCommerceWebsite/contact" class="links">
+          <i class="fas fa-arrow-right"></i> contact
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer section ends -->
+
+  <!-- JS -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+
 </html>

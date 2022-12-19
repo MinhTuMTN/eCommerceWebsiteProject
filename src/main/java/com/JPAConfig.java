@@ -7,9 +7,12 @@ import javax.persistence.Persistence;
 
 import com.dao.impl.DAOUserImpl;
 import com.dao.impl.DAOUserOrderImpl;
+import com.dao.seller.impl.DAOOrderSellerImpl;
 import com.entity.Product;
 import com.entity.User;
 import com.entity.UserLevel;
+
+import antlr.debug.NewLineEvent;
 
 public class JPAConfig {
 	static EntityManagerFactory factory;

@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 import com.JPAConfig;
 import com.entity.Product;
 import com.entity.Store;
+import com.entity.User;
 
 public class DAOStoreImpl {
 	public Store getStoreByStoreId(Long storeId) {
@@ -33,5 +34,25 @@ public class DAOStoreImpl {
 		query.setFirstResult(pageNumber * size);
 		query.setMaxResults(size);
 		return query.getResultList();
+	}
+	
+	public Boolean registerSeller(Store store, int userId) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		try {
+			transaction.begin();
+			User user = entityManager.find(User.class, userId);
+			user.setRole(1);
+			entityManager.merge(user);
+			
+			store.setUser(user);
+			entityManager.persist(store);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

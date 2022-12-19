@@ -73,6 +73,24 @@
 	text-decoration: none;
 	color: coral;
 }
+
+#example>tbody>tr>td:nth-child(5)>a>i {
+	font-size: 1.8rem;
+	margin-right: 1rem;
+	color: coral;
+}
+
+.orders-count {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	color: white;
+	background-color: coral;
+}
 </style>
 <!-- body starts -->
 <div class="col">
@@ -86,8 +104,9 @@
 						<div class="Q5feZb">
 							<h1 class="OomjNA">Quản lý đơn hàng</h1>
 							<div class="my-container-orders">
-								<span ${o1 ? 'class="my-order-active"' : '' }><a href="orders">Chờ
-										xác nhận</a></span> <span ${o2 ? 'class="my-order-active"' : '' }><a
+								<span ${o1 ? 'class="my-order-active"' : '' }><a
+									href="orders">Chờ xác nhận <div class="orders-count">${ordersCount }</div></a></span> <span
+									${o2 ? 'class="my-order-active"' : '' }><a
 									href="order-shipping">Đang giao hàng</a></span> <span
 									${o3 ? 'class="my-order-active"' : '' }><a
 									href="order-shipped">Đã giao</a></span> <span
@@ -103,11 +122,7 @@
 											<th>Tên người mua</th>
 											<th>Ngày tạo đơn</th>
 											<th>Tổng giá trị</th>
-											<th></th>
-											<c:if test="${o1 }">
-												<th></th>
-												<th></th>
-											</c:if>
+											<th>Chức năng</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -118,18 +133,20 @@
 												<td><fmt:formatDate value="${order.createdAt }"
 														pattern="dd/MM/yyy hh:mm:ss" /></td>
 												<td><fmt:formatNumber value="${order.amountFromUser }"
-														maxFractionDigits="2" type="number"></fmt:formatNumber> đ</td>
+														maxFractionDigits="2" type="number"></fmt:formatNumber> đ
+												</td>
 												<td><a
-													href='<c:url value="/seller/order-items?orderId=${order.orderId }"></c:url>'>Chi
-														tiết</a></td>
-												<c:if test="${o1 }">
-													<td><a
-														href='<c:url value="/seller/accept?orderId=${order.orderId }"></c:url>'>Giao
-															hàng</a></td>
-													<td><a
-														href='<c:url value="/seller/refuse?orderId=${order.orderId }"></c:url>'>Từ
-															chối</a></td>
-												</c:if>
+													href='<c:url value="/seller/order-items?orderId=${order.orderId }"></c:url>'
+													title="Chi tiết"><i class="fas fa-info-circle"></i></a> <c:if
+														test="${o1 }">
+														<a
+															href='<c:url value="/seller/accept?orderId=${order.orderId }"></c:url>'
+															title="Giao hàng"><i class="fas fa-truck"></i></a>
+														<a
+															href='<c:url value="/seller/refuse?orderId=${order.orderId }"></c:url>'
+															title="Từ chối"><i class="fas fa-times"></i></a>
+													</c:if></td>
+
 											</tr>
 										</c:forEach>
 									</tbody>

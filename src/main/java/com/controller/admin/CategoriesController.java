@@ -19,7 +19,7 @@ import com.util.UploadUtils;
 @SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet(urlPatterns = { "/admin/categories", "/admin/category-detail", "/admin/add-category",
-		"/admin/update-category", "/admin/delete-category", "/admin/restore-category" })
+		"/admin/update-category", "/admin/delete-category", "/admin/restore-category", "/admin/search-categories" })
 public class CategoriesController extends HttpServlet {
 	DAOCategoryImpl daoCategoryImpl = new DAOCategoryImpl();
 
@@ -42,7 +42,37 @@ public class CategoriesController extends HttpServlet {
 			deleteCategory(req, resp);
 		} else if (url.contains("/restore-category")) {
 			restoreCategory(req, resp);
+		} else if (url.contains("/search-categories")) {
+			searchCategories(req, resp);
 		}
+	}
+
+	private void searchCategories(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String searchText = "";
+		try {
+			searchText = req.getParameter("search-text").trim();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		req.setAttribute("isSearch", true);
+		req.setAttribute("searchText", searchText);
+		int pageSize = 4;
+		int pageNumber = 0;		
+		
+		float temp = (float)daoCategoryImpl.countAllCategoriesSearch(searchText) / pageSize;
+		int totalPages = (float)((int) temp) < temp ? (int)temp : (int)temp - 1;
+		try {
+			pageNumber = Integer.valueOf(req.getParameter("page"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		List<Category> categories = daoCategoryImpl.findCategoriesPaginationByName(pageNumber, pageSize, searchText);
+		req.setAttribute("categories", categories);
+		req.setAttribute("totalPages", totalPages);	
+		req.setAttribute("number", pageNumber);	
+		req.getRequestDispatcher("/views/admin/category-list.jsp").forward(req, resp);
+		
 	}
 
 	@Override
@@ -60,9 +90,9 @@ public class CategoriesController extends HttpServlet {
 		Category category = daoCategoryImpl.getCategoryById(Long.valueOf(req.getParameter("categoryId")));
 		String message = "";
 		if (daoCategoryImpl.restoreCategory(category)) {
-			message = "Khôi phục sản phẩm thành công!";
+			message = "Khôi phục loại sản phẩm thành công!";
 		} else {
-			message = "Khôi phục sản phẩm thất bại!";
+			message = "Khôi phục loại sản phẩm thất bại!";
 		}
 
 		req.setAttribute("message", message);
@@ -75,9 +105,9 @@ public class CategoriesController extends HttpServlet {
 		Category category = daoCategoryImpl.getCategoryById(Long.valueOf(req.getParameter("categoryId")));
 		String message = "";
 		if (daoCategoryImpl.deleteCategory(category)) {
-			message = "Xóa sản phẩm thành công!";
+			message = "Xóa loại sản phẩm thành công!";
 		} else {
-			message = "Xóa sản phẩm thất bại!";
+			message = "Xóa loại sản phẩm thất bại!";
 		}
 
 		req.setAttribute("message", message);

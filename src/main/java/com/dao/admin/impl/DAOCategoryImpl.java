@@ -10,7 +10,6 @@ import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
 import com.entity.Category;
-import com.entity.Product;
 
 public class DAOCategoryImpl {
 	public void insertCategory(Category category) {
@@ -118,5 +117,22 @@ public class DAOCategoryImpl {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		Category category = entityManager.find(Category.class, categoryId);
 		return category;
+	}
+	public int countAllCategoriesSearch(String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT COUNT(c) FROM Category c WHERE c.name like :searchText";
+		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+		query.setParameter("searchText", "%" + searchText + "%");
+		return query.getSingleResult().intValue();
+	}
+	
+	public List<Category> findCategoriesPaginationByName(int pageNumber, int size, String searchText) {
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT c FROM Category c WHERE c.name like :searchText";
+		TypedQuery<Category> query = entityManager.createQuery(jpql, Category.class);
+		query.setParameter("searchText", '%' + searchText + '%');
+		query.setFirstResult(pageNumber * size);
+		query.setMaxResults(size);
+		return query.getResultList();	
 	}
 }

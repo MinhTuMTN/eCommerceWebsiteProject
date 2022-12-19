@@ -16,7 +16,7 @@ import com.dao.impl.DAOUserImpl;
 import com.entity.User;
 
 @WebFilter(urlPatterns = { "/addToCart", "/cart", "/updateCart", "/productId", "/payment", "/change-password",
-		"/profile", "/change-information", "/contact" })
+		"/profile", "/change-information", "/contact", "/recharge" })
 public class UserFeaturesFilter implements Filter {
 
 	@Override

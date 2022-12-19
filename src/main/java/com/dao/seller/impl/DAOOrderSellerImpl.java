@@ -154,4 +154,17 @@ public class DAOOrderSellerImpl {
 		}
 		return null;
 	}
+	
+	public int countOrdersProcessing(int adminId) {
+		try {
+			EntityManager entityManager = JPAConfig.getEntityManager();
+			String jpql = "SELECT COUNT(*) FROM User u JOIN u.store.orders o WHERE o.status = 1 AND u.userId = :userId";
+			TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+			query.setParameter("userId", adminId);
+			return query.getSingleResult().intValue();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}		
+	}
 }

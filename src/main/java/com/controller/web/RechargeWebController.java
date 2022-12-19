@@ -20,7 +20,6 @@ public class RechargeWebController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(req.getParameter("amount"));
 		Double amount = Double.valueOf(req.getParameter("amount"));
 		
 		int userId = 0;

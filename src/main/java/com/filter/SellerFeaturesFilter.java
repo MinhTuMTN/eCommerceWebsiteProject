@@ -12,6 +12,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.seller.impl.DAOOrderSellerImpl;
+
 @WebFilter(urlPatterns = "/seller/*")
 public class SellerFeaturesFilter implements Filter{
 
@@ -32,6 +34,8 @@ public class SellerFeaturesFilter implements Filter{
 					else if ("role".equals(ck.getName()))
 						role = Integer.valueOf(ck.getValue());
 			if(id != null && role == 1){
+				int ordersCount = new DAOOrderSellerImpl().countOrdersProcessing(id);
+				req.setAttribute("ordersCount", ordersCount);
 				chain.doFilter(request, response);
 				return;
 			}
