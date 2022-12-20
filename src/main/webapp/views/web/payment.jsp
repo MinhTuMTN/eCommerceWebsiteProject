@@ -248,7 +248,7 @@
                 text-transform: none;
               "
             >
-              <strong>Payment Details:</strong><br />
+              <b>Payment Details:</b><br />
               Amount: <strong><fmt:formatNumber type="number"
 						maxFractionDigits="2" value="${total}" ></fmt:formatNumber>đ</strong> <br />
               Email: ${user.email}<br />
