@@ -3,20 +3,15 @@
 <%@include file="/common/taglib.jsp"%>
 <div class="row" style="flex: 1; font-size: 1.7rem !important;">
 	<div class="container" style="width: 100%">
-		<div class="col">
-			<h2 style="font-size: 2.2rem;">Tổng số lượng người dùng hiện tại</h2>
-			<hr style="width: 100%;">
-			<div
-				style="display: flex; font-size: 1.5rem; justify-content: space-between; width: 100%;">
-			</div>
-			<div style="flex: 0.7; line-height: 6rem;"></div>
-			<h3 style="font-size: 2rem;">Total: ${totalUsers} users</h3>
+		<div>
+			<h2 style="font-size: 2.2rem;">Tổng số lượng người dùng hiện tại: ${totalUsers} users</h2>
+			
 			<a style="margin: 2rem 0rem; font-size: 1.7rem;"
 				href="<c:url value="/admin/statistics"/>" class="button-81"
 				role="button"> <i class="fa fa-line-chart"></i>Show statistics
 			</a>
 		</div>
-
+		<hr style="width: 100%;">
 		<div
 			class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
 			<h2 style="font-size: 2.2rem;">Danh sách người dùng</h2>
@@ -29,7 +24,7 @@
 					<button type="submit" class="button-81">Search</button>
 				</div>
 			</form>
-			<hr style="width: 100%;">
+			
 			<div
 				style="display: flex; font-size: 1.5rem; justify-content: space-between; width: 100%;">
 			</div>

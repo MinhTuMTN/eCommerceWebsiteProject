@@ -12,12 +12,15 @@
 	align-items: center;
 	box-shadow: var(- -box-shadow);
 }
+body > section.sproduct > div > div > div.col > div > div > table > tbody > tr> td:nth-child(11) > a:nth-child(1) {
+	margin-bottom: 1rem;
+}
 </style>
 <div class="col">
 	<div class="row">
 		<div class="col-md-12">
 
-			<form action="<c:url value="/admin/search-products"/>">
+			<form action="<c:url value="/admin/search-products"/>" style="margin-bottom: 1rem">
 				<div class="input-group">
 					<input type="search" class="form-control rounded"
 						placeholder="Search" aria-label="Search"

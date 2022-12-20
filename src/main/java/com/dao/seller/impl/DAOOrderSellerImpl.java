@@ -12,6 +12,7 @@ import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
 import com.entity.Order;
+import com.entity.OrderItem;
 import com.entity.Product;
 import com.entity.Store;
 import com.entity.User;
@@ -73,6 +74,14 @@ public class DAOOrderSellerImpl {
 			User user = entityManager.find(User.class, order.getUser().getUserId());
 			user.setE_wallet(user.getE_wallet() + order.getAmountFromUser());
 			entityManager.merge(user);
+			
+			//Cập nhật lại số lượng
+			List<OrderItem> items = order.getOrderItems();
+			for(OrderItem item : items) {
+				Product product = entityManager.find(Product.class, item.getProduct().getProductId());
+				product.setQuantity(product.getQuantity() + item.getCount());
+				entityManager.merge(product);
+			}
 
 			transaction.commit();
 			return order;
