@@ -35,6 +35,12 @@ public class LoginController extends HttpServlet {
 			cookie2.setMaxAge(60 * 60 * 24 * 30);
 			resp.addCookie(cookie2);
 			
+			if(user.getRole() == 1) {
+				Cookie cookie3 = new Cookie("storeId", String.valueOf(user.getStore().getStoreId()));
+				cookie3.setMaxAge(60 * 60 * 24 * 30);
+				resp.addCookie(cookie3);
+			}
+			
 			if (user.getRole() == 0) {
 				resp.sendRedirect(req.getContextPath() + "/admin/home");
 			} else if (user.getRole() == 1) {

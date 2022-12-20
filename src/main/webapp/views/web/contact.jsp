@@ -7,7 +7,10 @@
 	width: 100%;
 }
 #contactForm > div > div > div > input, textarea{
+width: 100%;
 	font-size: 1.3rem !important;
+	border: none;
+	border-radius: 5px;
 }
 </style>
 

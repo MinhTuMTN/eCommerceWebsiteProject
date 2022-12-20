@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.seller.impl.DAOOrderSellerImpl;
+import com.dao.seller.impl.DAOProductSellerImpl;
 
 @WebFilter(urlPatterns = "/seller/*")
 public class SellerFeaturesFilter implements Filter{
@@ -25,6 +26,7 @@ public class SellerFeaturesFilter implements Filter{
 		
 		Integer id = null;
 		Integer role = null;
+		Long storeId = null;
 		try {
 			Cookie[] cookies = req.getCookies();
 			if (cookies != null)
@@ -33,9 +35,14 @@ public class SellerFeaturesFilter implements Filter{
 						id = Integer.valueOf(ck.getValue());
 					else if ("role".equals(ck.getName()))
 						role = Integer.valueOf(ck.getValue());
+					else if ("storeId".equals(ck.getName()))
+						storeId = Long.valueOf(ck.getValue());
 			if(id != null && role == 1){
 				int ordersCount = new DAOOrderSellerImpl().countOrdersProcessing(id);
 				req.setAttribute("ordersCount", ordersCount);
+				
+				int productsSoldOut =  new DAOProductSellerImpl().countProductsSoldOut(storeId);
+				req.setAttribute("productsSoldOut", productsSoldOut);
 				chain.doFilter(request, response);
 				return;
 			}

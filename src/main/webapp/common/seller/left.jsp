@@ -45,7 +45,7 @@ li div.orders-count-active {
 			<li class="list-group-item ${fnProducts ? 'my-active': '' }"
 				style="font-size: 15px; padding-left: 3.5rem;"><a
 				href="<c:url value="/seller/products" ></c:url>"
-				class="a-cate-detai">Sản phẩm</a></li>
+				class="a-cate-detai">Sản phẩm <div class="orders-count ${fnProducts? 'orders-count-active': '' }">${productsSoldOut }</div></a></li>
 			<li class="list-group-item ${fnStatistic ? 'my-active': '' }"
 				style="font-size: 15px; padding-left: 3.5rem;"><a
 				href="<c:url value="/seller/statistics" ></c:url>" class="a-cate-detai">Thống

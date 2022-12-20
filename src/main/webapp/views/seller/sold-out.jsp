@@ -46,7 +46,6 @@
 	color: white
 }
 </style>
-<!-- body starts -->
 <div class="col">
 	<div class="row">
 		<!--Product in category starts-->
@@ -56,19 +55,11 @@
 				<div class="xMDeox">
 					<div style="padding: 1.875rem 0.625rem">
 						<div class="Q5feZb">
-							<h1 class="OomjNA">Quản lý sản phẩm</h1>
-							<div class="HJ5nmd">
-								<a href="add-product">
-									<button class="btn-buy" style="height: 5rem">Thêm sản
-										phẩm</button>
-								</a> <a href="sold-out">
-									<button class="btn-buy" style="height: 5rem">
-										Sản phẩm sắp hết <span class="count">${productsSoldOut }</span>
-									</button>
-								</a>
-							</div>
+							<h1 class="OomjNA">Sản phẩm sắp hết</h1>
+							
 						</div>
-						<div class="+eqaLN">
+					</div>
+					<div class="+eqaLN">
 							<table id="example" class="table table-striped"
 								style="width: 100%">
 								<thead>
@@ -112,13 +103,14 @@
 								</tbody>
 							</table>
 						</div>
-					</div>
 				</div>
 			</div>
+			
 		</section>
-		<!--Product in category starts-->
+
 	</div>
 </div>
+
 <!-- body ends -->
 
 <script

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 import com.JPAConfig;
 import com.entity.Product;
@@ -70,5 +71,29 @@ public class DAOProductSellerImpl {
 		EntityManager entityManager = JPAConfig.getEntityManager();
 		Product product = entityManager.find(Product.class, productId);
 		return product;
+	}
+	
+	public List<Product> getProductsSoldOut(Long storeId ){
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT p FROM Product p "
+				+ "WHERE p.isActive = true "
+				+ "AND p.store.storeId = :storeId "
+				+ "AND p.category.isDeleted = false "
+				+ "AND p.quantity < 5";
+		TypedQuery<Product> query = entityManager.createQuery(jpql, Product.class);
+		query.setParameter("storeId", storeId);
+		return query.getResultList();
+	}
+	
+	public int countProductsSoldOut(Long storeId ){
+		EntityManager entityManager = JPAConfig.getEntityManager();
+		String jpql = "SELECT count(p) FROM Product p "
+				+ "WHERE p.isActive = true "
+				+ "AND p.store.storeId = :storeId "
+				+ "AND p.category.isDeleted = false "
+				+ "AND p.quantity < 5";
+		TypedQuery<Number> query = entityManager.createQuery(jpql, Number.class);
+		query.setParameter("storeId", storeId);
+		return query.getSingleResult().intValue();
 	}
 }
